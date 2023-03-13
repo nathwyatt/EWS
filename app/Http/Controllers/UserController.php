@@ -10,6 +10,7 @@ use App\Models\Station;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Arr;
+Use Carbon\Carbon;
     
 class UserController extends Controller
 {
@@ -23,6 +24,8 @@ class UserController extends Controller
         $data = User::orderBy('id','DESC')->paginate(5);
         return view('users.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
+
+        
     }
     
     /**
