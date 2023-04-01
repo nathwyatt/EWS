@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Station;
 use Illuminate\Http\Request;
+
     
 class StationController extends Controller
 { 
@@ -43,8 +44,9 @@ class StationController extends Controller
      */
     public function create()
     {
-        $managers = User::latest()->get();
-        
+        // $managers = User::$user->HasRoles('station-manager')->get();
+        $managers = User::all();
+        // dd($users->HasRoles('station-manager'));
         return view('stations.create', compact('managers'));
     }
     
@@ -59,6 +61,7 @@ class StationController extends Controller
         request()->validate([
             'name' => 'required',
             'district' => 'required',
+            'details' => 'required',
             'user_id' => 'required',
         ]);
         $manager = User::get();
@@ -98,7 +101,9 @@ class StationController extends Controller
     {
          request()->validate([
             'name' => 'required',
+            'details' =>'required',
             'district' => 'required',
+            
         ]);
     
         $station->update($request->all());

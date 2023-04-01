@@ -11,10 +11,18 @@ class Station extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'district','user_id'
+        'name', 'details','district','user_id'
     ];
     public function User()
     {
         return $this->belongsTo(User::class);
+    }
+    public function Station_Data()
+    {
+        return $this->hasMany(User::class);
+    }
+    public function Community()
+    {
+        return $this->hasMany(User::class);
     }
 }

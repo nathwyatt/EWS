@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
+
 use App\Models\Station;
+
 use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,16 +30,17 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
+{
+    $user = Auth::user();
+    if ($user->hasRole("Station-manager")) {
+        return view('station-manager.index');
+    } else {
         $numUsers = User::count();
         $numStations = Station::count();
         $numRoles = Role::count();
-    
         return view('home', compact('numUsers', 'numStations', 'numRoles'));
-
-      
-        //return view('home');
     }
+}
     public function view()
     {
         $data2 = User::select('id', 'created_at')->get()->groupBy(function($data2){

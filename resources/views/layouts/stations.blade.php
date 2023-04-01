@@ -3,33 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EWS | Dashboard</title>
-  <!--- css -->
+  <title>EWS  | Dashboard</title>
+
+  {{-- Css --}}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+ <!-- Google Font: Source Sans Pro -->
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+ <!-- Font Awesome -->
+ <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <!--chart -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+ <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+ <!-- Tempusdominus Bootstrap 4 -->
+ <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+ <!-- iCheck -->
+ <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+ <!-- JQVMap -->
+ <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+ <!-- Theme style -->
+ <link rel="stylesheet" href="dist/css/adminlte.min.css">
+ <!-- overlayScrollbars -->
+ <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+ <!-- Daterange picker -->
+ <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+ <!-- summernote -->
+ <!--chart -->
+ <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+ <style>
+  html,
+body,
+.intro {
+  height: 100%;
+}
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mask-custom {
+  background: rgba(250, 249, 252, 0.2);
+  /* border-radius: 2em; */
+  /* backdrop-filter: blur(10px); */
+  border: 2px solid rgba(7, 0, 0, 0.05);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(4, 9, 17, 0.03);
+}
+ </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -199,11 +220,11 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4 ">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
       <img src="image/icon.jpg" alt="EWSLogo"  class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">EWS </span>
+      <span class="brand-text font-weight-light">EWS {{ Auth::user()->station->name }} </span>
     </a>
 
     <!-- Sidebar -->
@@ -230,7 +251,7 @@
             <a href="{{'home'}}" class="nav-link dark">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                 Dashboard
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -240,30 +261,28 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-             Management System
-                <i class="fas fa-angle-left "></i>
-                <span class="badge badge-dark right">3</span>
+                {{ Auth::user()->station->name }} Management 
+                <i class="right fas fa-angle-left "></i>
+                {{-- <span class="badge badge-dark right">3</span> --}}
               </p>
             </a>
             <ul class="nav nav-treeview">
-              @can('user-list')
               <li class="nav-item">
-                <a href="{{ route('users.index') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>User Management</p>
+                  <p> Community</p>
                 </a>
               </li>
-              @endcan
               <li class="nav-item">
-                <a href="{{ route('stations.index') }}" class="nav-link">
+                <a href="{{ route('stationdata.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Station Management</p>
+                  <p> Station-data</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('roles.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Roles Management</p>
+                  <p>Notifications</p>
                 </a>
               </li>
               
@@ -351,20 +370,10 @@
 <main>
     @yield('content')
 </main>
-                
-{{-- <footer class="main-footer">
-    <strong>Copyright &copy; 2023 <a href="">Aime wyatt</a>.</strong>
-   
-  </footer> --}}
+</div>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
-<!-- ./wrapper -->
-
+{{-- JS --}}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -395,19 +404,5 @@
 <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
-
-{{-- <script src="dist/js/demo.js"></script> --}}
-{{-- <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script> --}}
-{{-- <script type="text/javascript">
-var _ydata =@json($months);
-var _xdata =@json($monthcount);
-</script> --}}
-<!--chart -->
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

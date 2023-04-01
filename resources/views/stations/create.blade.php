@@ -1,5 +1,5 @@
 
-@extends('layouts.dashboard')
+@extends('layouts.app')
   
 @section('content')
 <div class="row">
@@ -36,8 +36,14 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>details:</strong>
+                <input type="text" name="details" class="form-control" placeholder="details">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>district:</strong>
-                <input type="text" name="district" class="form-control" placeholder="district">
+                <input type="text" name="district" class="form-control" placeholder="district" width="200px" length="200px">
             </div>
         </div>
   <div class="col-xs-12 col-sm-12 col-md-12">

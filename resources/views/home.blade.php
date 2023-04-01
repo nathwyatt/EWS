@@ -6,6 +6,15 @@
 @section('content')
     <!-- Main content -->
     <section class="content">
+
+      @php
+        $user = Auth::user()->id;
+       
+if ($user == Auth::user()->hasRole("Station-manager")) {
+  return view('station-manager.index');
+}
+        
+      @endphp
       
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
