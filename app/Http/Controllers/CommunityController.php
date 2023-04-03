@@ -5,21 +5,26 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Community;
+use App\Models\Station;
 
 class CommunityController extends Controller
 {
     
+    
     public function index(Request $request)
     {
-        $data = Community::orderBy('id','DESC')->paginate(5);
-        return view('community.index',compact('data'))
+        $station = Station::latest()->get(); 
+        $data =DB::table('community')->paginate(5);
+        return view('community.index',compact('data','station'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
 
-        
+            $station = Community::join('stations', 'station.id', '=', 'community.station_id') 
+            ->get();
     }
     public function create()
     {
-        return view('community.create');
+        $station = Station::latest()->get();
+        return view('community.create', compact('station'));
     }
 
     public function store(Request $request)

@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 namespace App\Http\Controllers;
 
 use App\Models\Districts;
@@ -7,13 +6,16 @@ use App\Models\Sector;
 use App\Models\Cell;
 use App\Models\Village;
 use App\Models\Location;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
     public function index()
     {
-        return view('locations.index');
+        $district= DB::table('districts')->latest()->paginate(5);
+        // dd($district);
+        return view('locations.index',compact('district'));
     }
 
     public function create()

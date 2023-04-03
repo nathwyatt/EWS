@@ -4,8 +4,8 @@
 
 <div class="container">
     
-
-  <h1  class="btn-badge rounded-pill bg-white text-center">   {{ Auth::user()->station->name }}</h1>
+  <div class="row">
+  <h1  class="btn btn-badge  bg-dark text-center">   {{ Auth::user()->station->name }}</h1>
 
   <div class="row">
           <div class="col-lg-3 col-3">
@@ -129,5 +129,6 @@
  <div class="small-box bg-white">
   <h1  class="badge  bg-white text-center"> community</h1>
  </div>
+</div>
 </div>
 @endsection

@@ -1,12 +1,11 @@
-@extends('layouts.dashboard')
+@extends('layouts.stations')
 @section('content')
+<div class="container">
 <div class="row">
+    <h1  class="btn btn-badge  bg-dark text-center">   {{ Auth::user()->station->name }} community</h1>
     <div class="col-lg-12 margin-tb">
-        <div class="pull-badge  bg-dark text-center">
-            <h2>community Management</h2>
-        </div>
         <div class="pull-right">
-            <a class="btn btn-badge rounded-pill bg-dark" href="{{ route('community.create') }}"> Create New data</a>
+            <a class="btn btn-badge  bg-dark" href="{{ route('community.create') }}"> Create New person</a>
         </div>
     </div>
 </div>
@@ -18,7 +17,7 @@
 <table class="table table-bordered">
     <tr>
         <th>data(id)</th>
-        <td>starion(id)</td>
+        <th>station</th>
         <th>fname</th>
         <th>fname</th>
         <th>Email</th>
@@ -28,7 +27,10 @@
 @foreach ($data as $key => $data)
     <tr>
         <td>{{ $data->id }}</td>
-        <td>{{ $data->station_id }}</td>
+        @foreach($station as $st)
+        <td>{{$st->name}}</td>
+        @endforeach
+        {{-- <td>{{ $data->station_id }}</td> --}}
         <td>{{ $data->fname }}</td>
         <td>{{ $data->lname }}</td>
         <td>{{ $data->email }}</td>
@@ -43,8 +45,9 @@
                 
         </td>
     </tr>
-@endforeach
-</table>
-{!! $data->render() !!}
-<p class="text-center text-primary"><small>Aime-Wyatt</small></p>
+  @endforeach
+  </table>
+  {{-- {!! $data->render() !!} --}}
+  <p class="text-center text-primary"><small>Aime-Wyatt</small></p>
+</div>
 @endsection

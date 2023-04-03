@@ -30,7 +30,9 @@
             <td>{{ $station->id }}</td>
             <td>{{ $station->name }}</td>
             <td>{{ $station->district }}</td>
-            <td>{{ $station->user_id }}</td>
+            @foreach ($managers as $mn)
+            <td>{{ $mn->name }}</td>
+            @endforeach
             <td>
                 <form action="{{ route('stations.destroy',$station->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('stations.show',$station->id) }}">Show</a>
