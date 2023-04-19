@@ -35,11 +35,8 @@
             <div class="container">
                 <a href="" class="brand-link">
                     <img src="image/icon.jpg" alt="EWSLogo"  class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-Strong-light">Early Warning System </span>
+                    <span class="brand-text font-Strong-light">EWS Muvummba </span>
                   </a>
-                {{-- <a class="navbar-brand" href="{{ url('/') }}">
-                    EWS
-                </a> --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

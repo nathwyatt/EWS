@@ -1,119 +1,116 @@
+
 @extends('layouts.stations')
+  
 @section('content')
-    
-<div class="container">
-<section class="vh-100 gradient-custom">
-    <div class="col-lg-12 margin-tb-dark">
-        <div class="pull-left">
-            <h2>register new person</h2>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-badge  bg-light text-center">
+            <h2 > create new community</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-dark" href="{{ route('community.index') }}"> Back</a>
         </div>
     </div>
-    <div class="container py-5 h-100">
-      <div class="row justify-content-center align-items-center h-100">
-        <div class="col-12 col-lg-9 col-xl-7">
-          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-            <div class="card-body p-4 p-md-5">
-              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-              <form action="{{ route('community.store') }}" method="POST">
-  @csrf
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-  
-                    <div class="form-outline">
-                      <input type="text" id="fname" class="form-control form-control-lg" />
-                      <label class="form-label" for="firstName">First Name</label>
-                    </div>
-  
-                  </div>
-                  <div class="col-md-6 mb-4">
-  
-                    <div class="form-outline">
-                      <input type="text" id="lname" class="form-control form-control-lg" />
-                      <label class="form-label" for="lastName">Last Name</label>
-                    </div>
-  
-                  </div>
-                </div>
-  
-                <div class="row">
-                  <div class="col-md-6 mb-4 d-flex align-items-center">
-  
-                    {{-- <div class="form-outline datepicker w-100">
-                      <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                      <label for="birthdayDate" class="form-label">Birthday</label>
-                    </div> --}}
-  
-                  </div>
-                  <div class="col-md-6 mb-4 ">
-  
-                    <h6 class="mb-2 pb-1">Gender: </h6>
-  
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                        value="option1" checked />
-                      <label class="form-check-label" for="femaleGender">Female</label>
-                    </div>
-  
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                        value="option2" />
-                      <label class="form-check-label" for="maleGender">Male</label>
-                    </div>
-  
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                        value="option3" />
-                      <label class="form-check-label" for="otherGender">Other</label>
-                    </div>
-  
-                  </div>
-                </div>
-  
-                <div class="row">
-                  <div class="col-md-6 mb-4 pb-2">
-  
-                    <div class="form-outline">
-                      <input type="email" id="email" class="form-control form-control-lg" />
-                      <label class="form-label" for="emailAddress">Email</label>
-                    </div>
-  
-                  </div>
-                  <div class="col-md-6 mb-4 pb-2">
-  
-                    <div class="form-outline">
-                      <input type="tel" id="phone" class="form-control form-control-lg" />
-                      <label class="form-label" for="phoneNumber">Phone Number</label>
-                    </div>
-  
-                  </div>
-                </div>
-  
-                <div class="row">
-                  <div class="col-12">
-  
-                    <select class="select form-control-lg">
-                        @foreach($station as $key)
-                        <option value="{{$key->id}}">{{$key->name}} </option>
-                        @endforeach
-                    </select>
-                    <label class="form-label select-label">Choose station</label>
-  
-                  </div>
-                </div>
-  
-                <div class="mt-4 pt-2">
-                  <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
-                </div>
-  
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 </div>
+   
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+   
+<form action="{{ route('community.store') }}" method="POST">
+    @csrf
+  
+    <div class="form-group">
+        <label for="fname">{{ __('First Name') }}</label>
+        <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required>
+    </div>
+    <div class="form-group">
+        <label for="lname">{{ __('Last Name') }}</label>
+        <input id="lname" type="text" class="form-control" name="lname" value="{{ old('lname') }}" required>
+    </div>
+    <div class="form-group">
+        <label for="gender">{{ __('Gender') }}</label>
+        <select id="gender" class="form-control" name="gender" required>
+            <option value="male" @if(old('gender') == 'male') selected @endif>Male</option>
+            <option value="female" @if(old('gender') == 'female') selected @endif>Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="birth_date">{{ __('Birth Date') }}</label>
+        <input id="birth_date" type="date" class="form-control" name="birth_date" value="{{ old('birth_date') }}" required>
+    </div>
+    <div class="form-group">
+        <label for="email">{{ __('Email') }}</label>
+        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+    </div>
+    <div class="form-group">
+        <label for="profession">{{ __('Profession') }}</label>
+        <input id="profession" type="text" class="form-control" name="profession" value="{{ old('profession') }}" required>
+    </div>
+    <div class="form-group">
+        <label for="phone">{{ __('Phone') }}</label>
+        <input id="phone" type="number" class="form-control" name="phone" value="{{ old('phone') }}" required>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>district:</strong>
+            <select name="district_id" class="form-control">
+                @foreach($district as $dis)
+              <option value="{{$dis->id}}">{{$dis->name}} </option>
+              @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>sector:</strong>
+            <select name="sector_id" class="form-control">
+                @foreach($sector as $sec)
+              <option value="{{$sec->id}}">{{$sec->name}} </option>
+              @endforeach
+            </select>            </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>cell:</strong>
+            <select name="cell_id" class="form-control">
+                @foreach($cell as $cel)
+              <option value="{{$cel->id}}">{{$cel->name}} </option>
+              @endforeach
+            </select>            
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>village:</strong>
+            <select name="village_id"  class="form-control">
+                @foreach($village as $vil)
+              <option value="{{$vil->id}}">{{$vil->name}} </option>
+              @endforeach
+            </select>            
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>station:</strong>
+            <select name="station_id"  class="form-control">
+                @foreach($station as $st)
+              <option value="{{$st->id}}">{{$st->name}} </option>
+              @endforeach
+            </select>            
+        </div>
+    </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <button type="submit" class="btn btn-dark">Submit</button>
+        </div>
+    </div>
+   
+</form>
 @endsection

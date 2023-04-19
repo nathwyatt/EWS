@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Station;
+use App\Models\Province;
+use App\Models\District;
+use App\Models\Sector;
+use App\Models\Cell;
+use App\Models\Vilage;
 use Illuminate\Http\Request;
 
     
 class StationController extends Controller
 { 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     function __construct()
     {
          $this->middleware('permission:station-list|station-create|station-edit|station-delete', ['only' => ['index','show']]);
@@ -20,89 +21,97 @@ class StationController extends Controller
          $this->middleware('permission:station-edit', ['only' => ['edit','update']]);
          $this->middleware('permission:station-delete', ['only' => ['destroy']]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function index()
     {
-        $managers = User::latest()->get(); 
-        $stations = Station::latest()->paginate(5);
-
-        $users = Station::join('users', 'users.id', '=', 'stations.user_id') 
-              ->get();
-        // dd($users);
-        return view('stations.index',compact('stations','managers'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+      
+        
+    $stations = Station::latest()->paginate(5);
+    $provinces= Province::all();
+    $districts = District::all();
+    $sectors = Sector::all();
+    $cells = Cell::all();
+    $villages = Vilage::all();
+    $managers = User::all();
+   
+    return view('Stations.index', compact('stations','provinces', 'districts', 'sectors', 'cells', 'villages', 'managers'))
+    ->with('i', (request()->input('page', 1) - 1) * 5);;
     }
-    
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function create()
     {
-        // $managers = User::$user->HasRoles('station-manager')->get();
+      
         $managers = User::all();
-        // dd($users->HasRoles('station-manager'));
-        return view('stations.create', compact('managers'));
+        $province = province::all();
+        $district = District::all();
+        $sector = Sector::all();
+        $cell = Cell::all();
+        $village = Vilage::all();
+        dd($village);
+        return view('stations.create', compact('managers','province','district','sector','cell','village'));
     }
     
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         request()->validate([
             'name' => 'required',
-            'district' => 'required',
+            'province_id'=>'required',
+            'district_id'=>'required',
+            'sector_id'=>'required',
+            'cell_id'=>'required',
+            'village_id'=>'required',
             'details' => 'required',
             'user_id' => 'required',
         ]);
-        $manager = User::get();
+       
         Station::create($request->all());
     
         return redirect()->route('stations.index')
                         ->with('success','station created successfully.');
     }
     
-    /**
-     * Display the specified resource.
-     *
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Station $station)
-    {
-        return view('Stations.show',compact('station'));
-    }
+ 
     
-    /**
-     * Show the form for editing the specified resource.
-     *
-
-     */
-    public function edit(Station $station)
+    public function show($id)
     {
-        return view('stations.edit',compact('station'));
-    }
-    
-    /**
-     * Update the specified resource in storage.
-     *
    
-     */
+        $station = Station::find($id);
+        $province =$station->province;
+        $district = $station->district;
+        $sector = $station->sector;
+        $cell = $station->cell;
+        $village = $station->vilage;
+        $manager = $station->user;
+      
+        return view('Stations.show', compact('station', 'manager','province', 'district', 'sector', 'cell', 'village'));
+    }
+   
+    public function edit($id)
+    {
+
+        $station = Station::find($id);
+        $provinces= Province::all();
+        $districts = District::all();
+        $sectors = Sector::all();
+        $cells = Cell::all();
+        $villages = Vilage::all();
+        $managers = User::all();
+     
+        return view('stations.edit', compact('station','provinces', 'districts', 'sectors', 'cells', 'villages', 'managers'));
+    }
+  
     public function update(Request $request, Station $station)
     {
          request()->validate([
             'name' => 'required',
             'details' =>'required',
-            'district' => 'required',
+            'province_id',
+            'district_id',
+            'sector_id',
+            'cell_id',
+            'village_id',
+            'user_id',
             
         ]);
     
@@ -112,11 +121,7 @@ class StationController extends Controller
                         ->with('success','station updated successfully');
     }
     
-    /**
-     * Remove the specified resource from storage.
-     *
-
-     */
+   
     public function destroy(Station $station)
     {
         $station->delete();
@@ -124,4 +129,5 @@ class StationController extends Controller
         return redirect()->route('stations.index')
                         ->with('success','station deleted successfully');
     }
+    
 }

@@ -1,13 +1,13 @@
-@extends('layouts.dashboard')
+@extends('layouts.stations')
 @section('content')
    
       <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-badge  bg-light text-center">
-                <h2 > {{$station->name}} station</h2>
+                <h2 > {{$community->fname}} {{$community->lname}}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-dark" href="{{ route('stations.index') }}"> Back</a>
+                <a class="btn btn-dark" href="{{ route('community.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -15,41 +15,45 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                {{ $station->name }}
+                {{ $community->fname }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>surname:</strong>
+                {{ $community->lname }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>birth date:</strong>
+                {{ $community->birth_date }}
             </div>
         </div>
     
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Details:</strong>
-                {{ $station->details }}
+                <strong>gender:</strong>
+                    {{ $community->gender }}
             </div>
         </div>
     
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Manager:</strong>
-                @if($station->user)
-                    {{ $station->user->name }}
-                @else
-                    N/A
-                @endif
-            </div>
-        </div>
-    
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Province:</strong>
-                
-                {{ $station->province->name}}
-                
+                <strong>profession:</strong>
+                {{ $community->profession }}
             </div>
         </div>
     
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>District:</strong>
-                {{ $station->district->name }}
+                @if($community->district)
+                {{ $community->district->name }}
+                @else
+                N/A
+                @endif
+
             </div>
         </div>
     
@@ -75,4 +79,3 @@
         </div>
     </div>
 @endsection
-<p class="text-center text-dark"><small>EWS Muvumba</small></p>

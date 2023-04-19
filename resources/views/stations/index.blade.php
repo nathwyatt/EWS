@@ -21,23 +21,21 @@
         <tr>
             <th>Station(id)</th>
             <th>Name</th>
-            <th>district</th>
-            <th>Manager(id)</th>
+            <th>sector</th>
+            <th>Manager</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($stations as $station)
         <tr>
-            <td>{{ $station->id }}</td>
-            <td>{{ $station->name }}</td>
-            <td>{{ $station->district }}</td>
-            @foreach ($managers as $mn)
-            <td>{{ $mn->name }}</td>
-            @endforeach
+            <td>{{$station->id }}</td>
+            <td>{{$station->name}}  </td>
+            <td>{{$station->sector->name }}</td>
+            <td>{{$station->user->name}} </td>
             <td>
                 <form action="{{ route('stations.destroy',$station->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('stations.show',$station->id) }}">Show</a>
                     @can('station-edit')
-                    <a class="btn btn-dark" href="{{ route('stations.edit',$station->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('stations.edit',$station->id) }}">Edit</a>
                     @endcan
                     @csrf
                     @method('DELETE')
@@ -49,6 +47,6 @@
         </tr>
         @endforeach
     </table>
-    {!! $stations->links() !!}
+    {{-- {!! $stations->links() !!} --}}
    
 @endsection

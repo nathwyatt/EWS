@@ -8,7 +8,7 @@
                 <button type="submit" class="btn btn-primary">Login here: </button>
             </div>
             
-            <div class="card   btn-badge rounded-pill bg-dark">
+            <div class="card   btn-badge  bg-light">
                 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

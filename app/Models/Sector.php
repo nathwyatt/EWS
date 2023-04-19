@@ -8,13 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Sector extends Model
 {
     use HasFactory;
-    public function districts()
+    public function district()
 {
-    return $this->belongsTo(Districts::class);
+    return $this->belongsTo(District::class);
 }
 
 public function cells()
 {
     return $this->hasMany(Cell::class);
+}
+public function Station()
+{
+    return $this->hasMany(Station::class);
+}
+public function Community()
+{
+    return $this->hasMany(Community::class);
 }
 }

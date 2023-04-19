@@ -1,42 +1,32 @@
 @extends('layouts.stations')
 @section('content')
+<div class="container">
 <div class="row">
-    <h1  class="btn btn-badge rounded-pill bg-white text-center">   {{ Auth::user()->station->name }}</h1>
-
-<section class="intro">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12">
-              <div class="card mask-custom">
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-borderless text-dark mb-0 ">
-                      <thead>
-                        <tr>
-                          <th scope="col" >Water level</th>
-                          <th scope="col" >Temperature</th>
-                          <th scope="col" >Hummidity</th>
-                          <th scope="col" >Soil moisture</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                            @foreach ($data as $key)
-                          <th >{{ $key->water_level }}</th>
-                          <td>{{ $key->temperature }}</td>
-                          <td>{{ $key->hummidity }}</td>
-                          <td>{{ $key->soil_moisture }}</td>
-                          @endforeach
-                        </tr>
-                        
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="col-lg-12 margin-tb">
+           <div  class="pull-badge  bg-light text-center">
+          <h1>   {{ Auth::user()->station->name }} station</h1>
           </div>
         </div>
-     </section>
-  </div>
+</div>
+        <div class="small-box bg-white">
+          <h1  class="badge  bg-white text-center"> to day  </h1>
+          <table class="table table-bordered">
+            <tr>
+                <th>Water level</th>
+                <th>Temperature</th>
+                <th>Hummidity</th>
+                <th>Soil moisture</th>
+            </tr>
+            <tr>
+              @foreach ($data as $key)
+                                <td >{{ $key->water_level }}</td>
+                                <td>{{ $key->temperature }}</td>
+                                <td>{{ $key->hummidity }}</td>
+                                <td>{{ $key->soil_moisture }}</td>
+                                @endforeach
+            </tr>
+          </table>
+         </div>
+ 
+</div>
 @endsection

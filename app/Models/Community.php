@@ -11,15 +11,45 @@ class Community extends Model
 // protected $table = [
 //     'community',
 // ];
-    
+protected $table = 'communities';
     protected $fillable = [
-        'station_id', 'fname','lname','email','phone'
+        'station_id', 
+        'fname',
+        'lname',
+        'gender',
+        'birth_date',
+        'email',
+        'profession',
+        'phone',
+        'district_id',
+        'sector_id',
+        'cell_id',
+        'village_id'
     ];
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-    public function Station()
+   
+    public function station()
     {
-     return $this->belongsTo(Station::class);
+        return $this->belongsTo(Station::class, 'station_id', 'id');
     }
+    public function districts()
+    {
+        return $this->belongsTo(Districts::class);
+    }
+
+    public function sector()
+    {
+        return $this->belongsTo(Sector::class);
+    }
+
+    public function cell()
+    {
+        return $this->belongsTo(Cell::class);
+    }
+
+    public function village()
+    {
+        return $this->belongsTo(Village::class);
+    }
+
+  
 }

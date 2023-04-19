@@ -8,6 +8,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StationManagerController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\StationCommunity;
+use App\Models\Station;
 use App\Models\Station_Data;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,7 +40,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('stations', StationController::class);
     Route::resource('home', HomeController::class);
     Route::resource('stationdata',StationDataController::class);
-    Route::resource('stationmanager',StationManagerController::class);
+    // Route::resource('stationmanager',StationManagerController::class);
+    // Route::get('/stations/all', [StationCommunity::class, 'AllStations']);
     Route::resource('community',CommunityController::class);
 
     // profile

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb-dark">
@@ -55,6 +55,11 @@
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="avatar">
+        <button type="submit">Upload Image</button>
+    </form>
 </div>
 {!! Form::close() !!}
 <p class="text-center text-primary"><small>Aime-Wyatt</small></p>

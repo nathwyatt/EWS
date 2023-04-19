@@ -5,17 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cell extends Model
+class District extends Model
 {
     use HasFactory;
-    public function sector()
+    public function sectors()
 {
-    return $this->belongsTo(Sector::class);
-}
-
-public function villages()
-{
-    return $this->hasMany(Village::class);
+    return $this->hasMany(Sector::class);
 }
 public function Station()
 {
@@ -24,5 +19,9 @@ public function Station()
 public function Community()
 {
     return $this->hasMany(Community::class);
+}
+public function Province()
+{
+    return $this->belongsTo(Province::class);
 }
 }

@@ -86,18 +86,7 @@ if ($user == Auth::user()->hasRole("Station-manager")) {
         <div class="row">
           <!-- Left col -->
           <section class="col-lg-7 connectedSortable">
-            <!-- Custom tabs (Charts with tabs)-->
-            {{-- <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">
-                  <i class="fas fa-chart-pie mr-1"></i>
-                  charts
-                </h3>
-                <div class="card-body">
-                <canvas id="myChart"></canvas>
-                </div>
-                <div class="card-tools">
-                </div> --}}
+            
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">charts</h4>

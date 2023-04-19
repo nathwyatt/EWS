@@ -5,13 +5,14 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Station;
 
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
-
+use App\Models\Community;
 class HomeController extends Controller
 {
     /**
@@ -29,11 +30,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-{
+    public function index(Request $request)
+
+  {  
+    $stationId=$request->input('station_id');
+    $data = DB::table('station_data')->get();
+    $com = Community::where('station_id', $stationId)->get();
+    // $com =DB::table('communities')->paginate(5);
     $user = Auth::user();
     if ($user->hasRole("Station-manager")) {
-        return view('station-manager.index');
+        return view('station-manager.index', compact('data','com'));
     } else {
         $numUsers = User::count();
         $numStations = Station::count();

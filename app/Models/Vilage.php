@@ -5,21 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cell extends Model
+/**
+ * Summary of Vilage
+ */
+class Vilage extends Model
 {
     use HasFactory;
-    public function sector()
+    public function cell()
 {
-    return $this->belongsTo(Sector::class);
+    return $this->belongsTo(Cell::class);
 }
-
-public function villages()
-{
-    return $this->hasMany(Village::class);
-}
+/**
+ * Summary of Station
+ * @return \Illuminate\Database\Eloquent\Relations\HasOne
+ */
 public function Station()
 {
-    return $this->hasMany(Station::class);
+    return $this->hasOne(Station::class);
 }
 public function Community()
 {
