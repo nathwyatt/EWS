@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Station_Data;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 class StationDataController extends Controller
 {
     public function index()
     {
         
-        $data = DB::table('station_data')->latest()->paginate(5);
-        return view('stationdata.index',compact('data'));
+        $data = Station_Data::latest()->paginate(5);
+        dd($data);
+     return view('stationdata.index',compact('data'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);;
+       
     }
-    public function __invoke()
-    {
-        // Your controller logic goes here
-    }
+    
 }

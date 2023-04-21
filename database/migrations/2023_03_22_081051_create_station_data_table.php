@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('station_data', function (Blueprint $table) {
             $table->id();
-            $table->string('water_level');
-            $table->string('temperature');
-            $table->string('hummidity');
-            $table->string('soil_moisture');
+            $table->double('water_level');
+            $table->double('temperature');
+            $table->double('hummidity');
+            $table->double('soil_moisture');
             $table->bigInteger('station_id')->unsigned();
             $table->timestamps();
             $table->foreign('station_id')->references('id')->on('stations')->onDelete('cascade');

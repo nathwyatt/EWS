@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Station_Data extends Model
 {
     use HasFactory;
+    protected $table =('station_data');
     protected $fillable = [
         'water_level', 'temperature','hummidity','soil_moisture','station_id'
     ];
-    public function Station()
+    public function station()
     {
-     return $this->belongsTo(Station::class);
+        return $this->belongsTo(Station::class, 'station_id', 'id');
     }
 }

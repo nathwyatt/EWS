@@ -9,7 +9,7 @@
         </div>
 </div>
         <div class="small-box bg-white">
-          <h1  class="badge  bg-white text-center"> to day  </h1>
+          <h1  class="badge  bg-white text-center"> to day at </h1>
           <table class="table table-bordered">
             <tr>
                 <th>Water level</th>
@@ -23,7 +23,7 @@
                                 <td>{{ $key->temperature }}</td>
                                 <td>{{ $key->hummidity }}</td>
                                 <td>{{ $key->soil_moisture }}</td>
-                                @endforeach
+              @endforeach
             </tr>
           </table>
          </div>

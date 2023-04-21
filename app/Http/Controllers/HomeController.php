@@ -13,6 +13,8 @@ use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use App\Models\Community;
+use App\Models\Station_Data;
+
 class HomeController extends Controller
 {
     /**
@@ -34,7 +36,7 @@ class HomeController extends Controller
 
   {  
     $stationId=$request->input('station_id');
-    $data = DB::table('station_data')->get();
+    $data = Station_Data::get()->paginate(5);
     $com = Community::get();
 
     // $com =DB::table('communities')->paginate(5);

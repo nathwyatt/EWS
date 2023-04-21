@@ -50,6 +50,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('profile/{user}',[ProfileController::class,'update'])->name('profile.update');
     Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('user.profile.store');
 
+    //locations
+    Route::get('/getDistricts',[StationCommunity::class,'getDistricts']);    
+
+    Route::get('/getSectors',[StationCommunity::class,'getSectors']);
+
+    Route::get('/getCells',[StationCommunity::class,'getCells']);
 });
 // Route::get('datastation',StationDataController::class);
 
