@@ -36,7 +36,7 @@ class HomeController extends Controller
 
   {  
     $stationId=$request->input('station_id');
-    $data = Station_Data::get()->paginate(5);
+    $data = Station_Data::get();
     $com = Community::get();
 
     // $com =DB::table('communities')->paginate(5);

@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth']], function() {
     // Route::get('/stations/all', [StationCommunity::class, 'AllStations']);
     Route::resource('community',CommunityController::class);
 
+    Route::get('/sensor-data', [StationDataController::class, 'processSensorData']);
+
     // profile
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile',[ProfileController::class,'index']);

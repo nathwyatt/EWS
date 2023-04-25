@@ -9,7 +9,9 @@
         </div>
 </div>
         <div class="small-box bg-white">
-          <h1  class="badge  bg-white text-center"> to day at </h1>
+          @foreach($data as $dt)
+          <h1  class="badge  bg-white text-center">During  {{$dt->created_at}} </h1>
+          @endforeach
           <table class="table table-bordered">
             <tr>
                 <th>Water level</th>

@@ -79,8 +79,10 @@
     </div>
   </div>
   <div class="small-box bg-white">
-    <h1  class="badge  bg-white text-center"> Station data</h1>
-   <div class="row">
+    @foreach($data as $dt)
+    <h1  class="badge  bg-white text-center"> Station status  {{$dt->created_at}}</h1>
+   @endforeach
+    <div class="row">
     
         
    <div class="col-lg-3 col-3">
