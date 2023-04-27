@@ -2,15 +2,19 @@
 @extends('layouts.dashboard')
   
 @section('content')
-<div class="row">
+<div class="card card-table-border-none dt-responsive nowrap" style="width:100%" id="recent-orders">
+    <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-badge  bg-light text-center">
-            <h2 > create new station</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-dark" href="{{ route('stations.index') }}"> Back</a>
-        </div>
-    </div>
+        <div class="card-header  justify-content-between text-center">
+            <h2>Register new station </h2>
+            <div class="date-range-report ">
+             <span></span>
+            </div>
+      </div>
+                <div class="pull-right">
+                    <a class="badge  badge-primary" href="{{ route('stations.index') }}"> Back</a>
+                </div>
+         </div>
 </div>
    
 @if ($errors->any())
@@ -26,7 +30,9 @@
    
 <form action="{{ route('stations.store') }}" method="POST">
     @csrf
-  
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="card card-default bg-light">
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -101,9 +107,13 @@
      </div>
    </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-dark">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
-   
+            </div>
+        </div>
+    </div>
 </form>
+</div>
+
 @endsection

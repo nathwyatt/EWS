@@ -1,17 +1,20 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-badge  bg-light text-center">
-                <h2 > Edit {{$station->name}} station</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-dark" href="{{ route('stations.index') }}"> Back </a>
-            </div>
-        </div>
+            <div class="card-header bg-light justify-content-between text-center">
+                <h2>Edit {{$station->name }} station </h2>
+                <div class="date-range-report ">
+                 <span></span>
+                </div>
+          </div>
+                    <div class="pull-right">
+                        <a class="badge  badge-primary" href="{{ route('stations.index') }}"> Back</a>
+                    </div>
+             </div>
     </div>
-
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -23,7 +26,14 @@
             </ul>
         </div>
     @endif
+    <div class="card card-table-border-none dt-responsive nowrap" style="width:100%" id="recent-orders">
 
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-default">
+                    
+        <div class="container">
+                    <div class="card-body">
 
     <form action="{{ route('stations.update',$station->id) }}" method="POST">
     	@csrf
@@ -95,11 +105,18 @@
                 </select>
             </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-		      <button type="submit" class="btn btn-primary">Submit</button>
+		      <button type="submit" class="btn btn-primary">update</button>
 		    </div>
 		</div>
 
 
     </form>
-
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
 @endsection

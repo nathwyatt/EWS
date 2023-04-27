@@ -179,37 +179,52 @@ table th {
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <img src="/avatars/{{ Auth::user()->avatar }}" alt="EWSLogo"  alt="User Avatar" class="img-size-50 img-circle-sm mr-3">
-
-      </li>
-      <li class="nav-item dropdown">
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            {{ Auth::user()->name }}
-        </a>
-        
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{'/profile'}}" class="nav-link">
-              <p>view profile</p>
+      <li class="dropdown user-menu">
+        <div href="#" class="dropdown-toggle nav-link " data-toggle="dropdown">
+          <img src="/avatars/{{Auth::user()->avatar}}" class="user-image img-size-50 img-circle mr-3" alt="User Image" />
+          <span class="d-none d-lg-inline-block">{{Auth::user()->name}}</span>
+        </div>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <!-- User image -->
+          <li class="dropdown-header bg-dark">
+            <img src="/avatars/{{Auth::user()->avatar}}" class="img-circle img-size-50 img-circle mr-3" alt="User Image" />
+            <div class="d-inline-block">
+              <div class="nav-item">
+              {{Auth::user()->name}} 
+              </div>
+              <div class=" nav-item">
+              <small >{{ Auth::user()->email}}</small>
+              </div>
+            </div>
+          </li>
+  
+          <li>
+            <a href="{{'/profile'}}" class="dropdown-item">
+              <i class="mdi mdi-account "></i> My Profile
             </a>
-            </li>
+          </li>
+         
+          <li class="right-sidebar-in">
+            <a href="javascript:0"class="dropdown-item"> 
+              <i class="mdi mdi-settings "></i> Setting </a>
+          </li>
+  
+          <li class="right-sidebar-in">
             <li class="nav-item">
               <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-               {{ __('Logout') }}
+              <i class="mdi mdi-logout"></i> Log Out </a>
            </a>
-
+  
            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                @csrf
            </form>
             </li>
-          </ul>
-            
-        </div>
-    </li>
+              
+          </li>
+        </ul>
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->

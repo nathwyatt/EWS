@@ -1,27 +1,33 @@
 @extends('layouts.dashboard')
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-badge  bg-dark text-center">
-            <h2>Roles Management</h2>
-        </div>
-        <div class="pull-right">
-        @can('role-create')
-            <a class="btn btn-badge rounded-pill bg-dark" href="{{ route('roles.create') }}"> Create New Role</a>
-            @endcan
-        </div>
-    </div>
-</div>
-@if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-@endif
-<table class="table table-bordered">
+<div class="container">
+    <div class="row">
+     
+        <div class="card card-table-border-none dt-responsive nowrap" style="width:100%" id="recent-orders">
+          
+            <div class="card-header justify-content-between text-center">
+               <h2>Role Management</h2>
+               <div class="date-range-report ">
+                <span></span>
+               </div>
+         </div>
+         <div class="pull-left">
+            <a href="{{ route('roles.create') }}"class="dropdown-item"> 
+              <i class="nav-icon fas fa-user-plus "></i> Add </a>
+            </div>
+    
+               @if ($message = Session::get('success'))
+              <div class="alert alert-success">
+                <p>{{ $message }}</p>
+              </div>
+               @endif
+          <div class="card-body pt-0 pb-5">
+           <table id="responsive-data-table" class="table dt-responsive nowrap" style="width:100%">
+             <tr>
     <tr>
         <th>Role(id)</th>
         <th>Role(name)</th>
-        <th width="280px">Action</th>
+        <th>Action</th>
     </tr>
     
     @foreach ($roles as $key => $role)
@@ -29,19 +35,34 @@
         <td>{{ $role->id }}</td>
         <td>{{ $role->name }}</td>
         <td>
-            <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Show</a>
-            @can('role-edit')
-                <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
-            @endcan
-            @can('role-delete')
-                {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                {!! Form::close() !!}
-            @endcan
-        </td>
-    </tr>
-    @endforeach
+            <a class="badge badge-success nav-icon fas fa-view" href="{{ route('roles.show',$role->id) }}">Show</a>
+            
+                @can('user-create')
+                <td class="text-right">
+                 <div class="dropdown show d-inline-block widget-dropdown">
+                     <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
+                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
+                      <li class="dropdown-item">
+                        <a href="{{ route('roles.edit',$role->id) }}">edit</a>
+                      </li>
+                      <li class="dropdown-item">
+                    
+                        {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
+                       {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                       {!! Form::close() !!}
+                      </li>
+                    </ul>
+                  </div>
+              </td>
+          @endcan 
+      </tr>
+@endforeach
 </table>
-{!! $roles->render() !!}
-<p class="text-center text-dark"><small>Aime-Wyatt</Aime-Wyatt></small></p>
+</div>
+</div>
+</div>
+
+{{-- {!! $role->render() !!} --}}
+<p class="text-center text-primary"><small>Aime-Wyatt</small></p>
+</div>
 @endsection

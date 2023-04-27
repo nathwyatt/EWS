@@ -1,15 +1,19 @@
 @extends('layouts.dashboard')
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Edit Role</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-dark" href="{{ route('roles.index') }}"> Back</a>
-        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="card-header bg-light justify-content-between text-center">
+                <h2>Edit {{Auth::user()->name }} </h2>
+                <div class="date-range-report ">
+                 <span></span>
+                </div>
+          </div>
+                    <div class="pull-right">
+                        <a class="badge  badge-primary" href="{{ route('users.index') }}"> Back</a>
+                    </div>
+             </div>
     </div>
-</div>
 @if (count($errors) > 0)
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -40,9 +44,15 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-dark">Submit</button>
+        <button type="submit" class="btn btn-primary">Update</button>
     </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+</div>
 </div>
 {!! Form::close() !!}
 @endsection
-<p class="text-center text-dark"><small>Tutorial by LaravelTuts.com</small></p>

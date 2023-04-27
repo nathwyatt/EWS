@@ -29,6 +29,29 @@
   <!--chart -->
   <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
+
+    <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
+  
+    <!-- PLUGINS CSS STYLE -->
+    <link href="assets/plugins/simplebar/simplebar.css" rel="stylesheet" />
+    <link href="assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
+  
+
+     <link rel="/icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.min.css">
+    <link href="./vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+
+
+    <link href="/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+    <link href="/css/lib/chartist/chartist.min.css" rel="stylesheet">
+    <link href="/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="/css/lib/weather-icons.css" rel="stylesheet" />
+ 
+<link rel="stylesheet" href="mystyle.css">
+<link rel="stylesheet" href="/css/card.css">
   <script src="/https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <style>
 .nav-bar {
@@ -45,7 +68,7 @@
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="image/icon.jpg" alt="EWSLogo" height="60" width="60">
   </div>
-
+  
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-dark navbar-light ">
     <!-- Left navbar links -->
@@ -158,41 +181,57 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <img src="/avatars/{{ Auth::user()->avatar }}" alt="user photo"  alt="User Avatar" class="img-size-50 img-circle mr-3">
+      
+    <li class="dropdown user-menu">
+      <div href="#" class="dropdown-toggle nav-link " data-toggle="dropdown">
+        <img src="/avatars/{{Auth::user()->avatar}}" class="user-image img-size-50 img-circle mr-3" alt="User Image" />
+        <span class="d-none d-lg-inline-block">{{Auth::user()->name}}</span>
+      </div>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <!-- User image -->
+        <li class="dropdown-header bg-dark">
+          <img src="/avatars/{{Auth::user()->avatar}}" class="img-circle img-size-50 img-circle mr-3" alt="User Image" />
+          <div class="d-inline-block">
+            <div class="nav-item">
+            {{Auth::user()->name}} 
+            </div>
+            <div class=" nav-item">
+            <small >{{ Auth::user()->email}}</small>
+            </div>
+          </div>
+        </li>
 
-      </li>
-      <li class="nav-item dropdown">
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            {{ Auth::user()->name }}
-        </a>
-        
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{'/profile'}}" class="nav-link">
-              <p>view profile</p>
-            </a>
-            </li>
-            <li class="nav-item">
-              <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-               {{ __('Logout') }}
-           </a>
+        <li>
+          <a href="{{'/profile'}}" class="dropdown-item">
+            <i class="mdi mdi-account "></i> My Profile
+          </a>
+        </li>
+       
+        <li class="right-sidebar-in">
+          <a href="javascript:0"class="dropdown-item"> 
+            <i class="mdi mdi-settings "></i> Setting </a>
+        </li>
 
-           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-               @csrf
-           </form>
-            </li>
-          </ul>
+        <li class="right-sidebar-in">
+          <li class="nav-item">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+            <i class="mdi mdi-logout"></i> Log Out </a>
+         </a>
+
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+             @csrf
+         </form>
+          </li>
             
-        </div>
+        </li>
+      </ul>
     </li>
     </ul>
   </nav>
   <!-- /.navbar -->
-
+</div>
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -328,6 +367,7 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -347,7 +387,7 @@
     @yield('content')
 </main>
     </div>            
-
+    </div>
 <!-- jQuery -->
 <script src="/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

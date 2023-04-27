@@ -1,29 +1,30 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-badge  bg-dark text-center">
-                <h2>stations Management</h2>
-            </div>
-            <div class="pull-right">
-                @can('station-create')
-                <a class="btn btn-badge rounded-pill bg-dark" href="{{ route('stations.create') }}"> Create New station</a>
-                @endcan
-            </div>
-        </div>
+<div class="card card-table-border-none dt-responsive nowrap" style="width:100%" id="recent-orders">
+      
+    <div class="card-header justify-content-between text-center">
+       <h2>Station Management</h2>
+       <div class="date-range-report ">
+        <span></span>
+       </div>
+ </div>
+ <div class="pull-left">
+    <a href="{{ route('stations.create') }}"class="dropdown-item"> 
+      <i class="nav-icon fas fa-user-plus "></i> Add </a>
     </div>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
-    <table class="table table-bordered">
+    <div class="card-body pt-0 pb-5">
+        <table id="responsive-data-table" class="table dt-responsive nowrap" style="width:100%">
         <tr>
             <th>Station(id)</th>
             <th>Name</th>
             <th>sector</th>
             <th>Manager</th>
-            <th width="280px">Action</th>
+            <th>Action</th>
         </tr>
         @foreach ($stations as $station)
         <tr>
@@ -33,20 +34,32 @@
             <td>{{$station->user->name}} </td>
             <td>
                 <form action="{{ route('stations.destroy',$station->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('stations.show',$station->id) }}">Show</a>
-                    @can('station-edit')
-                    <a class="btn btn-primary" href="{{ route('stations.edit',$station->id) }}">Edit</a>
-                    @endcan
-                    @csrf
-                    @method('DELETE')
-                    @can('station-delete')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                    @endcan
+                    <a class="badge badge-success nav-icon fas fa-view" href="{{ route('stations.show',$station->id) }}">Show</a>
+                
+                    <td class="text-right">
+                        <div class="dropdown show d-inline-block widget-dropdown">
+                            <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
+                             <li class="dropdown-item">
+                               <a href="{{ route('stations.edit',$station->id) }}">edit</a>
+                             </li>
+                             <li class="dropdown-item">
+                           
+                               {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $station->id],'style'=>'display:inline']) !!}
+                              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                              {!! Form::close() !!}
+                             </li>
+                           </ul>
+                         </div>
+                     </td>
                 </form>
             </td>
+        
         </tr>
         @endforeach
+
     </table>
+</div>
     {{-- {!! $stations->links() !!} --}}
    
 @endsection
