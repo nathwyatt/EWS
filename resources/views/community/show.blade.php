@@ -1,17 +1,24 @@
 @extends('layouts.stations')
 @section('content')
-   
-      <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-badge  bg-light text-center">
-                <h2 > {{$community->fname}} {{$community->lname}}</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-dark" href="{{ route('community.index') }}"> Back</a>
-            </div>
-        </div>
-    </div>
+<div class="card card-table-border-none dt-responsive nowrap" style="width:100%" id="recent-orders">
+
     <div class="row">
+      
+         <div class="col-lg-12 margin-tb">
+            <div class="card-header bg-light justify-content-between text-center">
+                <h2>{{$community->fname}} {{$community->lname}}   Details</h2>
+                <div class="date-range-report ">
+                 <span></span>
+                </div>
+          </div>
+                    <div class="pull-right">
+                        <a class="badge  badge-primary" href="{{ route('community.index') }}"> Back</a>
+                    </div>
+             </div>
+      
+     <div class="container">
+     <div class="card-body">
+        <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Famer Name:</strong>
@@ -35,6 +42,12 @@
             <div class="form-group">
                 <strong>gender:</strong>
                     {{ $community->gender }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Email:</strong>
+                    {{ $community->email }}
             </div>
         </div>
     
@@ -87,6 +100,10 @@
             </div>
         </div>
     
-        
+        </div>
+     </div>
+     </div>
     </div>
+</div>
+
 @endsection

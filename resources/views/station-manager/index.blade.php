@@ -3,15 +3,26 @@
 @section('content')
 
 <div class="container">
-  <h1 class="pull-badge  bg-light text-center">   {{ Auth::user()->station->name }}</h1>   
+  
+  <div class="row">
+    <div class="col-lg-12 margin-tb">
+      <div class="card-header justify-content-between text-center">
+          <h2> {{Auth::user()->Station->name }} station </h2>
+          <div class="date-range-report ">
+           <span></span>
+          </div>
+    </div>
+       </div>
+  </div>
+  
   <div class="row">
           <div class="col-lg-3 col-3">
             <!-- small box -->
             <div class="small-box bg-info">
-              <div class="inner">
-                {{-- <p class="card-text">{{ $numStations }}</p> --}}
+              <div class="inner ">
+                <p class="card-text text-yellow">{{ $numfarmers }}</p>
 
-                <p>community</p>
+                <p class="card-text text-yellow">community</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -24,11 +35,11 @@
           <!-- ./col -->
           <div class="col-lg-3 col-3">
             <!-- small box -->
-            <div class="small-box bg-white">
+            <div class="small-box bg-warning">
               <div class="inner">
-                {{-- <p class="card-text">{{ $numRoles }}</p> --}}
+                <p class="card-text text-white">{{ $numdata }}</p>
 
-                <p>River data</p>
+                <p class="card-text text-white">River data</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -39,25 +50,25 @@
           <!-- ./col -->
           <div class="col-lg-3 col-3">
             <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                {{-- <p class="card-text">{{ $numUsers }}</p> --}}
-                <p>notifications</p>
+            <div class="small-box bg-success">
+              <div class="inner ">
+                <p class="card-text text-yellow">2</p>
+                <p class="card-text text-yellow">notifications</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="{{'/users'}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
           <div class="col-lg-3 col-3">
             <!-- small box -->
-            <div class="small-box bg-white">
+            <div class="small-box bg-primary">
               <div class="inner">
-                {{-- <p class="card-text">1</p> --}}
+                <p class="card-text text-yellow">1</p>
 
-                <p>Bar Chart</p>
+                <p class="card-text text-yellow">Bar Chart</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -78,77 +89,74 @@
       </div>
     </div>
   </div>
+
   <div class="small-box bg-white">
-    @foreach($data as $dt)
-    <h1  class="badge  bg-white text-center"> Station status  {{$dt->created_at}}</h1>
-   @endforeach
+    @if (!empty($data))
+    @foreach ($data as $item)
+    <div class="container">
+    {{$item->created_at}}
     <div class="row">
     
-        
    <div class="col-lg-3 col-3">
-    <!-- small box -->
-    
-        <div class="small-box bg-white">
-            <h1 class="badge bg-white text-center">Water level</h1>
+  
+        <div class="small-box bg-green">
+            <h1 class="badge  text-center">Water level</h1>
             <div class="inner">
-              @if (!empty($data))
-              @foreach ($data as $item)
+             
+              
                 {{ $item->water_level }}
-                @endforeach
-                @endif
+               
             </div>
         </div>
   </div>
  
  
-  <!-- ./col -->
-  <div class="col-lg-3 col-3">
-    <!-- small box -->
-    <div class="small-box bg-white">
-      <h1  class="badge  bg-white text-center"> Temperature</h1>
-      <div class="inner">
-        @if (!empty($data))
-        @foreach ($data as $item)
-        <p class="card-text">{{ $item->temperature }}</p>
-        @endforeach
-        @endif
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 col-3">
-    <!-- small box -->
-    <div class="small-box bg-white">
-      <h1  class="badge  bg-white text-center"> hummidity</h1>
-      <div class="inner">
-        @if (!empty($data))
-        @foreach ($data as $item)
-        <p class="card-text">{{ $item->hummidity }}</p>
-        @endforeach
-        @endif
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 col-3">
-    <!-- small box -->
-    <div class="small-box bg-white">
-      <h1  class="badge  bg-white text-center"> soil moisture</h1>
-      <div class="inner">
-        @if (!empty($data))
-        @foreach ($data as $item)
-        <p class="card-text">{{ $item->soil_moisture }}</p>
-        @endforeach
-        @endif
-      </div>
-    </div>
-  </div>
 
+  <div class="col-lg-3 col-3">
+ 
+    <div class="small-box bg-yellow">
+      <h1  class="badge   text-center"> Temperature</h1>
+      <div class="inner">
+        
+        <p class="card-text">{{ $item->temperature }}</p>
+       
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-3">
+  
+    <div class="small-box bg-orange">
+      <h1  class="badge   text-center"> hummidity</h1>
+      <div class="inner">
+      
+        <p class="card-text">{{ $item->hummidity }}</p>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-3">
+    
+    <div class="small-box bg-pink">
+      <h1  class="badge   text-center"> soil moisture</h1>
+      <div class="inner">
+      
+        <p class="card-text">{{ $item->soil_moisture }}</p>
+      
+      </div>
+    </div>
+  </div>
+    </div>
+    </div>
+  @endforeach
+  @endif
    </div>
 
  </div>
  <div class="small-box bg-white">
   <h1  class="badge  bg-white text-center"> farmers around {{ Auth::user()->station->name }}</h1>
-  <table class="table table-bordered">
-    <tr>
+  <div class="container">
+    <table id="responsive-data-table" class="table dt-responsive nowrap" style="width:100%">
+      <tr>
         <th>data(id)</th>
         <th>fname</th>
         <th>fname</th>
@@ -166,6 +174,25 @@
   @endforeach
   </table>
  </div>
+ </div>
+ <div class="card">
+  <div class="card-header">
+    <h3 class="card-title">
+      <i class="ion ion-clipboard mr-1"></i>
+      To Do List
+    </h3>
+
+    <div class="card-tools">
+      <ul class="pagination pagination-sm">
+        <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
+        <li class="page-item"><a href="#" class="page-link">1</a></li>
+        <li class="page-item"><a href="#" class="page-link">2</a></li>
+        <li class="page-item"><a href="#" class="page-link">3</a></li>
+        <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
+      </ul>
+    </div>
+  </div>
+
 </div>
 </div>
 @endsection

@@ -2,15 +2,19 @@
 @extends('layouts.stations')
   
 @section('content')
-<div class="row">
+<div class="card card-table-border-none dt-responsive nowrap" style="width:100%" id="recent-orders">
+    <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-badge  bg-light text-center">
-            <h2 > create new Farmer</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-dark" href="{{ route('community.index') }}"> Back</a>
-        </div>
-    </div>
+        <div class="card-header  justify-content-between text-center">
+            <h2>Register new farmer </h2>
+            <div class="date-range-report ">
+             <span></span>
+            </div>
+      </div>
+                <div class="pull-right">
+                    <a class="badge  badge-primary" href="{{ route('community.index') }}"> Back</a>
+                </div>
+         </div>
 </div>
    
 @if ($errors->any())
@@ -26,9 +30,11 @@
    
 <form action="{{ route('community.store') }}" method="POST">
     @csrf
-<div class="row mt-2">
-    <div class="col-md-6">
-    <div class="form-group">
+    <div class="container">
+        <div class="card card-default bg-light">
+            <div class="row mt-2">
+                <div class="col-md-6">
+                <div class="form-group">
         <label for="fname">{{ __('First Name') }}</label>
         <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required>
     </div>
@@ -146,6 +152,9 @@
                 <button type="submit" class="btn btn-dark">Submit</button>
         </div>
     </div>
-   
+    </div>
 </form>
+
+</div>
+
 @endsection

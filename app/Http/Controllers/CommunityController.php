@@ -79,8 +79,8 @@ class CommunityController extends Controller
         $cell = $community->cell;
         $village = $community->vilage;
        
-
-        return view('community.show', compact('community','station','province', 'district', 'sector', 'cell',));
+        
+           return view('community.show', compact('community','station','province', 'district', 'sector', 'cell',));
     }
     public function edit($id)
     {
@@ -92,7 +92,7 @@ class CommunityController extends Controller
         $cells = Cell::all();
         $villages = Vilage::all();
         $station = Station::all();
-     
+      
         return view('community.edit', compact('community','station','provinces', 'districts', 'sectors', 'cells', 'villages', ));
     }
   

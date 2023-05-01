@@ -39,10 +39,17 @@ class HomeController extends Controller
     $data = Station_Data::get();
     $com = Community::get();
 
-    // $com =DB::table('communities')->paginate(5);
+    $stationId=$request->input('station_id');
+    $data = Station_Data::get();
+    $com = Community::get();
+
+    
+        $numfarmers = Community::count();
+        $numdata = Station_Data::count();
+    
     $user = Auth::user();
     if ($user->hasRole("Station-manager")) {
-        return view('station-manager.index', compact('data','com'));
+        return view('station-manager.index', compact('data','com','numfarmers','numdata'));
     } else {
         $numUsers = User::count();
         $numStations = Station::count();

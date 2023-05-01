@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Station;
 use App\Models\Station_Data;
 use App\Models\User;
 use App\Notifications\SensorDataNotification;
@@ -18,6 +19,29 @@ class StationDataController extends Controller
         ->with('i', (request()->input('page', 1) - 1) * 5);;
        
     }
+
+    public function create()
+    {
+        $station=Station::get();
+       return view('stationdata.create',compact('station')); 
+    }
+
+    public function store(Request $request)
+    {
+        request()->validate([
+            'water_level'=>'required',
+             'temperature'=>'required',
+             'hummidity'=>'required',
+             'soil_moisture'=>'required',
+             'station_id'=>'required'
+            
+        ]);
+        Station_Data::create($request->all());
+    
+        return redirect()->route('stationdata.index')
+                        ->with('success','station created successfully.');
+    }
+       
 
     public function sendNotifications($data)
 {

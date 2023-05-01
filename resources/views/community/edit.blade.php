@@ -2,16 +2,20 @@
 @extends('layouts.stations')
   
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-badge  bg-light text-center">
-            <h2 >edit {{$community->fname}} {{$community->lname}}</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-dark" href="{{ route('community.index') }}"> Back</a>
-        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="card-header bg-light justify-content-between text-center">
+                <h2>Edit {{$community->fname}}  {{$community->lname}} </h2>
+                <div class="date-range-report ">
+                 <span></span>
+                </div>
+          </div>
+                    <div class="pull-right">
+                        <a class="badge  badge-primary" href="{{ route('community.index') }}"> Back</a>
+                    </div>
+             </div>
     </div>
-</div>
    
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -23,7 +27,14 @@
         </ul>
     </div>
 @endif
-   
+<div class="card card-table-border-none dt-responsive nowrap" style="width:100%" id="recent-orders">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-default">
+                
+    <div class="container">
+                <div class="card-body">
 <form action="{{ route('community.update',$community->id) }}" method="POST">
     @csrf
     @method('PUT')
@@ -143,14 +154,19 @@
               <option value="{{$st->id}}" @if($st->id == $community->station_id)selected @endif>{{$st->name}} </option>
               @endforeach
             </select>            
-        </div>
-    </div>
-</div>
-</div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-dark">Submit</button>
-        </div>
-    </div>
-   
-</form>
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">update</button>
+              </div>
+          </div>
+  
+  
+      </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  </div>
 @endsection

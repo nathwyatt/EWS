@@ -1,67 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EWS  | Dashboard</title>
-
-  {{-- Css --}}
-  <link rel="stylesheet" href="/https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
- <!-- Google Font: Source Sans Pro -->
- <link rel="stylesheet" href="/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
- <!-- Font Awesome -->
- <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
- <link rel="stylesheet" href="/https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
- <!-- Tempusdominus Bootstrap 4 -->
- <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
- <!-- iCheck -->
- <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
- <!-- JQVMap -->
- <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
- <!-- Theme style -->
- <link rel="stylesheet" href="/dist/css/adminlte.min.css">
- <!-- overlayScrollbars -->
- <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
- <!-- Daterange picker -->
- <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
- <!-- summernote -->
- <!--chart -->
- <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
- <link rel="stylesheet" href="/css/app.css">
- <link rel="stylesheet" href="/https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
- <script src="/https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
- <style>
-  html,
-body,
-.intro {
-  height: 100%;
-}
-
-table td,
-table th {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.mask-custom {
-  background: rgba(250, 249, 252, 0.2);
-  /* border-radius: 2em; */
-  /* backdrop-filter: blur(10px); */
-  border: 2px solid rgba(7, 0, 0, 0.05);
-  background-clip: padding-box;
-  box-shadow: 10px 10px 10px rgba(4, 9, 17, 0.03);
-}
-
-.img-circle-sm {
-  width: 35px; 
-  height: 40px; 
-  border-radius: 50%; 
-}
- </style>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EWS | Dashboard</title>
+      <!-- Google Font: Source Sans Pro -->
+      <link rel="stylesheet" href="/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+      <!-- Ionicons -->
+      <link rel="stylesheet" href="/https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+      <!-- Tempusdominus Bootstrap 4 -->
+      <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+      <!-- iCheck -->
+      <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+      <!-- JQVMap -->
+      <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
+      <!-- Theme style -->
+      <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+      <!-- overlayScrollbars -->
+      <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+      <!-- Daterange picker -->
+      <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+      <!-- summernote -->
+      <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+      <!-- PLUGINS CSS STYLE -->
+      <link href="/assets/plugins/simplebar/simplebar.css" rel="stylesheet" />
+      <link href="/assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
+    
+  
+       <link rel="/icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+      <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.min.css">
+      <link href="./vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+      <link href="./css/style.css" rel="stylesheet">
+  
+  
+      <link href="/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+      <link href="/css/lib/chartist/chartist.min.css" rel="stylesheet">
+      <link href="/css/lib/themify-icons.css" rel="stylesheet">
+      <link href="/css/lib/weather-icons.css" rel="stylesheet" />
+   
+  <link rel="stylesheet" href="mystyle.css">
+  <link rel="stylesheet" href="/css/card.css">
+    <script src="/https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <style>
+  .nav-bar {
+    position: fixed;
+    width: 82%;
+    /* z-index: 100; /* Set a high z-index to ensure it appears above other elements */
+  } */
+  </style>
+  </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -380,17 +370,11 @@ table th {
 </div>
 
 
-{{-- JS --}}
-<script src="/https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-<!-- jQuery -->
 <script src="/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
 <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
-<!-- Bootstrap 4 -->
 <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
 <script src="/plugins/chart.js/Chart.min.js"></script>
@@ -412,5 +396,10 @@ table th {
 <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.js"></script>
+<script src="/dist/js/pages/dashboard.js"></script>
+
+<script src="/https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+<script src="/https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
