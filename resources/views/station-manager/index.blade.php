@@ -37,9 +37,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <p class="card-text text-white">{{ $numdata }}</p>
+                <p class="card-text ">{{ $numdata }}</p>
 
-                <p class="card-text text-white">River data</p>
+                <p class="card-text ">River data</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -91,6 +91,7 @@
   </div>
 
   <div class="small-box bg-white">
+    <h1  class="badge  bg-white text-center"> Data at {{ Auth::user()->station->name }} station</h1>
     @if (!empty($data))
     @foreach ($data as $item)
     <div class="container">
@@ -155,7 +156,7 @@
  <div class="small-box bg-white">
   <h1  class="badge  bg-white text-center"> farmers around {{ Auth::user()->station->name }}</h1>
   <div class="container">
-    <table id="responsive-data-table" class="table dt-responsive nowrap" style="width:100%">
+    <table id="responsive-data-table" class="table dt-responsive nowrap table-hover" style="width:100%">
       <tr>
         <th>data(id)</th>
         <th>fname</th>

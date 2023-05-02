@@ -2,7 +2,7 @@
 @section('content')
 <div class="card card-table-border-none dt-responsive nowrap" style="width:100%" id="recent-orders">
       
-  <div class="card-header justify-content-between text-center">
+  <div class="card-header justify-content-between bg-light text-center">
      <h2>Data Management</h2>
      <div class="date-range-report ">
       <span></span>
@@ -19,7 +19,7 @@
   @endif
   <div class="card-body pt-0 pb-5">
          
-          <table id="responsive-data-table" class="table dt-responsive nowrap" style="width:100%">
+          <table id="responsive-data-table " class="table dt-responsive nowrap table-hover" style="width:100%">
             <tr>
                 <th>time </th>
                 <th>Water level</th>
