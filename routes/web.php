@@ -59,8 +59,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/getCells',[StationCommunity::class,'getCells']);
 });
-// Route::get('datastation',StationDataController::class);
 
+//notification
+Route::get('/send',[HomeController::class,'SendNotification']);
+
+
+Route::get('/notifications', function () {
+    return view('notifications.emailnotification');
+});
+Route::post('/notifications', [HomeController::class,'sendNotification']);
 });
 
 
