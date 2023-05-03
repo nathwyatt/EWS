@@ -37,7 +37,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <p class="card-text ">{{ $numdata }}</p>
+                <p class="card-text card-hover">{{ $numdata }}</p>
 
                 <p class="card-text ">River data</p>
               </div>
@@ -77,7 +77,8 @@
             </div>
           </div>
      </div>
-    <div class="small-box bg-white">
+    
+    <div class="small-box bg-white" >
      <h1  class="badge  bg-white text-center"> About  station</h1>
     <div class="row">
      <div class="col-md-4">
@@ -90,8 +91,10 @@
     </div>
   </div>
 
+  <div class="row">
+  <div class="col-md-6">
   <div class="small-box bg-white">
-    <h1  class="badge  bg-white text-center"> Data at {{ Auth::user()->station->name }} station</h1>
+    <a href="{{'/stationdata'}}"  class="badge  bg-white text-center"> Data at {{ Auth::user()->station->name }} station</a>
     @if (!empty($data))
     @foreach ($data as $item)
     <div class="container">
@@ -151,16 +154,22 @@
   @endforeach
   @endif
    </div>
+  </div>
 
- </div>
+  <div class="col-md-6">
+    <div class="small-box bg-white">
+      <a href="" class="badge  bg-white text-center">Chart for  {{ Auth::user()->station->name }} data</a>
+    </div>
+  </div>
+  </div>
  <div class="small-box bg-white">
-  <h1  class="badge  bg-white text-center"> farmers around {{ Auth::user()->station->name }}</h1>
+  <a href="{{'/community'}}" class="badge  bg-white text-center">farmers around {{ Auth::user()->station->name }}</a>
   <div class="container">
     <table id="responsive-data-table" class="table dt-responsive nowrap table-hover" style="width:100%">
       <tr>
-        <th>data(id)</th>
-        <th>fname</th>
-        <th>fname</th>
+        <th>farmerID</th>
+        <th>first name</th>
+        <th>last name</th>
         <th>Email</th>
         <th>phone</th>
     </tr>
@@ -176,6 +185,8 @@
   </table>
  </div>
  </div>
+</div>
+
  <div class="card">
   <div class="card-header">
     <h3 class="card-title">

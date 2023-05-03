@@ -7,13 +7,15 @@ use App\Models\Station_Data;
 use App\Models\User;
 use App\Notifications\SensorDataNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StationDataController extends Controller
 {
     public function index()
     {
-        
-        $data = Station_Data::latest()->paginate(5);
+       
+        $id = Auth::user()->station->id;
+        $data = Station_Data::where('station_id', $id)->get();
         
      return view('stationdata.index',compact('data'))
         ->with('i', (request()->input('page', 1) - 1) * 5);;

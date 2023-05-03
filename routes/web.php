@@ -40,17 +40,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('stations', StationController::class);
     Route::resource('home', HomeController::class);
     Route::resource('stationdata',StationDataController::class);
-    // Route::resource('stationmanager',StationManagerController::class);
-    // Route::get('/stations/all', [StationCommunity::class, 'AllStations']);
     Route::resource('community',CommunityController::class);
-
     Route::get('/sensor-data', [StationDataController::class, 'processSensorData']);
 
     // profile
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile',[ProfileController::class,'index']);
     Route::post('profile/{user}',[ProfileController::class,'update'])->name('profile.update');
-    // Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('user.profile.store');
+   
 
     //locations
     Route::get('/getDistricts',[StationCommunity::class,'getDistricts']);    

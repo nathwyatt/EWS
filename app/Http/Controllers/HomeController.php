@@ -25,17 +25,16 @@ class HomeController extends Controller
     public function index(Request $request)
 
   {  
-    $stationId=$request->input('station_id');
-    $data = Station_Data::get();
-    $com = Community::get();
-
-    $stationId=$request->input('station_id');
-    $data = Station_Data::get();
-    $com = Community::get();
-
     
-    $numfarmers = Community::count(); 
-    $numdata = Station_Data::count();   
+   
+    $id = Auth::user()->station->id;
+    $data = Station_Data::where('station_id', $id)->get();
+    $com = Community::where('station_id', $id)->get();
+    $stationId=$request->input('station_id');
+   
+    
+    $numfarmers = Community::where('station_id', $id)->count(); 
+    $numdata = Station_Data::where('station_id', $id)->count();   
     
     $user = Auth::user();
     if ($user->hasRole("Station-manager"))
@@ -80,4 +79,6 @@ class HomeController extends Controller
 
         return redirect('/notifications')->with('success', 'Notification sent successfully!');
     }
+
+    
 }

@@ -1,14 +1,23 @@
 @extends('layouts.app')
-
+<style>
+.img
+{
+    width: 100px; 
+  height: 100px; 
+  border-radius: 50%; 
+  margin: auto; 
+  display: block; 
+}
+</style>
 @section('content')
 <div class="container">
+    <img src="/image/icon.jpg" alt="EWSLogo"  alt="User Avatar" class="img">
     <div class="row justify-content-center">
+       
+
         <div class="col-md-8">
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Login here: </button>
-            </div>
             
-            <div class="card   btn-badge  bg-light">
+            <div class="card   btn-badge  bg-dark">
                 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

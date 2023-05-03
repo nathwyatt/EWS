@@ -346,7 +346,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{ route('stations.index') }}" class="nav-link">
+            <a href="{{ ('/notifications') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Notifications</p>
             </a>
