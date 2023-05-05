@@ -5,10 +5,11 @@ namespace App\Models;
   
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Station extends Model
 {
-    use HasFactory;
+    use HasFactory , Notifiable;
 
     protected $fillable = [
         'name', 
@@ -52,5 +53,11 @@ class Station extends Model
     public function Province()
     {
         return $this->belongsTo(Province::class);
+    }
+
+    public function routeNotificationForDatabase()
+    {
+        dd($this->user_id);
+        return $this->user_id;
     }
 }

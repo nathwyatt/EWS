@@ -6,6 +6,7 @@ use App\Models\Station;
 use App\Models\Station_Data;
 use App\Models\User;
 use App\Notifications\SensorDataNotification;
+use App\Notifications\StationDataUpdated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,25 +26,28 @@ class StationDataController extends Controller
     public function create()
     {
         $station=Station::get();
+        
        return view('stationdata.create',compact('station')); 
     }
-
     public function store(Request $request)
     {
-        request()->validate([
-            'water_level'=>'required',
-             'temperature'=>'required',
-             'hummidity'=>'required',
-             'soil_moisture'=>'required',
-             'station_id'=>'required'
-            
+        $stationData = new Station_Data([
+            'water_level' => $request->water_level,
+            'temperature' => $request->temperature,
+            'hummidity' => $request->hummidity,
+            'soil_moisture' => $request->soil_moisture,
+            'station_id' => $request->station_id,
         ]);
-        Station_Data::create($request->all());
     
+        $stationData->save();
+    
+        // $stationData->notify(new StationDataUpdated($stationData));
+        // dd($stationData->id);
         return redirect()->route('stationdata.index')
-                        ->with('success','station created successfully.');
+                        ->with('success','new data created');
     }
-       
+    
+    
 
     public function sendNotifications($data)
 {
@@ -77,5 +81,7 @@ public function processSensorData(Request $request)
 
 
 }
+
+
 
 }

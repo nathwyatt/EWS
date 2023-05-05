@@ -48,4 +48,10 @@ class User extends Authenticatable
     {
      return $this->hasOne(Station::class);
     }
+
+    public function routeNotificationForDatabase($notification)
+{
+    
+    return $this->id;
+}
 }

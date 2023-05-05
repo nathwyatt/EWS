@@ -96,63 +96,47 @@
   <div class="small-box bg-white">
     <a href="{{'/stationdata'}}"  class="badge  bg-white text-center"> Data at {{ Auth::user()->station->name }} station</a>
     @if (!empty($data))
-    @foreach ($data as $item)
-    <div class="container">
-    {{$item->created_at}}
-    <div class="row">
-    
-   <div class="col-lg-3 col-3">
   
-        <div class="small-box bg-green">
-            <h1 class="badge  text-center">Water level</h1>
-            <div class="inner">
-             
-              
-                {{ $item->water_level }}
-               
+    @php $latestData = $data->latest('created_at')->first(); @endphp
+    <div class="container">
+        {{ $latestData->created_at }}
+        <div class="row">
+            <div class="col-lg-3 col-3">
+                <div class="small-box bg-green">
+                    <h1 class="badge text-center">Water level</h1>
+                    <div class="inner">
+                        {{ $latestData->water_level }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-3">
+                <div class="small-box bg-yellow">
+                    <h1 class="badge text-center">Temperature</h1>
+                    <div class="inner">
+                        <p class="card-text">{{ $latestData->temperature }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-3">
+                <div class="small-box bg-orange">
+                    <h1 class="badge text-center">Humidity</h1>
+                    <div class="inner">
+                        <p class="card-text">{{ $latestData->hummidity }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-3">
+                <div class="small-box bg-pink">
+                    <h1 class="badge text-center">Soil moisture</h1>
+                    <div class="inner">
+                        <p class="card-text">{{ $latestData->soil_moisture }}</p>
+                    </div>
+                </div>
             </div>
         </div>
-  </div>
- 
- 
-
-  <div class="col-lg-3 col-3">
- 
-    <div class="small-box bg-yellow">
-      <h1  class="badge   text-center"> Temperature</h1>
-      <div class="inner">
-        
-        <p class="card-text">{{ $item->temperature }}</p>
-       
-      </div>
     </div>
-  </div>
-  <div class="col-lg-3 col-3">
-  
-    <div class="small-box bg-orange">
-      <h1  class="badge   text-center"> hummidity</h1>
-      <div class="inner">
-      
-        <p class="card-text">{{ $item->hummidity }}</p>
-        
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 col-3">
-    
-    <div class="small-box bg-pink">
-      <h1  class="badge   text-center"> soil moisture</h1>
-      <div class="inner">
-      
-        <p class="card-text">{{ $item->soil_moisture }}</p>
-      
-      </div>
-    </div>
-  </div>
-    </div>
-    </div>
-  @endforeach
   @endif
+  <a href="{{'/stationdata'}}" class="small-box-footer bg-green">All Station_data records <i class="fas fa-arrow-circle-right bg-light"></i></a>
    </div>
   </div>
 

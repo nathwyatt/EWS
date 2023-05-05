@@ -28,7 +28,7 @@ class HomeController extends Controller
     
    
     $id = Auth::user()->station->id;
-    $data = Station_Data::where('station_id', $id)->get();
+    $data = Station_Data::where('station_id',$id)->latest('created_at')->first();
     $com = Community::where('station_id', $id)->get();
     $stationId=$request->input('station_id');
    
@@ -39,6 +39,7 @@ class HomeController extends Controller
     $user = Auth::user();
     if ($user->hasRole("Station-manager"))
      {
+        
         return view('station-manager.index', compact('data','com','numfarmers','numdata'));
      }
     else 
@@ -79,6 +80,8 @@ class HomeController extends Controller
 
         return redirect('/notifications')->with('success', 'Notification sent successfully!');
     }
+
+   
 
     
 }
