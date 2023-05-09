@@ -45,10 +45,15 @@ Route::group(['middleware' => ['auth']], function() {
 
     // profile
 Route::middleware(['auth'])->group(function () {
-    Route::get('/profile',[ProfileController::class,'index']);
+    
     Route::post('profile/{user}',[ProfileController::class,'update'])->name('profile.update');
-   
+    Route::get('/editprofile/{id}', [ProfileController::class, 'editprofile'])->name('editprofile');
 
+    Route::get('/profile', function () {
+        $user = Auth::user();
+        return view('profile.profile', compact('user'));
+    });
+    
     //locations
     Route::get('/getDistricts',[StationCommunity::class,'getDistricts']);    
 
@@ -74,14 +79,7 @@ Route::get('chart', [\App\Http\Controllers\ChartJSController::class, 'handleChar
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index']);
 
-  //profile
-  // Route::middleware(['auth'])->group(function () {
-  //   Route::get('/profile',[ProfileController::class,'index']);
-  //   Route::post('profile/{user}',[ProfileController::class,'update'])->name('profile.update');
-  // });
-// Route::get('datastation',StationDataController::class);
-
-//location
+  
 
 Route::get('/locations/create', [LocationController::class, 'create'])->name('location.create');
 Route::post('/locations', [LocationController::class, 'store'])->name('location.store');

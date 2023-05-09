@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth;
 use App\Models\User;
 
 use Illuminate\Http\Request;
-
+use Spatie\Permission\Models\Role;
 
 class ProfileController extends Controller
 {
@@ -13,21 +13,35 @@ class ProfileController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
+    public function index($id)
     {
-        return view('profile');
+        $user = User::find($id);
+       
+        return view('profile.profile',compact('user',));
+    }
+
+    public function editprofile(User $user )
+    {
+        $user = User::all();
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+    
+        return view('profile.edit',compact('user','roles','userRole'));
     }
 
     public function update(User $user, Request $request)
     {   
-        $user->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'avatar'=>$request->avator,
-            'updated_at' => now()
+       
+            request()->validate([
+                'name' => 'required',
+                'email' =>'required',
+                'avatar'=>'required',
+                'updated_at'=> now()
+                
         ]);
 
-        return view('profile')->with('profile','Profile updated successfully!');
+        $user->update($request->all());
+        return view('profile.profile')->with('profile','Profile updated successfully!');
     }
     public function store(Request $request)
     {
