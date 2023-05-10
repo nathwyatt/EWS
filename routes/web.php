@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StationManagerController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\frontend;
 use App\Http\Controllers\StationCommunity;
 use App\Models\Station;
 use App\Models\Station_Data;
@@ -26,9 +27,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [frontend::class,'index'] );
 
 Auth::routes();
 

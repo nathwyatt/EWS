@@ -402,10 +402,11 @@
 ================================================== -->
 
     <!-- Navigation -->
+    <section  class="portfolio-section-1">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class="navbar-header ">
                
                 <img src="/image/icon.jpg" alt="EWSLogo"  alt="User Avatar" class="img-size-50 img-circle mr-3 navbar-brand page-scroll">
                 <a class="navbar-brand page-scroll" href="">EWS</a>
@@ -416,11 +417,9 @@
                 <ul class="nav navbar-nav navbar-right">
                    
                     <li>
-                        <a class="page-scroll" href="#feature">Feature</a>
+                        <a class="page-scroll" href="#portfolio">home</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
-                    </li>
+                    
                     <li>
                         <a class="page-scroll" href="#about-us">About</a>
                     </li>
@@ -445,12 +444,14 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
+                    <li>
                     @guest
                     @if (Route::has('login'))
                        
                             <a class="page-scroll" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                     @endif
+                    <li>
                     @if (Route::has('register'))
                        
                             <a class="page-scroll" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -463,231 +464,41 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
+</section>
     
-    
-    
-   <section>
-
-           
-    <!-- Start Feature Section -->
-        <section id="feature" class="feature-section ">
-            <div class="container ">
-                <div class="row ">
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="feature">
-                            <i class="fa fa-magic"></i>
-                            <div class="feature-content">
-                                <h4>Web Design</h4>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                            </div>
-                        </div>
-                    </div><!-- /.col-md-3 -->
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="feature">
-                            <i class="fa fa-gift"></i>
-                            <div class="feature-content">
-                                <h4>Graphics Design</h4>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                            </div>
-                        </div>
-                    </div><!-- /.col-md-3 -->
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="feature">
-                            <i class="fa fa-wordpress"></i>
-                            <div class="feature-content">
-                                <h4>Wordpress Theme</h4>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                            </div>
-                        </div>
-                    </div><!-- /.col-md-3 -->
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="feature">
-                            <i class="fa fa-plug"></i>
-                            <div class="feature-content">
-                                <h4>Wordpress Plugin</h4>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- /.row -->
-            
-            </div><!-- /.container -->
-        </section>
-        <!-- End Feature Section -->
-    
-    
-    <!-- Start Call to Action Section -->
- 
-    <!-- End Call to Action Section -->
-    
-    
-    
-    <!-- Start Portfolio Section -->
-        <section id="portfolio" class="portfolio-section-1">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="section-title text-center">
-                            <h3>Our Portfolio</h3>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate</p>
-                        </div>                        
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        
-                        <!-- Start Portfolio items -->
-                        <ul id="portfolio-list">
-                            <li>
-                                <div class="portfolio-item">
-                                    <img src="images/portfolio/img1.jpg" class="img-responsive" alt="" />
-                                    <div class="portfolio-caption">
-                                        <h4>Portfolio Title</h4>
-                                        <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i class="fa fa-magic"></i></a>
-                                        <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="portfolio-item">
-                                    <img src="images/portfolio/img2.jpg" class="img-responsive" alt="" />
-                                    <div class="portfolio-caption">
-                                        <h4>Portfolio Title</h4>
-                                        <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i class="fa fa-magic"></i></a>
-                                        <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="portfolio-item">
-                                    <img src="images/portfolio/img3.jpg" class="img-responsive" alt="" />
-                                    <div class="portfolio-caption">
-                                        <h4>Portfolio Title</h4>
-                                        <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i class="fa fa-magic"></i></a>
-                                        <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="portfolio-item">
-                                    <img src="images/portfolio/img4.jpg" class="img-responsive" alt="" />
-                                    <div class="portfolio-caption">
-                                        <h4>Portfolio Title</h4>
-                                        <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i class="fa fa-magic"></i></a>
-                                        <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="portfolio-item">
-                                    <img src="images/portfolio/img5.jpg" class="img-responsive" alt="" />
-                                    <div class="portfolio-caption">
-                                        <h4>Portfolio Title</h4>
-                                        <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i class="fa fa-magic"></i></a>
-                                        <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="portfolio-item">
-                                    <img src="images/portfolio/img6.jpg" class="img-responsive" alt="" />
-                                    <div class="portfolio-caption">
-                                        <h4>Portfolio Title</h4>
-                                        <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i class="fa fa-magic"></i></a>
-                                        <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                            
-                        </ul>
-                        <!-- End Portfolio items -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Portfolio Section -->
-    
-    <!-- Start Portfolio Modal Section -->
-        <div class="section-modal modal fade" id="portfolio-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                
+   
+   <section id="portfolio" class="portfolio-section-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3>EWS Muvumba</h3>
+                    <p>Welcome to Early warning system Muvumba website</p>
+                </div>    
                 <div class="container">
                     <div class="row">
-                        <div class="section-title text-center">
-                            <h3>Portfolio Details</h3>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate</p>
+                        @foreach($station as $st)
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="feature">
+                                <img src="image/photo 1.jpg" alt="station Image" class="img-responsive" />                                <div class="feature-content">
+                                    <h4>{{$st->name}}</h4>
+                                    <p>{{$st->details}}</p>
+                              
+                            </div>
+                        </div><!-- /.col-md-3 -->
                         </div>
-                    </div>
-                    <div class="row">
-                        
-                        <div class="col-md-6">
-                            <img src="images/portfolio/img1.jpg" class="img-responsive" alt="..">
-                        </div>
-                        <div class="col-md-6">
-                            <img src="images/portfolio/img1.jpg" class="img-responsive" alt="..">
-                        </div>
-                        
-                    </div><!-- /.row -->
-                </div>                
+                    @endforeach
+                </div><!-- /.row -->            
+                
+            </div>                    
             </div>
         </div>
-        <!-- End Portfolio Modal Section -->
-    
-    
-    <!-- Start About Us Section -->
-    <section id="about-us" class="about-us-section-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="section-title text-center">
-                            <h3>About Us</h3>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate</p>
-                        </div>
-                </div>
-            </div>
-            <div class="row">
-                
-                <div class="col-md-4">
-                    <div class="welcome-section text-center">
-                        <img src="images/about-01.jpg" class="img-responsive" alt="..">
-                        <h4>Office Philosophy</h4>
-                        <div class="border"></div>
-                        <p>Duis aute irure dolor in reprehen derit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Lorem reprehenderit</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="welcome-section text-center">
-                        <img src="images/about-02.jpg" class="img-responsive" alt="..">
-                        <h4>Office Mission & Vission</h4>
-                        <div class="border"></div>
-                        <p>Duis aute irure dolor in reprehen derit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Lorem reprehenderit</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="welcome-section text-center">
-                        <img src="images/about-03.jpg" class="img-responsive" alt="..">
-                        <h4>Office Value & Rules</h4>
-                        <div class="border"></div>
-                        <p>Duis aute irure dolor in reprehen derit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Lorem reprehenderit</p>
-                    </div>
-                </div>
-                
-            </div><!-- /.row -->            
-            
-        </div><!-- /.container -->
-    </section>
-    <!-- End About Us Section -->
+       
+    </div>
+</section>
+   <section>
 
+     
 
     <!-- Start About Us Section 2 -->
     <div class="about-us-section-2">
