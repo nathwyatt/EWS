@@ -39,8 +39,12 @@ class HomeController extends Controller
     $user = Auth::user();
     if ($user->hasRole("Station-manager"))
      {
-        
-        return view('station-manager.index', compact('data','com','numfarmers','numdata'));
+        $unreadNotifications = auth()->user()->unreadNotifications;
+        $unreadNotificationsCount = $unreadNotifications->count();
+    
+        // Mark all unread notifications as read
+        $unreadNotifications->markAsRead();
+        return view('station-manager.index', compact('data','com','numfarmers','numdata','unreadNotificationsCount'));
      }
     else 
     {
@@ -82,6 +86,14 @@ class HomeController extends Controller
     }
 
    
-
+      public function layout()
+    {
+        $unreadNotifications = auth()->user()->unreadNotifications;
+        $unreadNotificationsCount = $unreadNotifications->count();
+    dd($unreadNotificationsCount);
+        // Mark all unread notifications as read
+        $unreadNotifications->markAsRead();
+        return view('stations', compact('unreadNotificationsCount'));
+    }
     
 }

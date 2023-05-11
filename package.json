@@ -14,7 +14,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "chart.js": "^4.2.1",
+        "chart.js": "^4.3.0",
         "lodash": "^4.17.21",
         "module-name": "^0.0.1-security",
         "node": "^16.16.0"

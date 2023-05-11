@@ -7,6 +7,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use App\Models\Station_Data;
+use Illuminate\Notifications\Messages\BroadcastMessage;
+
 class StationDataUpdated extends Notification
 {
     use Queueable;
@@ -24,19 +26,30 @@ class StationDataUpdated extends Notification
      *
      * @return array<int, string>
      */
+    public function viaNotificationChannel()
+{
+    return ['database'];
+}
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'mail', 'broadcast'];
     }
 
-    public function toDatabase($notifiable)
+    
+
+    public function toArray($notifiable)
     {
         return [
-            'station_data_id' => $this->stationData->id,
-            'station_id' => $this->stationData->station_id,
-            'message' => 'new data on ' . $this->stationData->name,
+            'message' => 'New station data has been added to your station.',
+            'link' => '/station-data/' . $this->stationData->id,
         ];
     }
-
  
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([
+            'message' => 'New station data has been added to your station.',
+            'link' => '/station-data/' . $this->stationData->id,
+        ]);
+    }
 }

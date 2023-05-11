@@ -63,13 +63,14 @@ Route::middleware(['auth'])->group(function () {
 
 //notification
 Route::get('/send',[HomeController::class,'SendNotification']);
-
+Route::get('layout',[HomeController::class,'layout']);
 
 Route::get('/notifications', function () {
     return view('notifications.emailnotification');
 });
 Route::post('/notifications', [HomeController::class,'sendNotification']);
 });
+Route::get('/datanotification', [StationDataController::class,'notifications'])->name('station-manager.notifications');
 
 
 Route::get("/admin",[\App\Http\Controllers\AdminController::class,'index']);

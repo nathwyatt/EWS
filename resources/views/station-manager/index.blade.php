@@ -52,13 +52,13 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner ">
-                <p class="card-text text-yellow">2</p>
+                <p class="card-text text-yellow">{{$unreadNotificationsCount}}</p>
                 <p class="card-text text-yellow">notifications</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{'/datanotification'}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -92,8 +92,8 @@
   </div>
 
   <div class="row">
-  <div class="col-md-6">
-  <div class="small-box bg-white">
+  <div class="col-md-12">
+  <div class="small-box ">
     <a href="{{'/stationdata'}}"  class="badge  bg-white text-center"> Data at {{ Auth::user()->station->name }} station</a>
     @if (!empty($data))
   
@@ -139,13 +139,12 @@
   <a href="{{'/stationdata'}}" class="small-box-footer bg-green">All Station_data records <i class="fas fa-arrow-circle-right bg-light"></i></a>
    </div>
   </div>
-
-  <div class="col-md-6">
+  </div>
+  </div>
     <div class="small-box bg-white">
       <a href="" class="badge  bg-white text-center">Chart for  {{ Auth::user()->station->name }} data</a>
     </div>
-  </div>
-  </div>
+  
  <div class="small-box bg-white">
   <a href="{{'/community'}}" class="badge  bg-white text-center">farmers around {{ Auth::user()->station->name }}</a>
   <div class="container">

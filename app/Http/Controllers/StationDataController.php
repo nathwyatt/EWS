@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Station;
 use App\Models\Station_Data;
 use App\Models\User;
+use App\Notifications\newdata;
 use App\Notifications\SensorDataNotification;
 use App\Notifications\StationDataUpdated;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification as NotificationsNotification;
 use Illuminate\Support\Facades\Auth;
+use Notification;
 
 class StationDataController extends Controller
 {
@@ -29,59 +32,38 @@ class StationDataController extends Controller
         
        return view('stationdata.create',compact('station')); 
     }
+
+
     public function store(Request $request)
-    {
-        $stationData = new Station_Data([
-            'water_level' => $request->water_level,
-            'temperature' => $request->temperature,
-            'hummidity' => $request->hummidity,
-            'soil_moisture' => $request->soil_moisture,
-            'station_id' => $request->station_id,
-        ]);
-    
-        $stationData->save();
-    
-        // $stationData->notify(new StationDataUpdated($stationData));
-        // dd($stationData->id);
-        return redirect()->route('stationdata.index')
-                        ->with('success','new data created');
-    }
-    
-    
-
-    public function sendNotifications($data)
 {
-    // Get the users that need to be notified
-    $users = User::all(); // Example: notify all users
-
-    // Create a new instance of the notification and pass the sensor data
-    $notification = new SensorDataNotification($data);
-
-    // Loop through the users and trigger the notification for each user
-    foreach ($users as $user) {
-        $user->notify($notification);
-    }
-}
-public function processSensorData(Request $request)
-{
-    // Validate the request data
-    $validatedData = $request->validate([
-        'temperature' => 'required|numeric',
-        'humidity' => 'required|numeric',
-        'water_level' => 'required|numeric',
-        'soil_moisture' => 'required|numeric',
+    $stationData = new Station_Data([
+        'water_level' => $request->water_level,
+        'temperature' => $request->temperature,
+        'hummidity' => $request->hummidity,
+        'soil_moisture' => $request->soil_moisture,
+        'station_id' => $request->station_id,
     ]);
 
-    // Save the sensor data to the database
-    $stationData = new Station_Data($validatedData);
     $stationData->save();
+   $message ='new data is created';
+    $stationManagers = User::find(auth()->user()->id);
+    if($stationManagers->hasRole("Station-manager") )
+    {
+        $stationManagers->notify(new newdata($stationData,$message));
+   
+    }
 
-    // Trigger the notification system
-    $this->sendNotifications($validatedData);
+   
 
-
+    return redirect()->route('stationdata.index')
+                    ->with('success','New data created');
 }
 
+public function notifications()
+{
+    $notifications = auth()->user()->unreadNotifications;
 
+    return view('station-manager.notifications', compact('notifications'));
+}
 
 }
