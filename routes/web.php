@@ -63,7 +63,7 @@ Route::middleware(['auth'])->group(function () {
 
 //notification
 Route::get('/send',[HomeController::class,'SendNotification']);
-Route::get('layout',[HomeController::class,'layout']);
+Route::get('/home1',[HomeController::class,'showDashboard']);
 
 Route::get('/notifications', function () {
     return view('notifications.emailnotification');

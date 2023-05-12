@@ -41,10 +41,10 @@ class HomeController extends Controller
      {
         $unreadNotifications = auth()->user()->unreadNotifications;
         $unreadNotificationsCount = $unreadNotifications->count();
-    
-        // Mark all unread notifications as read
         $unreadNotifications->markAsRead();
-        return view('station-manager.index', compact('data','com','numfarmers','numdata','unreadNotificationsCount'));
+        // $notifications = auth()->user()->unreadNotifications->toArray();
+     
+        return view('station-manager.index', compact('data','com','numfarmers','numdata','unreadNotificationsCount','unreadNotifications'));
      }
     else 
     {

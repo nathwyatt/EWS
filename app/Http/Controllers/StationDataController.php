@@ -20,8 +20,11 @@ class StationDataController extends Controller
        
         $id = Auth::user()->station->id;
         $data = Station_Data::where('station_id', $id)->get();
+        $unreadNotifications = auth()->user()->unreadNotifications;
+        $unreadNotificationsCount = $unreadNotifications->count();
+        $unreadNotifications->markAsRead();
         
-     return view('stationdata.index',compact('data'))
+     return view('stationdata.index',compact('data','unreadNotificationsCount'))
         ->with('i', (request()->input('page', 1) - 1) * 5);;
        
     }
