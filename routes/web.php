@@ -28,9 +28,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [frontend::class,'index'] );
-
+// Route::middleware('setapplang')->prefix('{locale}')->group(function(){
 Auth::routes();
-
+// });
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
@@ -43,7 +43,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/sensor-data', [StationDataController::class, 'processSensorData']);
 
     // profile
-Route::middleware(['auth'])->group(function () {
     
     Route::post('profile/{user}',[ProfileController::class,'update'])->name('profile.update');
     Route::get('/editprofile/{id}', [ProfileController::class, 'editprofile'])->name('editprofile');
@@ -69,7 +68,7 @@ Route::get('/notifications', function () {
     return view('notifications.emailnotification');
 });
 Route::post('/notifications', [HomeController::class,'sendNotification']);
-});
+
 Route::get('/datanotification', [StationDataController::class,'notifications'])->name('station-manager.notifications');
 
 

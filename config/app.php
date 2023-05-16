@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'EWS Muvumba'),
 
     /*
     |--------------------------------------------------------------------------
@@ -83,7 +83,10 @@ return [
     */
 
     'locale' => 'en',
-
+    'available_locale'=>[
+        'en',
+        'fr'
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -211,5 +214,9 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
+
+
+
+
 
 ];
