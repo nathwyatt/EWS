@@ -26,19 +26,18 @@ class HomeController extends Controller
 
   {  
     
-   
-    $id = Auth::user()->station->id;
-    $data = Station_Data::where('station_id',$id)->latest('created_at')->first();
-    $com = Community::where('station_id', $id)->get();
-    $stationId=$request->input('station_id');
-   
-    
-    $numfarmers = Community::where('station_id', $id)->count(); 
-    $numdata = Station_Data::where('station_id', $id)->count();   
-    
+
     $user = Auth::user();
     if ($user->hasRole("Station-manager"))
      {
+        $id = Auth::user()->station->id;
+        $data = Station_Data::where('station_id',$id)->latest('created_at')->first();
+        $com = Community::where('station_id', $id)->get();
+        $stationId=$request->input('station_id');
+
+        $numfarmers = Community::where('station_id', $id)->count(); 
+        $numdata = Station_Data::where('station_id', $id)->count(); 
+
         $unreadNotifications = auth()->user()->unreadNotifications;
         $unreadNotificationsCount = $unreadNotifications->count();
         $unreadNotifications->markAsRead();
@@ -51,7 +50,12 @@ class HomeController extends Controller
         $numUsers = User::count();
         $numStations = Station::count();
         $numRoles = Role::count();
-        return view('home', compact('numUsers', 'numStations', 'numRoles'));
+
+        $managers = User::all();
+        $station = Station::all();
+
+        // $stationData= StationData::get()->latest('created_at')->first();
+        return view('home', compact('numUsers', 'numStations', 'numRoles','station','managers'));
     }
 }
     public function view()

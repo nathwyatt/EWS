@@ -373,12 +373,10 @@
           </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-    <div class="container">
-<main>
+<div class="container">
     @yield('content')
-</main>
-    </div>            
-    </div>
+</div>
+
    {{-- jQuery --}}
 <script src="/plugins/jquery/jquery.min.js"></script>
 <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>

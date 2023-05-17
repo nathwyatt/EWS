@@ -92,8 +92,8 @@
   </div>
 
   <div class="row">
-  <div class="col-md-12">
-  <div class="small-box ">
+    <div class="col-md-12">
+     <div class="small-box ">
     <a href="{{'/stationdata'}}"  class="badge  bg-white text-center"> Data at {{ Auth::user()->station->name }} station</a>
     @if (!empty($data))
   
