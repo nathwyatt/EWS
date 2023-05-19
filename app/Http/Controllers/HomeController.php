@@ -43,7 +43,25 @@ class HomeController extends Controller
         $unreadNotifications->markAsRead();
         // $notifications = auth()->user()->unreadNotifications->toArray();
      
-        return view('station-manager.index', compact('data','com','numfarmers','numdata','unreadNotificationsCount','unreadNotifications'));
+
+
+        //charts
+        $temperatureData = []; // Initialize an empty array for temperature data
+        $waterLevelData = []; // Initialize an empty array for water level data
+        $soilMoistureData = []; // Initialize an empty array for soil moisture data
+        $humidityData = []; // Initialize an empty array for humidity data
+        $timeData = []; // Initialize an empty array for time data
+    
+        $stationData = Station_Data::where('station_id', $id)->get();
+    
+        foreach ($stationData as $data) {
+            $temperatureData[] = $data->temperature; 
+            $waterLevelData[] = $data->water_level; 
+            $soilMoistureData[] = $data->soil_moisture; 
+            $humidityData[] = $data->hummidity; 
+            $timeData[] = $data->created_at->format('Y-m-d H:i:s'); 
+        }
+        return view('station-manager.index', compact('data','com','numfarmers','numdata','unreadNotificationsCount','unreadNotifications','temperatureData', 'waterLevelData', 'soilMoistureData', 'humidityData', 'timeData'));
      }
     else 
     {

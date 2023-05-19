@@ -6,7 +6,7 @@
   
   <div class="row">
     <div class="col-lg-12 margin-tb">
-      <div class="card-header justify-content-between text-center">
+      <div class="card-header justify-content-between text-center ">
           <h2> {{Auth::user()->Station->name }} station </h2>
           <div class="date-range-report ">
            <span></span>
@@ -78,7 +78,7 @@
           </div>
      </div>
     
-    <div class="small-box bg-white" >
+    {{-- <div class="small-box bg-white" >
      <h1  class="badge  bg-white text-center"> About  station</h1>
     <div class="row">
      <div class="col-md-4">
@@ -89,105 +89,171 @@
       <p class="">{{ Auth::user()->station->details }}</p>
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <div class="row">
     <div class="col-md-12">
-     <div class="small-box ">
-    <a href="{{'/stationdata'}}"  class="badge  bg-white text-center"> Data at {{ Auth::user()->station->name }} station</a>
-    @if (!empty($data))
+        <div class="small-box ">
+            <a href="{{'/stationdata'}}"  class="badge  bg-light text-center">Data at {{ Auth::user()->station->name }} station</a>
+            @if (!empty($data))
+                @php $latestData = $data->latest('created_at')->first(); @endphp
+                <div class="container">
+                    {{ $latestData->created_at }}
+                    <div class="row">
+                        <div class="col-lg-3 col-3">
+                            <div class="small-box" style="background-color: rgba(54, 162, 235, 0.6);">
+                                <h1 class="badge text-center">Water level</h1>
+                                <div class="inner">
+                                    {{ $latestData->water_level }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-3">
+                            <div class="small-box" style="background-color: rgba(255, 99, 132, 0.6);">
+                                <h1 class="badge text-center">Temperature</h1>
+                                <div class="inner">
+                                    <p class="card-text">{{ $latestData->temperature }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-3">
+                            <div class="small-box" style="background-color: rgba(255, 206, 86, 0.6);">
+                                <h1 class="badge text-center">Humidity</h1>
+                                <div class="inner">
+                                    <p class="card-text">{{ $latestData->hummidity }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-3">
+                            <div class="small-box" style="background-color: rgba(75, 192, 192, 0.6);">
+                                <h1 class="badge text-center">Soil moisture</h1>
+                                <div class="inner">
+                                    <p class="card-text">{{ $latestData->soil_moisture }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+            <a href="{{'/stationdata'}}" class="small-box-footer bg-light">All Station_data records <i class="fas fa-arrow-circle-right bg-light"></i></a>
+        </div>
+    </div>
+</div>
+
   
-    @php $latestData = $data->latest('created_at')->first(); @endphp
-    <div class="container">
-        {{ $latestData->created_at }}
-        <div class="row">
-            <div class="col-lg-3 col-3">
-                <div class="small-box bg-green">
-                    <h1 class="badge text-center">Water level</h1>
-                    <div class="inner">
-                        {{ $latestData->water_level }}
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-3">
-                <div class="small-box bg-yellow">
-                    <h1 class="badge text-center">Temperature</h1>
-                    <div class="inner">
-                        <p class="card-text">{{ $latestData->temperature }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-3">
-                <div class="small-box bg-orange">
-                    <h1 class="badge text-center">Humidity</h1>
-                    <div class="inner">
-                        <p class="card-text">{{ $latestData->hummidity }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-3">
-                <div class="small-box bg-pink">
-                    <h1 class="badge text-center">Soil moisture</h1>
-                    <div class="inner">
-                        <p class="card-text">{{ $latestData->soil_moisture }}</p>
-                    </div>
-                </div>
+  <div class="row">
+    <div class="col-md-6">
+        <div class="small-box bg-white">
+            <a href="{{'/community'}}" class="badge bg-white text-center">farmers around {{ Auth::user()->station->name }}</a>
+            <div class="container">
+             <div class="table-responsive">
+                  <table id="example1" class="table table-bordered table-striped">
+                      <thead>
+                          <tr>
+                              <th>farmerID</th>
+                              <th>first name</th>
+                              <th>last name</th>
+                              <th>Email</th>
+                              <th>phone</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @foreach ($com as $key => $com)
+                              <tr>
+                                  <td>{{$com->id}}</td>
+                                  <td>{{ $com->fname }}</td>
+                                  <td>{{ $com->lname }}</td>
+                                  <td>{{ $com->email }}</td>
+                                  <td>{{ $com->phone }}</td>
+                              </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
+              </div>
             </div>
         </div>
     </div>
-  @endif
-  <a href="{{'/stationdata'}}" class="small-box-footer bg-green">All Station_data records <i class="fas fa-arrow-circle-right bg-light"></i></a>
-   </div>
-  </div>
-  </div>
-  </div>
-    <div class="small-box bg-white">
-      <a href="" class="badge  bg-white text-center">Chart for  {{ Auth::user()->station->name }} data</a>
+    <div class="col-md-6">
+        <div class="small-box bg-white">
+            <a href="" class="badge bg-white text-center">Chart for {{ Auth::user()->station->name }} data</a>
+      
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+          <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script>
+              var ctx = document.getElementById('myChart').getContext('2d');
+
+              var chart = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                      labels: {!! json_encode($timeData) !!},
+                      datasets: [
+                          {
+                              label: 'Temperature',
+                              data: {!! json_encode($temperatureData) !!},
+                              backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                          },
+                          {
+                              label: 'Water Level',
+                              data: {!! json_encode($waterLevelData) !!},
+                              backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                          },
+                          {
+                              label: 'Soil Moisture',
+                              data: {!! json_encode($soilMoistureData) !!},
+                              backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                          },
+                          {
+                              label: 'Humidity',
+                              data: {!! json_encode($humidityData) !!},
+                              backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                          },
+                      ]
+                  },
+                  options: {
+                      responsive: true,
+                      scales: {
+                          x: {
+                              stacked: true,
+                          },
+                          y: {
+                              beginAtZero: true,
+                          }
+                      },
+                      plugins: {
+                          title: {
+                              display: true,
+                              text: 'Station Data Comparison'
+                          }
+                      }
+                  }
+              });
+          </script>
+            <style>
+            .custom-bg-info-40 {
+              background-color: rgba(135, 206, 235, 0.4);
+            }
+            </style>
+              <script>
+          $(document).ready(function() {
+              $('#example1').DataTable({
+                  responsive: true,
+                  paging: true,
+                  pageLength:5
+              });
+          });
+      </script>
+        </div>
     </div>
-  
- <div class="small-box bg-white">
-  <a href="{{'/community'}}" class="badge  bg-white text-center">farmers around {{ Auth::user()->station->name }}</a>
-  <div class="container">
-    <table id="responsive-data-table" class="table dt-responsive nowrap table-hover" style="width:100%">
-      <tr>
-        <th>farmerID</th>
-        <th>first name</th>
-        <th>last name</th>
-        <th>Email</th>
-        <th>phone</th>
-    </tr>
-@foreach ($com as $key => $com)
-    <tr>
-        <td>{{$com->id}}</td>
-        <td>{{ $com->fname }}</td>
-        <td>{{ $com->lname }}</td>
-        <td>{{ $com->email }}</td>
-        <td>{{ $com->phone }}</td>
-    </tr>
-  @endforeach
-  </table>
- </div>
- </div>
 </div>
 
- <div class="card">
-  <div class="card-header">
-    <h3 class="card-title">
-      <i class="ion ion-clipboard mr-1"></i>
-      To Do List
-    </h3>
-
-    <div class="card-tools">
-      <ul class="pagination pagination-sm">
-        <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
-        <li class="page-item"><a href="#" class="page-link">1</a></li>
-        <li class="page-item"><a href="#" class="page-link">2</a></li>
-        <li class="page-item"><a href="#" class="page-link">3</a></li>
-        <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
-      </ul>
     </div>
-  </div>
 
+
+ 
 </div>
-</div>
+
 @endsection

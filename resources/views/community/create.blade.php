@@ -118,13 +118,13 @@
 <div class="col-md-6">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>cell:</strong>
-            <select name="cell_id" class="form-control">
-                @foreach($cell as $cel)
-              <option value="{{$cel->id}}">{{$cel->name}} </option>
-              @endforeach
-            </select>            
-        </div>
+        <strong>cell:</strong>
+        <select name="cell_id" class="form-control select2">
+            @foreach($cell as $cel)
+                <option value="{{$cel->id}}">{{$cel->name}}</option>
+            @endforeach
+        </select>            
+    </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
@@ -156,5 +156,9 @@
 </form>
 
 </div>
-
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 @endsection
