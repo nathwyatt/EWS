@@ -17,9 +17,13 @@
           <p>{{ $message }}</p>
       </div>
   @endif
-  <div class="card-body pt-0 pb-5">
-         
-      <table id="example1" class="table table-nonbordered table-striped">            <tr>
+  </div>
+  <div class="small-box bg-white">
+    <a href="{{'/stationdata'}}" class="badge bg-white text-center">data collected on {{ Auth::user()->station->name }} station</a>
+    <div class="container">
+      <div class="table-responsive">
+          <table id="example1" class="table table-bordered table-striped">
+              <tr>
                 <th>time </th>
                 <th>Water level</th>
                 <th>Temperature</th>
@@ -34,11 +38,20 @@
                 <td>{{ $key->temperature }}</td>
                 <td>{{ $key->hummidity }}</td>
                 <td>{{ $key->soil_moisture }}</td>                
-                <td></td>
+                
             </tr>
             @endforeach
           </table>
          </div>
- 
+     </div>
 </div>
+ <script>
+          $(document).ready(function() {
+              $('#example1').DataTable({
+                  responsive: true,
+                  paging: true,
+                  pageLength:5
+              });
+          });
+      </script>
 @endsection
