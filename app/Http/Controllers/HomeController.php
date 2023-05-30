@@ -73,6 +73,23 @@ class HomeController extends Controller
         $station = Station::all();
 
         // $stationData= StationData::get()->latest('created_at')->first();
+
+        $temperatureData = []; // Initialize an empty array for temperature data
+        $waterLevelData = []; // Initialize an empty array for water level data
+        $soilMoistureData = []; // Initialize an empty array for soil moisture data
+        $humidityData = []; // Initialize an empty array for humidity data
+        $timeData = []; // Initialize an empty array for time data
+    
+        $stationData = Station_Data::get();
+    
+        foreach ($stationData as $data) {
+            $temperatureData[] = $data->temperature; 
+            $waterLevelData[] = $data->water_level; 
+            $soilMoistureData[] = $data->soil_moisture; 
+            $humidityData[] = $data->hummidity; 
+            $timeData[] = $data->created_at->format('Y-m-d H:i:s'); 
+        }
+       dd($stationData);
         return view('home', compact('numUsers', 'numStations', 'numRoles','station','managers'));
     }
 }
