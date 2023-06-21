@@ -89,7 +89,7 @@ class HomeController extends Controller
             $humidityData[] = $data->hummidity; 
             $timeData[] = $data->created_at->format('Y-m-d H:i:s'); 
         }
-       dd($stationData);
+    //    dd($stationData);
         return view('home', compact('numUsers', 'numStations', 'numRoles','station','managers'));
     }
 }
