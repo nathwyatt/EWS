@@ -32,8 +32,11 @@
   <link rel="stylesheet" href="/../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="/../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
+<link rel="/https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css>
+<link rel="/https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css>
+<link rel="/https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
+<link href="/https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
 
         <style type="text/css">
             body{
@@ -492,6 +495,13 @@
 <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<script src="/https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="/https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="/https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="/https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="/https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+<script src="/https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -509,5 +519,6 @@
     });
   });
 </script>
+
 </body>
 </html>

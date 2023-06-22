@@ -65,19 +65,7 @@
           
      </div>
     
-    {{-- <div class="small-box bg-white" >
-     <h1  class="badge  bg-white text-center"> About  station</h1>
-    <div class="row">
-     <div class="col-md-4">
-      <img src="image/photo 1.jpg" alt="Image" class="img-fluid">
-     </div>
-      <div class="col-md-6">
-      <h2 class="badge bg-dark">{{ Auth::user()->station->name }} station</h2>
-      <p class="">{{ Auth::user()->station->details }}</p>
-      </div>
-    </div>
-  </div> --}}
-
+ 
   <div class="row">
     <div class="col-md-12">
         <div class="small-box ">

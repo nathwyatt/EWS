@@ -22,7 +22,7 @@
           </div>
            @endif
       <div class="card-body pt-0 pb-5">
-       <table id="responsive-data-table" class="table dt-responsive nowrap table-hover" style="width:100%">
+       <table id="example1" class="table table-bordered table-striped">
          <tr>
            <th>User(id)</th>
            <th>Names</th>
