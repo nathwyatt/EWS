@@ -212,7 +212,7 @@
               background-color: rgba(135, 206, 235, 0.4);
             }
             </style>
-              <script>
+              {{-- <script>
           $(document).ready(function() {
               $('#example1').DataTable({
                   responsive: true,
@@ -220,7 +220,7 @@
                   pageLength:5
               });
           });
-      </script>
+      </script> --}}
         </div>
     </div>
 </div>

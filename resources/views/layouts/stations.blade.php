@@ -558,18 +558,18 @@
 <script src="/https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
 <script src="/https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="/../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="/../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="/../../plugins/jszip/jszip.min.js"></script>
+<script src="/../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="/../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="/../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="/../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="/../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
