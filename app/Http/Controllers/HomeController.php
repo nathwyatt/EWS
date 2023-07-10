@@ -61,36 +61,59 @@ class HomeController extends Controller
             $humidityData[] = $data->hummidity; 
             $timeData[] = $data->created_at->format('Y-m-d H:i:s'); 
         }
+
         return view('station-manager.index', compact('data','com','numfarmers','numdata','unreadNotificationsCount','unreadNotifications','temperatureData', 'waterLevelData', 'soilMoistureData', 'humidityData', 'timeData'));
      }
     else 
     {
-        $numUsers = User::count();
-        $numStations = Station::count();
-        $numRoles = Role::count();
 
-        $managers = User::all();
-        $station = Station::all();
 
-        // $stationData= StationData::get()->latest('created_at')->first();
+ //charts
+    // Fetch data for the first station
+    $stationData1 = Station_Data::where('station_id', 1)->get();
+    $temperatureData1 = $stationData1->pluck('temperature');
+    $waterLevelData1 = $stationData1->pluck('water_level');
+    $soilMoistureData1 = $stationData1->pluck('soil_moisture');
+    $humidityData1 = $stationData1->pluck('humidity');
+    $timeData1 = $stationData1->pluck('created_at')->map(function ($item) {
+        return $item->format('Y-m-d H:i:s');
+    });
 
-        $temperatureData = []; // Initialize an empty array for temperature data
-        $waterLevelData = []; // Initialize an empty array for water level data
-        $soilMoistureData = []; // Initialize an empty array for soil moisture data
-        $humidityData = []; // Initialize an empty array for humidity data
-        $timeData = []; // Initialize an empty array for time data
+    // Fetch data for the second station
+    $stationData2 = Station_Data::where('station_id', 2)->get();
+    $temperatureData2 = $stationData2->pluck('temperature');
+    $waterLevelData2 = $stationData2->pluck('water_level');
+    $soilMoistureData2 = $stationData2->pluck('soil_moisture');
+    $humidityData2 = $stationData2->pluck('humidity');
+    $timeData2 = $stationData2->pluck('created_at')->map(function ($item) {
+        return $item->format('Y-m-d H:i:s');
+
+    });
     
-        $stationData = Station_Data::get();
-    
-        foreach ($stationData as $data) {
-            $temperatureData[] = $data->temperature; 
-            $waterLevelData[] = $data->water_level; 
-            $soilMoistureData[] = $data->soil_moisture; 
-            $humidityData[] = $data->hummidity; 
-            $timeData[] = $data->created_at->format('Y-m-d H:i:s'); 
-        }
+    $numUsers = User::count();
+    $numStations = Station::count();
+    $numRoles = Role::count();
+
+    $managers = User::all();
+    $stations = Station::all();
     //    dd($stationData);
-        return view('home', compact('numUsers', 'numStations', 'numRoles','station','managers'));
+    return view('home', compact(
+        'numUsers',
+        'numStations',
+        'numRoles',
+        'managers',
+        'stations',
+        'temperatureData1',
+        'waterLevelData1',
+        'soilMoistureData1',
+        'humidityData1',
+        'timeData1',
+        'temperatureData2',
+        'waterLevelData2',
+        'soilMoistureData2',
+        'humidityData2',
+        'timeData2'
+    ));
     }
 }
     public function view()
