@@ -9,8 +9,8 @@ use App\Models\Sector;
 use App\Models\Cell;
 use App\Models\Vilage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-    
 class StationController extends Controller
 { 
 
@@ -38,20 +38,88 @@ class StationController extends Controller
     ->with('i', (request()->input('page', 1) - 1) * 5);;
     }
   
-    public function create()
+    public function create(Request $request)
     {
       
         $managers = User::all();
         $province = province::all();
-        $district = District::all();
-        $sector = Sector::all();
-        $cell = Cell::all();
-        $village = Vilage::all();
-     
-        return view('stations.create', compact('managers','province','district','sector','cell','village'));
+        // $district = District::all();
+        $districts = DB::table('districts')
+        ->where('province_id', $request->province_id)
+        ->get();
+    
+    if (count($districts) > 0) {
+        return response()->json($districts);
+    }
+        
+        // $sector = Sector::all();
+        $sectors = DB::table('sectors')
+            ->where('district_id', $request->district_id)
+            ->get();
+        
+        if (count($sectors) > 0) {
+            return response()->json($sectors);
+        }
+        // $cell = Cell::all();
+        $cells = DB::table('cells')
+        ->where('sector_id', $request->sector_id)
+        ->get();
+    
+    if (count($cells) > 0) {
+        return response()->json($cells);
+    }
+        // $village = Vilage::all();
+        $villages = DB::table('vilages')
+        ->where('cell_id', $request->cell_id)
+        ->get();
+    
+    if (count($villages) > 0) {
+        return response()->json($villages);
+    }
+        return view('stations.create', compact('managers','province','districts','sectors','cells','villages'));
     }
     
-    
+    public function getDistricts(Request $request)
+    {
+        $districts = DB::table('districts')
+            ->where('province_id', $request->province_id)
+            ->get();
+        
+        if (count($districts) > 0) {
+            return response()->json($districts);
+        }
+    }
+    public function getSectors(Request $request)
+    {
+        $sectors = DB::table('sectors')
+            ->where('district_id', $request->district_id)
+            ->get();
+        
+        if (count($sectors) > 0) {
+            return response()->json($sectors);
+        }
+    }
+
+    public function getCells(Request $request)
+    {
+        $cells = DB::table('cells')
+            ->where('sector_id', $request->sector_id)
+            ->get();
+        
+        if (count($cells) > 0) {
+            return response()->json($cells);
+        }
+    }
+    public function getVillages(Request $request)
+    {
+       $villages = DB::table('villages')
+            ->where('cell_id', $request->cell_id)
+            ->get();
+        
+        if (count($villages) > 0) {
+            return response()->json($villages);
+        }
+    }
     public function store(Request $request)
     {
         request()->validate([
@@ -129,5 +197,6 @@ class StationController extends Controller
         return redirect()->route('stations.index')
                         ->with('success','station deleted successfully');
     }
+
     
 }

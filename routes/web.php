@@ -58,6 +58,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/getSectors',[StationCommunity::class,'getSectors']);
 
     Route::get('/getCells',[StationCommunity::class,'getCells']);
+
+
+// get district, sectors,cells,villages
+
+Route::get('get-districts', [StationController::class, 'getDistricts'])->name('stations.create');
+Route::get('get-sectors', [StationController::class, 'getSectors'])->name('stations.create');
+Route::get('get-cells', [StationController::class, 'getCells'])->name('stations.create');
+Route::get('get-villages', [StationController::class, 'getVillages'])->name('getVillages');
+
 });
 
 //notification
