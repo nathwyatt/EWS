@@ -1,501 +1,97 @@
-{{-- 
-@extends('layouts.app')
-@section('main')
-
-<section class="content">
-<div class="container">
-<div class="services__title__wrap">
-<div class="row align-items-center justify-content-between">
-<div class="col-xl-5 col-lg-6 col-md-8">
-<div class="section__title">
-<span class="sub-title">02 - my Services</span>
-<h2 class="title">Creates amazing digital experiences</h2>
-</div>
-</div>
-<div class="col-xl-5 col-lg-6 col-md-4">
-<div class="services__arrow"></div>
-</div>
-</div>
-</div>
-<div class="row gx-0 services__active">
-<div class="col-xl-3">
-<div class="services__item">
-<div class="services__thumb">
-<a href="services-details.html"><img src="{{ asset('frontend/assets/img/images/services_img01.jpg') }}" alt=""></a>
-</div>
-<div class="services__content">
-<div class="services__icon">
-<img class="light" src="{{ asset('frontend/assets/img/icons/services_light_icon01.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon01.png') }}" alt="">
-</div>
-<h3 class="title"><a href="services-details.html">Business Strategy</a></h3>
-<p>Strategy is a forward-looking plan for your brand’s behavior. Strategy is a forward-looking plan.</p>
-<ul class="services__list">
-<li>Research & Data</li>
-<li>Branding & Positioning</li>
-<li>Business Consulting</li>
-<li>Go To Market</li>
-</ul>
-<a href="services-details.html" class="btn border-btn">Read more</a>
-</div>
-</div>
-</div>
-<div class="col-xl-3">
-<div class="services__item">
-<div class="services__thumb">
-<a href="services-details.html"><img src="{{ asset('frontend/assets/img/images/services_img02.jpg') }}" alt=""></a>
-</div>
-<div class="services__content">
-<div class="services__icon">
-<img class="light" src="{{ asset('frontend/assets/img/icons/services_light_icon02.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon02.png') }}" alt="">
-</div>
-<h3 class="title"><a href="services-details.html">Brand Strategy</a></h3>
-<p>Strategy is a forward-looking plan for your brand’s behavior. Strategy is a forward-looking plan.</p>
-<ul class="services__list">
-<li>User Research & Testing</li>
-<li>UX Design</li>
-<li>Visual Design</li>
-<li>Information Architecture</li>
-</ul>
-<a href="services-details.html" class="btn border-btn">Read more</a>
-</div>
-</div>
-</div>
-<div class="col-xl-3">
-<div class="services__item">
-<div class="services__thumb">
-<a href="services-details.html"><img src="{{ asset('frontend/assets/img/images/services_img03.jpg') }}" alt=""></a>
-</div>
-<div class="services__content">
-<div class="services__icon">
-<img class="light" src="{{ asset('frontend/assets/img/icons/services_light_icon03.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon03.png') }}" alt="">
-</div>
-<h3 class="title"><a href="services-details.html">Product Design</a></h3>
-<p>Strategy is a forward-looking plan for your brand’s behavior. Strategy is a forward-looking plan.</p>
-<ul class="services__list">
-<li>User Research & Testing</li>
-<li>UX Design</li>
-<li>Visual Design</li>
-<li>Information Architecture</li>
-</ul>
-<a href="services-details.html" class="btn border-btn">Read more</a>
-</div>
-</div>
-</div>
-<div class="col-xl-3">
-<div class="services__item">
-<div class="services__thumb">
-<a href="services-details.html"><img src="{{ asset('frontend/assets/img/images/services_img04.jpg') }}" alt=""></a>
-</div>
-<div class="services__content">
-<div class="services__icon">
-<img class="light" src="{{ asset('frontend/assets/img/icons/services_light_icon04.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon04.png') }}" alt="">
-</div>
-<h3 class="title"><a href="services-details.html">Visual Design</a></h3>
-<p>Strategy is a forward-looking plan for your brand’s behavior. Strategy is a forward-looking plan.</p>
-<ul class="services__list">
-<li>User Research & Testing</li>
-<li>UX Design</li>
-<li>Visual Design</li>
-<li>Information Architecture</li>
-</ul>
-<a href="services-details.html" class="btn border-btn">Read more</a>
-</div>
-</div>
-</div>
-<div class="col-xl-3">
-<div class="services__item">
-<div class="services__thumb">
-<a href="services-details.html"><img src="{{ asset('frontend/assets/img/images/services_img03.jpg') }}" alt=""></a>
-</div>
-<div class="services__content">
-<div class="services__icon">
-<img class="light" src="{{ asset('frontend/assets/img/icons/services_light_icon02.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon02.png') }}" alt="">
-</div>
-<h3 class="title"><a href="services-details.html">Web Development</a></h3>
-<p>Strategy is a forward-looking plan for your brand’s behavior. Strategy is a forward-looking plan.</p>
-<ul class="services__list">
-<li>User Research & Testing</li>
-<li>UX Design</li>
-<li>Visual Design</li>
-<li>Information Architecture</li>
-</ul>
-<a href="services-details.html" class="btn border-btn">Read more</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- services-area-end -->
-<!-- work-process-area -->
-<section class="work__process">
-<div class="container">
-<div class="row justify-content-center">
-<div class="col-xl-6 col-lg-8">
-<div class="section__title text-center">
-<span class="sub-title">03 - Working Process</span>
-<h2 class="title">A clear product design process is the basis of success</h2>
-</div>
-</div>
-</div>
-<div class="row work__process__wrap">
-<div class="col">
-<div class="work__process__item">
-<span class="work__process_step">Step - 01</span>
-<div class="work__process__icon">
-<img class="light" src="{{ asset('frontend/assets/img/icons/wp_light_icon01.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/wp_icon01.png') }}" alt="">
-</div>
-<div class="work__process__content">
-<h4 class="title">Discover</h4>
-<p>Initial ideas or inspiration & Establishment of user needs.</p>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="work__process__item">
-<span class="work__process_step">Step - 02</span>
-<div class="work__process__icon">
-<img class="light" src="{{ asset('frontend/assets/img/icons/wp_light_icon02.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/wp_icon02.png') }}" alt="">
-</div>
-<div class="work__process__content">
-<h4 class="title">Define</h4>
-<p>Interpretation & Alignment of findings to project objectives.</p>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="work__process__item">
-<span class="work__process_step">Step - 03</span>
-<div class="work__process__icon">
-<img class="light" src="{{ asset('frontend/assets/img/icons/wp_light_icon03.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/wp_icon03.png') }}" alt="">
-</div>
-<div class="work__process__content">
-<h4 class="title">Develop</h4>
-<p>Design-Led concept and Proposals hearted & assessed</p>
-</div>
-</div>
-</div>
-<div class="col">
-<div class="work__process__item">
-<span class="work__process_step">Step - 04</span>
-<div class="work__process__icon">
-<img class="light" src="{{ asset('frontend/assets/img/icons/wp_light_icon04.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/wp_icon04.png') }}" alt="">
-</div>
-<div class="work__process__content">
-<h4 class="title">Deliver</h4>
-<p>Process outcomes finalised & Implemented</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- work-process-area-end -->
-<!-- portfolio-area -->
-@include('layouts.app')
-<!-- portfolio-area-end -->
-<!-- partner-area -->
-<section class="partner">
-<div class="container">
-<div class="row align-items-center">
-<div class="col-lg-6">
-<ul class="partner__logo__wrap">
-<li>
-<img class="light" src="{{ asset('frontend/assets/img/icons/partner_light01.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/partner_01.png') }}" alt="">
-</li>
-<li>
-<img class="light" src="{{ asset('frontend/assets/img/icons/partner_light02.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/partner_02.png') }}" alt="">
-</li>
-<li>
-<img class="light" src="{{ asset('frontend/assets/img/icons/partner_light03.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/partner_03.png') }}" alt="">
-</li>
-<li>
-<img class="light" src="{{ asset('frontend/assets/img/icons/partner_light04.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/partner_04.png') }}" alt="">
-</li>
-<li>
-<img class="light" src="{{ asset('frontend/assets/img/icons/partner_light05.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/partner_05.png') }}" alt="">
-</li>
-<li>
-<img class="light" src="{{ asset('frontend/assets/img/icons/partner_light06.png') }}" alt="">
-<img class="dark" src="{{ asset('frontend/assets/img/icons/partner_06.png') }}" alt="">
-</li>
-</ul>
-</div>
-<div class="col-lg-6">
-<div class="partner__content">
-<div class="section__title">
-<span class="sub-title">05 - partners</span>
-<h2 class="title">I proud to have collaborated with some awesome companies</h2>
-</div>
-<p>I'm a bit of a digital product junky. Over the years, I've used hundreds of web and mobile apps in different industries and verticals. Eventually, I decided that it would be a fun challenge to try designing and building my own.</p>
-<a href="contact.html" class="btn">Start a conversation</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- partner-area-end -->
-<!-- testimonial-area -->
-<section class="testimonial">
-<div class="container">
-<div class="row align-items-center justify-content-between">
-<div class="col-lg-6 order-0 order-lg-2">
-<ul class="testimonial__avatar__img">
-<li><img src="{{ asset('frontend/assets/img/images/testi_img01.png') }}" alt=""></li>
-<li><img src="{{ asset('frontend/assets/img/images/testi_img02.png') }}" alt=""></li>
-<li><img src="{{ asset('frontend/assets/img/images/testi_img03.png') }}" alt=""></li>
-<li><img src="{{ asset('frontend/assets/img/images/testi_img04.png') }}" alt=""></li>
-<li><img src="{{ asset('frontend/assets/img/images/testi_img05.png') }}" alt=""></li>
-<li><img src="{{ asset('frontend/assets/img/images/testi_img06.png') }}" alt=""></li>
-<li><img src="{{ asset('frontend/assets/img/images/testi_img07.png') }}" alt=""></li>
-</ul>
-</div>
-<div class="col-xl-5 col-lg-6">
-<div class="testimonial__wrap">
-<div class="section__title">
-<span class="sub-title">06 - Client Feedback</span>
-<h2 class="title">Happy clients feedback</h2>
-</div>
-<div class="testimonial__active">
-<div class="testimonial__item">
-<div class="testimonial__icon">
-<i class="fas fa-quote-left"></i>
-</div>
-<div class="testimonial__content">
-<p>We are motivated by the satisfaction of our clients. Put your trust in us &share in our H.Spond Asset Management is made up of a team of expert, committed and experienced people with a passion for financial markets. Our goal is to achieve continuous.</p>
-<div class="testimonial__avatar">
-<span>Rasalina De Wiliamson</span>
-</div>
-</div>
-</div>
-<div class="testimonial__item">
-<div class="testimonial__icon">
-<i class="fas fa-quote-left"></i>
-</div>
-<div class="testimonial__content">
-<p>We are motivated by the satisfaction of our clients. Put your trust in us &share in our H.Spond Asset Management is made up of a team of expert, committed and experienced people with a passion for financial markets. Our goal is to achieve continuous.</p>
-<div class="testimonial__avatar">
-<span>Rasalina De Wiliamson</span>
-</div>
-</div>
-</div>
-</div>
-<div class="testimonial__arrow"></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- testimonial-area-end -->
-<!-- blog-area -->
-@include('layouts.app')
-<!-- blog-area-end -->
-<!-- contact-area -->
-<section class="homeContact">
-<div class="container">
-<div class="homeContact__wrap">
-<div class="row">
-<div class="col-lg-6">
-<div class="section__title">
-<span class="sub-title">07 - Say hello</span>
-<h2 class="title">Any questions? Feel free <br> to contact</h2>
-</div>
-<div class="homeContact__content">
-<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-<h2 class="mail"><a href="mailto:Info@webmail.com">Info@webmail.com</a></h2>
-</div>
-</div>
-<div class="col-lg-6">
-<div class="homeContact__form">
-<form action="#">
-<input type="text" placeholder="Enter name*">
-<input type="email" placeholder="Enter mail*">
-<input type="number" placeholder="Enter number*">
-<textarea name="message" placeholder="Enter Massage*"></textarea>
-<button type="submit">Send Message</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- contact-area-end -->
-@endsection --}}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <title>EWS Muvumba</title>
 
-    <title>EWS Muvumba </title>
-
-    <!-- Bootstrap Core CSS -->
+    <!-- CSS Stylesheets -->
     <link href="frontend/asset/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome CSS -->
     <link href="frontend/css/font-awesome.min.css" rel="stylesheet">
-    
-    
-    <!-- Animate CSS -->
-    <link href="frontend/css/animate.css" rel="stylesheet" >
-    
-    <!-- Owl-Carousel -->
-    <link rel="stylesheet" href="frontend/css/owl.carousel.css" >
-    <link rel="stylesheet" href="frontend/css/owl.theme.css" >
-    <link rel="stylesheet" href="frontend/css/owl.transitions.css" >
-
-    <!-- Custom CSS -->
+    <link href="frontend/css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="frontend/css/owl.carousel.css">
+    <link rel="stylesheet" href="frontend/css/owl.theme.css">
+    <link rel="stylesheet" href="frontend/css/owl.transitions.css">
     <link href="frontend/css/style.css" rel="stylesheet">
     <link href="frontend/css/responsive.css" rel="stylesheet">
-    
-    <!-- Colors CSS -->
     <link rel="stylesheet" type="text/css" href="frontend/css/color/green.css">
-    
-    
-    
-    <!-- Colors CSS -->
-    <link rel="stylesheet" type="text/css" href="frontend/css/color/green.css" title="green">
-    <link rel="stylesheet" type="text/css" href="frontend/css/color/light-red.css" title="light-red">
-    <link rel="stylesheet" type="text/css" href="frontend/css/color/blue.css" title="blue">
-    <link rel="stylesheet" type="text/css" href="frontend/css/color/light-blue.css" title="light-blue">
-    <link rel="stylesheet" type="text/css" href="frontend/css/color/yellow.css" title="yellow">
-    <link rel="stylesheet" type="text/css" href="frontend/css/color/light-green.css" title="light-green">
+    <link rel="stylesheet" type="text/css" href="frontend/css/color/light-red.css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/color/blue.css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/color/light-blue.css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/color/yellow.css">
+    <link rel="stylesheet" type="text/css" href="frontend/css/color/light-green.css">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link href="http://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
 
-    <!-- Custom Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    
-    
     <!-- Modernizer js -->
     <script src="frontend/js/modernizr.custom.js"></script>
-
-    
-  
-
 </head>
 
 <body class="index">
-    
-    
-  
-       
-<!-- Styleswitcher End
-================================================== -->
-
-    <!-- Navigation -->
-    <section  class="portfolio-section-1">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header ">
-               
-                <img src="/image/icon.jpg" alt="EWSLogo"  alt="User Avatar" class="img-size-50 img-circle mr-3 navbar-brand page-scroll">
-                <a class="navbar-brand page-scroll" href="">EWS</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                   
-                    <li>
-                        <a class="page-scroll" href="#portfolio">home</a>
-                    </li>
-                    
-                    <li>
-                        <a class="page-scroll" href="#about-us">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#service">Services</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#team">Team</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#pricing">Pricing</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#latest-news">Latest News</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#testimonial">Testimonials</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#partner">Partner</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                    <li>
-                    @guest
-                    @if (Route::has('login'))
-                       
+    <!-- Navigation Section -->
+    <section class="portfolio-section-1">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <img src="/image/icon.jpg" alt="EWSLogo" class="img-size-50 img-circle mr-3 navbar-brand page-scroll">
+                    <a class="navbar-brand page-scroll" href="">EWS</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="#portfolio">Home</a></li>
+                        <li><a class="page-scroll" href="#service">Services</a></li>
+                        <li><a class="page-scroll" href="#about-us">About</a></li>
+                        <li><a class="page-scroll" href="#team">Team</a></li>
+                        <li><a class="page-scroll" href="#contact">Contact</a></li>
+                        <li>
+                            @guest
+                            @if (Route::has('login'))
                             <a class="page-scroll" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            @endif
                         </li>
-                    @endif
-                    <li>
-                    @if (Route::has('register'))
-                       
+                        <li>
+                            @if (Route::has('register'))
                             <a class="page-scroll" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            @endif
                         </li>
-                    @endif
-                    @endguest
-                </ul>
+                        @endguest
+                    </ul>
+                </div>
             </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-</section>
-    
-   
-   <section id="portfolio" class="portfolio-section-1">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title text-center">
-                    <h3>EWS Muvumba</h3>
-                    <p>Welcome to Early warning system Muvumba website</p>
-                </div>    
-                <div class="container">
-                    <div class="row">
-                        @foreach($station as $st)
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="feature">
-                                <img src="image/photo 1.jpg" alt="station Image" class="img-responsive" />                                <div class="feature-content">
-                                    <h4>{{$st->name}}</h4>
-                                    <p>{{$st->details}}</p>
-                              
-                            </div>
-                        </div><!-- /.col-md-3 -->
+        </nav>
+    </section>
+
+    <section id="portfolio" >
+        <div class="container bg-green">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center">
+                        <h3>EWS Muvumba</h3>
+                        <p>Welcome to Early warning system Muvumba website</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="feature">
+                        <img src="image/photo 1.jpg" alt="station Image" class="img-responsive">
+                        <div class="feature-content">
+                            <!-- You can add more content here if needed -->
                         </div>
-                    @endforeach
-                </div><!-- /.row -->            
-                
-            </div>                    
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <h4>Muvumba catchment</h4>
+                    <p>This is the system designed to provide early warning on Muvuba river based on different phenomena such as floods and droughts. The system provides real-time data to the dashboard for analytics and predictions, and it also sends notifications to users living around the river. The real-time data is collected from sensors placed across different parts of the river.</p>
+                </div>
             </div>
         </div>
-       
-    </div>
-</section>
+    </section>
+    
    <section>
 
      
@@ -871,325 +467,6 @@
 
 
 
-    <!-- Start Pricing Table Section -->
-    <div id="pricing" class="pricing-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-12">
-                        <div class="section-title text-center">
-                            <h3>Our Pricing Plan</h3>
-                            <p class="white-text">Duis aute irure dolor in reprehenderit in voluptate</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    
-            <div class="row">
-                        
-                <div class="pricing">
-                        
-                        <div class="col-md-12">
-                            <div class="pricing-table">
-                                <div class="plan-name">
-								    <h3>Free</h3>
-                                </div>
-                                <div class="plan-price">
-                                    <div class="price-value">$49<span>.00</span></div>
-                                    <div class="interval">per month</div>
-                                </div>
-                                <div class="plan-list">
-                                    <ul>
-                                        <li>40 GB Storage</li>
-                                        <li>40GB Transfer</li>
-                                        <li>10 Domains</li>
-                                        <li>20 Projects</li>
-                                        <li>Free installation</li>
-                                    </ul>
-                                </div>
-                                <div class="plan-signup">
-                                    <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-12">
-                            <div class="pricing-table">
-                                <div class="plan-name">
-								    <h3>Standard</h3>
-                                </div>
-                                <div class="plan-price">
-                                    <div class="price-value">$49<span>.00</span></div>
-                                    <div class="interval">per month</div>
-                                </div>
-                                <div class="plan-list">
-                                    <ul>
-                                        <li>40 GB Storage</li>
-                                        <li>40GB Transfer</li>
-                                        <li>10 Domains</li>
-                                        <li>20 Projects</li>
-                                        <li>Free installation</li>
-                                    </ul>
-                                </div>
-                                <div class="plan-signup">
-                                    <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="pricing-table">
-                                <div class="plan-name">
-								    <h3>Premium</h3>
-                                </div>
-                                <div class="plan-price">
-                                    <div class="price-value">$49<span>.00</span></div>
-                                    <div class="interval">per month</div>
-                                </div>
-                                <div class="plan-list">
-                                    <ul>
-                                        <li>40 GB Storage</li>
-                                        <li>40GB Transfer</li>
-                                        <li>10 Domains</li>
-                                        <li>20 Projects</li>
-                                        <li>Free installation</li>
-                                    </ul>
-                                </div>
-                                <div class="plan-signup">
-                                    <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-12">
-                            <div class="pricing-table">
-                                <div class="plan-name">
-								    <h3>Professional</h3>
-                                </div>
-                                <div class="plan-price">
-                                    <div class="price-value">$49<span>.00</span></div>
-                                    <div class="interval">per month</div>
-                                </div>
-                                <div class="plan-list">
-                                    <ul>
-                                        <li>40 GB Storage</li>
-                                        <li>40GB Transfer</li>
-                                        <li>10 Domains</li>
-                                        <li>20 Projects</li>
-                                        <li>Free installation</li>
-                                    </ul>
-                                </div>
-                                <div class="plan-signup">
-                                    <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="col-md-12">
-                            <div class="pricing-table">
-                                <div class="plan-name">
-								    <h3>Premium</h3>
-                                </div>
-                                <div class="plan-price">
-                                    <div class="price-value">$49<span>.00</span></div>
-                                    <div class="interval">per month</div>
-                                </div>
-                                <div class="plan-list">
-                                    <ul>
-                                        <li>40 GB Storage</li>
-                                        <li>40GB Transfer</li>
-                                        <li>10 Domains</li>
-                                        <li>20 Projects</li>
-                                        <li>Free installation</li>
-                                    </ul>
-                                </div>
-                                <div class="plan-signup">
-                                    <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-12">
-                            <div class="pricing-table">
-                                <div class="plan-name">
-								    <h3>Professional</h3>
-                                </div>
-                                <div class="plan-price">
-                                    <div class="price-value">$49<span>.00</span></div>
-                                    <div class="interval">per month</div>
-                                </div>
-                                <div class="plan-list">
-                                    <ul>
-                                        <li>40 GB Storage</li>
-                                        <li>40GB Transfer</li>
-                                        <li>10 Domains</li>
-                                        <li>20 Projects</li>
-                                        <li>Free installation</li>
-                                    </ul>
-                                </div>
-                                <div class="plan-signup">
-                                    <a href="#" class="btn-system btn-small">Sign Up Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-						
-						
-            </div>
-        </div>
-    </div>
-    <!-- End Pricing Table Section -->
-    
-    
-    
-    <!-- Start Latest News Section -->
-    <section id="latest-news" class="latest-news-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title text-center">
-                        <h3>Latest News</h3>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="latest-news">
-                    <div class="col-md-12">
-                        <div class="latest-post">
-                            <img src="images/about-01.jpg" class="img-responsive" alt="">
-                            <h4><a href="#">Standard Post with Image</a></h4>
-                            <div class="post-details">
-                                <span class="date"><strong>31</strong> <br>Dec , 2014</span>
-                                
-                            </div>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="latest-post">
-                            <img src="images/about-02.jpg" class="img-responsive" alt="">
-                            <h4><a href="#">Standard Post with Image</a></h4>
-                            <div class="post-details">
-                                <span class="date"><strong>17</strong> <br>Feb , 2014</span>
-                                
-                            </div>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="latest-post">
-                            <img src="images/about-03.jpg" class="img-responsive" alt="">
-                            <h4><a href="#">Standard Post with Image</a></h4>
-                            <div class="post-details">
-                                <span class="date"><strong>08</strong> <br>Aug , 2014</span>
-                                
-                            </div>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="latest-post">
-                            <img src="images/about-01.jpg" class="img-responsive" alt="">
-                            <h4><a href="#">Standard Post with Image</a></h4>
-                            <div class="post-details">
-                                <span class="date"><strong>08</strong> <br>Aug , 2014</span>
-                                
-                            </div>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="latest-post">
-                            <img src="images/about-02.jpg" class="img-responsive" alt="">
-                            <h4><a href="#">Standard Post with Image</a></h4>
-                            <div class="post-details">
-                                <span class="date"><strong>08</strong> <br>Aug , 2014</span>
-                                
-                            </div>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="latest-post">
-                            <img src="images/about-03.jpg" class="img-responsive" alt="">
-                            <h4><a href="#">Standard Post with Image</a></h4>
-                            <div class="post-details">
-                                <span class="date"><strong>08</strong> <br>Aug , 2014</span>
-                                
-                            </div>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Latest News Section -->
-
-
-
-    
-    
-    
-    <!-- Start Testimonial Section -->
-    <div id="testimonial" class="testimonial-section">
-        <div class="container">
-            <!-- Start Testimonials Carousel -->
-            <div id="testimonial-carousel" class="testimonials-carousel">
-                <!-- Testimonial 1 -->
-                <div class="testimonials item">
-                    <div class="testimonial-content">
-                        <img src="images/testimonial/face_1.png" alt="" >
-                        <div class="testimonial-author">
-                            <div class="author">John Doe</div>
-                            <div class="designation">Organization Founder</div>
-                        </div>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque<br> laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
-                    </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="testimonials item">
-                    <div class="testimonial-content">
-                        <img src="images/testimonial/face_2.png" alt="" >
-                        <div class="testimonial-author">
-                            <div class="author">Jane Doe</div>
-                            <div class="designation">Lead Developer</div>
-                        </div>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia<br> consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                    </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="testimonials item">
-                    <div class="testimonial-content">
-                        <img src="images/testimonial/face_3.png" alt="" >
-                        <div class="testimonial-author">
-                            <div class="author">John Doe</div>
-                            <div class="designation">Honorable Customer</div>
-                        </div>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit<br> anim laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- End Testimonials Carousel -->
-        </div>
-    </div>
-    <!-- End Testimonial Section -->
-    
-    
-
-    <!-- Clients Aside -->
-  
-    
-    
-    <div>
-    d
     </div>
     <section id="contact" class="contact">
         <div class="container">
