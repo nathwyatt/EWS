@@ -29,6 +29,32 @@
 
     <!-- Modernizer js -->
     <script src="frontend/js/modernizr.custom.js"></script>
+
+    <style>
+        /* .card {
+    border: 1px solid #ccc; /* Add a border to each card */
+    margin-bottom: 20px; /* Add some margin between cards */
+}
+
+.card-img-top {
+    max-width: 100%; /* Ensure the image fits inside the card */
+    height: auto;
+}
+.row {
+    padding: 40px; /* Add padding to separate columns */
+} */
+
+.card {
+    border: none; /* Remove border from cards */
+    margin-bottom: 20px; /* Add margin between cards */
+}
+
+.card-img-top {
+    max-width: 100%; /* Ensure the image fits inside the card */
+    height: auto;
+}
+
+        </style>
 </head>
 
 <body class="index">
@@ -65,137 +91,59 @@
         </nav>
     </section>
 
-    <section id="portfolio" >
+    <section id="portfolio" style="background: linear-gradient(to bottom, #eaf5fa, #51b4ec); margin: 0; padding: 0;">
         <div class="container bg-green">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title text-center">
-                        <h3>EWS Muvumba</h3>
-                        <p>Welcome to Early warning system Muvumba website</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="feature">
-                        <img src="image/photo 1.jpg" alt="station Image" class="img-responsive">
-                        <div class="feature-content">
-                            <!-- You can add more content here if needed -->
+
+                    <div class="feature-content text-center" style="position: relative; z-index: 1;">
+                        @foreach ($about as $item)
+                        <div class="section-title "style="color:white">
+                            <h3>{{ $item->name }}</h3>
                         </div>
+                        <p>Welcome to Early warning system Muvumba website</p>
+                        @endforeach
+                        <h4>Muvumba catchment</h4>
+                        <p>This is the system designed to provide early warning on Muvuba river based on different phenomena such as floods and droughts. The system provides real-time data to the dashboard for analytics and predictions, and it also sends notifications to users living around the river. The real-time data is collected from sensors placed across different parts of the river.</p>
                     </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <h4>Muvumba catchment</h4>
-                    <p>This is the system designed to provide early warning on Muvuba river based on different phenomena such as floods and droughts. The system provides real-time data to the dashboard for analytics and predictions, and it also sends notifications to users living around the river. The real-time data is collected from sensors placed across different parts of the river.</p>
-                </div>
             </div>
         </div>
+        <section id="news" style="padding: 20px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4" style="background: linear-gradient(to bottom, #b7f863); margin: 0; padding: 0;">
+                        <div class="card">
+                            <img src="image/photo 1.jpg" alt="Floods in Nsheke" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Floods in Nsheke</h5>
+                                <p class="card-text">4 months ago deseaster floods in nsheke.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="background: linear-gradient(to bottom, #fdafcd); margin: 0; padding: 0;">
+                        <div class="card">
+                            <img src="image/photo 1.jpg" alt="News Title 2" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">UR team visit</h5>
+                                <p class="card-text">ur team visit the floods areas in nyagatare district</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="background: linear-gradient(to bottom, #e47c06); margin: 0; padding: 0;">
+                        <div class="card">
+                            <img src="image/photo 1.jpg" alt="News Title 3" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Methodology used</h5>
+                                <p class="card-text">ML methodology used for solving floods in nyagatare</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more cards for additional news items -->
+                </div>
+            </div>
+        </section>
+        
     </section>
     
-   <section>
-
-     
-
-    <!-- Start About Us Section 2 -->
-    <div class="about-us-section-2">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-md-6">
-                    <div class="skill-shortcode">
-                        
-                        <!-- Progress Bar -->
-                        <div class="skill">
-                            <p>Web Design</p>          
-                            <div class="progress">         
-                                <div class="progress-bar" role="progressbar"  data-percentage="60">
-                                    <span class="progress-bar-span" >60%</span>
-                                    <span class="sr-only">60% Complete</span>
-                                </div>
-                            </div>  
-                        </div>
-                        
-                        <!-- Progress Bar -->
-                        <div class="skill">
-                            <p>HTML & CSS</p>          
-                            <div class="progress">         
-                                <div class="progress-bar" role="progressbar"  data-percentage="95">
-                                    <span class="progress-bar-span" >95%</span>
-                                    <span class="sr-only">95% Complete</span>
-                                </div>
-                            </div>  
-                        </div>
-                        
-                        <!-- Progress Bar -->
-                        <div class="skill">
-                            <p>Wordpress</p>          
-                            <div class="progress">         
-                                <div class="progress-bar" role="progressbar"  data-percentage="80">
-                                    <span class="progress-bar-span" >80%</span>
-                                    <span class="sr-only">80% Complete</span>
-                                </div>
-                            </div>  
-                        </div>
-                        
-                        <!-- Progress Bar -->
-                        <div class="skill">
-                            <p>Joomla</p>          
-                            <div class="progress">         
-                                <div class="progress-bar" role="progressbar"  data-percentage="100">
-                                    <span class="progress-bar-span" >100%</span>
-                                    <span class="sr-only">100% Complete</span>
-                                </div>
-                            </div>  
-                        </div>
-                        
-                        <!-- Progress Bar -->
-                        <div class="skill">
-                            <p>Extension</p>          
-                            <div class="progress">         
-                                <div class="progress-bar" role="progressbar"  data-percentage="70">
-                                    <span class="progress-bar-span" >70%</span>
-                                    <span class="sr-only">70% Complete</span>
-                                </div>
-                            </div>  
-                        </div>
-                                                            
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div id="carousel-example-generic" class="carousel slide about-slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="images/about-01.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img src="images/about-02.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img src="images/about-03.jpg" alt="">
-                            </div>
     
-                        </div>
-  
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-    <!-- Start About Us Section 2 -->
-
-
-    
-
 
     <!-- Start Feature Section -->
         <section id="service" class="services-section">
@@ -303,38 +251,27 @@
     
     
     <!-- Start Fun Facts Section -->
-    <section class="fun-facts">
+    <section id="about-us"style="background: linear-gradient(to bottom, #a9cce3, #ffffff); margin: 0; padding: 0;">
         <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                      <div class="counter-item">
-                        <i class="fa fa-cloud-upload"></i>
-                        <div class="timer" id="item1" data-to="991" data-speed="5000"></div>
-                        <h5>Files uploaded</h5>                               
-                      </div>
-                    </div>  
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                      <div class="counter-item">
-                        <i class="fa fa-check"></i>
-                        <div class="timer" id="item2" data-to="7394" data-speed="5000"></div>
-                        <h5>Projects completed</h5>                               
-                      </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                      <div class="counter-item">
-                        <i class="fa fa-code"></i>
-                        <div class="timer" id="item3" data-to="18745" data-speed="5000"></div>
-                        <h5>Lines of code written</h5>                               
-                      </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                      <div class="counter-item">
-                        <i class="fa fa-male"></i>
-                        <div class="timer" id="item4" data-to="8423" data-speed="5000"></div>
-                        <h5>Happy clients</h5>                               
-                      </div>
-                    </div>
+            <div class="section-title text-center">
+                <h3>About {{ $item->name }}</h3>
             </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="feature">
+                        <img src="image/photo 1.jpg" alt="station Image" class="img-responsive">
+                        <div class="feature-content">
+                            <!-- You can add more content here if needed -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <h4>Muvumba catchment</h4>
+                    <p>This is the system designed to provide early warning on Muvuba river based on different phenomena such as floods and droughts. The system provides real-time data to the dashboard for analytics and predictions, and it also sends notifications to users living around the river. The real-time data is collected from sensors placed across different parts of the river.</p>
+                </div>
+            </div>
+        </div>
+        
         </div>
     </section>
     <!-- End Fun Facts Section -->

@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [frontend::class,'index'] );
+Route::get('/',[frontend::class,'about']);
 // Route::middleware('setapplang')->prefix('{locale}')->group(function(){
 Auth::routes();
 // });
@@ -51,6 +52,7 @@ Route::group(['middleware' => ['auth']], function() {
         $user = Auth::user();
         return view('profile.profile', compact('user'));
     });
+
     
     //locations
     Route::get('/getDistricts',[StationCommunity::class,'getDistricts']);    
