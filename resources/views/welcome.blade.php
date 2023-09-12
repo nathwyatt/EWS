@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
+    <link rel="shortcut icon" href="/image/icon.png" type="image/x-icon">
     <meta name="author" content="">
     <title>EWS Muvumba</title>
 
@@ -62,10 +63,13 @@
     <section class="portfolio-section-1">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
+                <div class="navbar-icon-bar">
+                    <img src="/image/icon.png" alt="EWSLogo" class="img-size-100 img-circle mr-3 navbar-brand">
+                </div>
                 <div class="navbar-header">
-                    <img src="/image/icon.jpg" alt="EWSLogo" class="img-size-50 img-circle mr-3 navbar-brand page-scroll">
                     <a class="navbar-brand page-scroll" href="">EWS</a>
                 </div>
+                
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="page-scroll" href="#portfolio">Home</a></li>
@@ -91,12 +95,12 @@
         </nav>
     </section>
 
-    <section id="portfolio" style="background: linear-gradient(to bottom, #eaf5fa, #51b4ec); margin: 0; padding: 0;">
+    <section id="portfolio" style="background: linear-gradient(to bottom, #cdcfcf, #c2c5c7); margin: 0; padding: 0;">
         <div class="container bg-green">
 
                     <div class="feature-content text-center" style="position: relative; z-index: 1;">
                         @foreach ($about as $item)
-                        <div class="section-title "style="color:white">
+                        <div class="section-title ">
                             <h3>{{ $item->name }}</h3>
                         </div>
                         <p>Welcome to Early warning system Muvumba website</p>
@@ -118,7 +122,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4" style="background: linear-gradient(to bottom, #fdafcd); margin: 0; padding: 0;">
+                    <div class="col-md-4" style="background: linear-gradient(to bottom, #97838b); margin: 0; padding: 0;">
                         <div class="card">
                             <img src="image/photo 1.jpg" alt="News Title 2" class="card-img-top">
                             <div class="card-body">
@@ -151,8 +155,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title text-center">
-                            <h3>Our Services</h3>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate</p>
+                            <h3>system features</h3>
+                            <p>Early warning system MUVUMBA has different features</p>
                         </div>
                     </div>
                 </div>
@@ -165,7 +169,7 @@
                                     <div class="border"></div>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Web Design</h4>
+                                    <h4 class="media-heading">IOT system</h4>
                                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
                                 </div>
                             </div>
@@ -179,7 +183,7 @@
                                     <div class="border"></div>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">HTML5 & CSS3</h4>
+                                    <h4 class="media-heading">ML Model</h4>
                                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
                                 </div>
                             </div>
@@ -193,7 +197,7 @@
                                     <div class="border"></div>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Wordpress Theme</h4>
+                                    <h4 class="media-heading">System dashbord</h4>
                                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
                                 </div>
                             </div>
@@ -207,7 +211,7 @@
                                     <div class="border"></div>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Wordpress Plugin</h4>
+                                    <h4 class="media-heading">Notification system</h4>
                                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
                                 </div>
                             </div>
@@ -221,7 +225,7 @@
                                     <div class="border"></div>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Joomla Template</h4>
+                                    <h4 class="media-heading">Android system</h4>
                                     <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
                                 </div>
                             </div>
@@ -234,10 +238,7 @@
                                     <i class="fa fa-cube"></i>
                                     <div class="border"></div>
                                 </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Joomla Extension</h4>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
-                                </div>
+                               
                             </div>
                         </div>
                     </div><!-- /.col-md-4 -->
@@ -251,7 +252,7 @@
     
     
     <!-- Start Fun Facts Section -->
-    <section id="about-us"style="background: linear-gradient(to bottom, #a9cce3, #ffffff); margin: 0; padding: 0;">
+    <section id="about-us"style="background:#faa3cd">
         <div class="container">
             <div class="section-title text-center">
                 <h3>About {{ $item->name }}</h3>
@@ -294,17 +295,13 @@
                 <div class="col-md-12">
                     <div id="team-section">
                     
-                        
-                
-                
-
                                 <div class="our-team">
 
                                     <div class="team-member">
-                                        <img src="images/team/manage-1.png" class="img-responsive" alt="">
+                                        <img src="avatar/aime.jpeg" class="img-responsive" alt="">
                                         <div class="team-details">
-                                            <h4>John Doe</h4>
-                                            <p>Founder & Director</p>
+                                            <h4>N Simplice</h4>
+                                            <p>IoT Expert</p>
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -316,10 +313,10 @@
                                     </div>
 
                                     <div class="team-member">
-                                        <img src="images/team/manage-2.png" class="img-responsive" alt="">
+                                        <img src="avatars/kimenyi/jpeg" class="img-responsive" alt="">
                                         <div class="team-details">
-                                            <h4>John Doe</h4>
-                                            <p>Founder & Director</p>
+                                            <h4>Kimenyi Honore</h4>
+                                            <p>ML Expert</p>
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -331,10 +328,10 @@
                                     </div>
 
                                     <div class="team-member">
-                                        <img src="images/team/manage-3.png" class="img-responsive" alt="">
+                                        <img src="avatars/my.jpg" class="img-responsive" alt="">
                                         <div class="team-details">
-                                            <h4>John Doe</h4>
-                                            <p>Founder & Director</p>
+                                            <h4>Munanira Elissa</h4>
+                                            <p>Analyst</p>
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -345,26 +342,14 @@
                                         </div>
                                     </div>    
 
-                                    <div class="team-member">
-                                        <img src="images/team/manage-4.png" class="img-responsive" alt="">
-                                        <div class="team-details">
-                                            <h4>John Doe</h4>
-                                            <p>Founder & Director</p>
-                                            <ul>
-                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    
+                        
 
                                     <div class="team-member">
-                                        <img src="images/team/manage-1.png" class="img-responsive" alt="">
+                                        <img src="image/aime.jpeg" class="img-responsive" alt="">
                                         <div class="team-details">
-                                            <h4>John Doe</h4>
-                                            <p>Founder & Director</p>
+                                            <h4>N.A.Thierry</h4>
+                                            <p>System Admin</p>
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -378,8 +363,8 @@
                                     <div class="team-member">
                                         <img src="images/team/manage-2.png" class="img-responsive" alt="">
                                         <div class="team-details">
-                                            <h4>John Doe</h4>
-                                            <p>Founder & Director</p>
+                                            <h4>G.Nadege</h4>
+                                            <p>System Operator</p>
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -411,7 +396,7 @@
                 <div class="col-lg-12">
                     <div class="section-title text-center">
                         <h3>Contact With Us</h3>
-                        <p class="white-text">Duis aute irure dolor in reprehenderit in voluptate</p>
+                        <p class="white-text">you can reach to the system admnistration here</p>
                     </div>
                 </div>
             </div>
@@ -477,7 +462,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-xs-12">
-                        <span class="copyright">Copyright &copy; <a href="/http://guardiantheme.com">GuardinTheme</a> 2015</span>
+                        <span class="copyright">Copyright &copy; <a href="">CSE</a> 2023</span>
                     </div>
                     <div class="col-md-4 col-xs-12">
                         <div class="footer-social text-center">
