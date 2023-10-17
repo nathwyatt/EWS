@@ -3,6 +3,8 @@
  <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="image/icon.png">
+
   <title>EWS Muvumba</title>
 
   <!-- Google Font: Source Sans Pro -->

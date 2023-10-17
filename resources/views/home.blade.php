@@ -33,7 +33,7 @@
     <div class="content-header">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">EWS Dashboard</h1>
+                <h3 class="breadcrumb-item active">Hi {{Auth::user()->name}}</h3>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="card-deck">
-                    <div class="card">
+                    <div class="card card-warning">
                         <div class="card-body text-center">
                             <i class="fa fa-users" aria-hidden="true"></i><br>
                             <small>Members</small>
@@ -97,7 +97,9 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Chart for Station 1 Data</h5>
+                        <h5 class="card-title text-center" style="font-family: 'Your-Desired-Font-Family'; font-size: 12px;"> 
+                        {{ $station1[0]->name }} Station
+                       </h5>
                         </div>
                         <div class="card-body">
                             <canvas id="chart1" style="width:100%;max-width:600px"></canvas>
@@ -107,7 +109,9 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Chart for Station 2 Data</h5>
+                        <h5 class="card-title text-center" style="font-family: 'Your-Desired-Font-Family'; font-size: 12px;"> 
+                        {{ $station2[0]->name }} Station
+                       </h5>
                         </div>
                         <div class="card-body">
                             <canvas id="chart2" style="width:100%;max-width:600px"></canvas>
@@ -163,7 +167,7 @@
             plugins: {
                 title: {
                     display: true,
-                    text: 'Station 1 Data Comparison'
+                    text: '{{ $station1[0]->name}} Station Data Comparison'
                 }
             }
         }
@@ -210,7 +214,7 @@
             plugins: {
                 title: {
                     display: true,
-                    text: 'Station 2 Data Comparison'
+                    text: '{{ $station2[0]->name}} Station Data Comparison'
                 }
             }
         }

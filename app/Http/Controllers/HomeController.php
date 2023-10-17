@@ -96,7 +96,9 @@ class HomeController extends Controller
 
     $managers = User::all();
     $stations = Station::all();
-    //    dd($stationData);
+    $station1 = Station::where('id', 1)->get();
+    $station2 = Station::where('id', 2)->get();
+    // dd($station1[0]->name);
     return view('home', compact(
         'numUsers',
         'numStations',
@@ -112,7 +114,9 @@ class HomeController extends Controller
         'waterLevelData2',
         'soilMoistureData2',
         'humidityData2',
-        'timeData2'
+        'timeData2',
+        'station1',
+        'station2'
     ));
     }
 }
