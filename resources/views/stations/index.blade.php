@@ -81,4 +81,6 @@
         }).buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
     });
 </script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 @endsection
