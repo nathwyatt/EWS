@@ -6,7 +6,7 @@
         <div class="card card-table-border-none dt-responsive nowrap" style="width:100%" id="recent-orders">
           
             <div class="card-header justify-content-between text-center">
-               <h2>Role Management</h2>
+               <h2 style="font-family: 'Bayon'">Role Management</h2>
                <div class="date-range-report ">
                 <span></span>
                </div>

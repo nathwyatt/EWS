@@ -35,9 +35,9 @@ class StationController extends Controller
     $managers = User::all();
    
     return view('Stations.index', compact('stations','provinces', 'districts', 'sectors', 'cells', 'villages', 'managers'))
-    ->with('i', (request()->input('page', 1) - 1) * 5);;
+    ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-  
+    
     public function create(Request $request)
     {
       

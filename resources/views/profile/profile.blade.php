@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
 <div class="container">
@@ -15,26 +15,16 @@
                             <div class="card-body">
                                 <h4 class="py-2 text-dark">{{ Auth::user()->name }}</h4>
                                 <p>{{ Auth::user()->email }}</p>
-                                <a class="btn btn-primary btn-pill btn-lg my-4" href="#">Follow</a>
+    
+                                @if(!empty($user->getRoleNames()))
+                                    @foreach($user->getRoleNames() as $v)
+                                    <span class=" badge  bg-dark">{{ $v }}</span>
+                                    @endforeach
+                                 @endif
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-between ">
-                            <div class="text-center pb-4">
-                                <h6 class="text-dark pb-2">1503</h6>
-                                <p>Friends</p>
-                            </div>
-
-                            <div class="text-center pb-4">
-                                <h6 class="text-dark pb-2">2905</h6>
-                                <p>Followers</p>
-                            </div>
-
-                            <div class="text-center pb-4">
-                                <h6 class="text-dark pb-2">1200</h6>
-                                <p>Following</p>
-                            </div>
-                        </div>
+                        
 
                         <hr class="w-100">
                     </div>
@@ -45,16 +35,10 @@
                         <div class="profile-content-right profile-right-spacing py-5">
                             <ul class="nav nav-tabs px-3 px-xl-5 nav-style-border" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link" id="timeline-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="true">Timeline</a>
+                                    <a class="nav-link" id="timeline-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="true">Edit profile</a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
-                                </li>
+                                
                             </ul>
                             <div class="pull-right">
                                 <a class="badge  badge-primary" href="{{'home'}}"> Back</a>

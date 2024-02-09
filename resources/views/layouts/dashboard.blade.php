@@ -196,7 +196,7 @@
               <img src="/image/icon.jpg" alt="EWSLogo"  alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Nora Silvester
+                  Munanira
                   <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">The subject goes here</p>
@@ -240,7 +240,7 @@
     <li class="dropdown user-menu">
       <div href="#" class="dropdown-toggle nav-link " data-toggle="dropdown">
         <img src="/avatars/{{Auth::user()->avatar}}" class="user-image img-size-50 img-circle mr-3" alt="User Image" />
-        <span class="d-none d-lg-inline-block">{{Auth::user()->name}}</span>
+        <span class="d-none d-lg-inline-block" style="color:#9cff69">{{Auth::user()->name}}</span>
       </div>
       <ul class="dropdown-menu dropdown-menu-right">
         <!-- User image -->
@@ -292,7 +292,7 @@
     <!-- Brand Logo -->
     <a href="" class="brand-link">
       <img src="/image/icon.jpg" alt="EWSLogo"  class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">EWS </span>
+      <span class="brand-text font-weight-light" style="font-family: 'Aclonica'; color:#9cff69">EWS </span>
     </a>
 
     <!-- Sidebar -->
@@ -320,7 +320,7 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
+            
               </p>
             </a>
            
@@ -328,7 +328,7 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
-              <p>
+              <p style="font-family: 'Bokor'">
              Management 
                 <i class="right fas fa-angle-left "></i>
                 {{-- <span class="badge badge-dark right">3</span> --}}
@@ -339,20 +339,20 @@
               <li class="nav-item">
                 <a href="{{ route('users.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>User Management</p>
+                  <p style="font-family: 'Bokor'">User Management</p>
                 </a>
               </li>
               @endcan
               <li class="nav-item">
                 <a href="{{ route('stations.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Station Management</p>
+                  <p style="font-family: 'Bokor'">Station Management</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('roles.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Roles Management</p>
+                  <p style="font-family: 'Bokor'">Roles Management</p>
                 </a>
               </li>
               
@@ -361,7 +361,7 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
+              <p style="font-family: 'Bokor'">
                 Charts
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -370,13 +370,13 @@
               <li class="nav-item">
                 <a href="pages.charts.chartjs" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
+                  <p style="font-family: 'Bokor'">ChartJS</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/charts/flot.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
+                  <p style="font-family: 'Bokor'">Flot</p>
                 </a>
               </li>
              
@@ -385,7 +385,7 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
-              <p>
+              <p style="font-family: 'Bokor'">
                 Profile
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -393,7 +393,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{'/profile'}}" class="nav-link">
-                <p>view profile</p>
+                <p style="font-family: 'Bokor'">view profile</p>
               </a>
               </li>
               <li class="nav-item">
@@ -412,7 +412,7 @@
           <li class="nav-item">
             <a href="{{ ('/notifications') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Notifications</p>
+              <p style="font-family: 'Bokor'">Notifications</p>
             </a>
           </li>
           

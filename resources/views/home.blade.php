@@ -33,7 +33,7 @@
     <div class="content-header">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h3 class="breadcrumb-item active">Hi {{Auth::user()->name}}</h3>
+                <h3 class="breadcrumb-item active">Hi <spam style="font-family: 'Aladin'">{{Auth::user()->name}}</span></h3>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">

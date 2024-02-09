@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    // API routes that require authentication
+
+    Route::apiResource('users', UserController::class);
+    Route::get('stations', [StationController::class, 'index']);
+
+});
+
+Route::post('login', 'AuthController@login');
+Route::post('register', 'AuthController@register');
+
+Route::get('testing',function(){
+    return 'welcome to user dashboard';
 });
