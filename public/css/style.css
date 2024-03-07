@@ -4499,11 +4499,50 @@ h6.h1 {
     margin-bottom: 12px;
   }
 }
-/*  10 - media screen and (max-width: 320px)
----------------------------------------------------------------------- */
-/*---------------------------------------------------------------*/
-/* Retina */
-/*---------------------------------------------------------------*/
+.wi {
+  border: none !important;
+  
+}
+.date-time-section {
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+font-family: Arial, sans-serif;
+}
+
+.current-day-icon {
+margin-bottom: 5px; 
+color: #ff9800;
+font-size: 20px;
+
+}
+
+.current-day {
+margin: 0; 
+font-weight: bold; 
+
+}
+
+.current-date,
+.current-time {
+margin: 0;
+font-size: 14px;
+}
+.custom-heading {
+font-weight: bold; 
+font-family: Arial, sans-serif; 
+font-size: 22px;
+}
+.custom-heading2{
+  
+font-family: Arial, sans-serif; 
+font-size: 14px;
+}
+.custom-span{
+  font-weight: bold; 
+  color: #2ed3aa;
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .default-logo {
     display: none !important;

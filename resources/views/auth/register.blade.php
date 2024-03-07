@@ -3,10 +3,10 @@
 <head>
     <!-- Design by foolishdeveloper.com -->
     <title>EWS Muvumba</title>
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
     <!--Stylesheet-->
     <style media="screen">
         *,
@@ -18,7 +18,7 @@
         }
 
         body {
-            background-color: #080710;
+            background-color: #finfo_buffer;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -34,31 +34,6 @@
             top: 50%;
         }
 
-        .background .shape {
-            height: 200px;
-            width: 200px;
-            position: absolute;
-            border-radius: 50%;
-        }
-
-        .shape:first-child {
-            background: linear-gradient(
-                #1845a,
-                #23a2f6
-            );
-            left: -80px;
-            top: -80px;
-        }
-
-        .shape:last-child {
-            background: linear-gradient(
-                to right,
-                #ff512f,
-                #f09819
-            );
-            right: -30px;
-            bottom: -80px;
-        }
 
         form {
             width: 100%;
@@ -97,16 +72,26 @@
     display: block;
     max-width: 100px; 
     height: auto;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    border-radius: 50%;
+    padding: 20px;
+    
 }
 
 
 .title-container {
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: left;
     justify-content: flex-start;
+    
 }
-
+.h3{
+    color:#9cff69;
+    font-family: 'Aclonica';
+}
 
 form h3 {
     font-size: 24px;
@@ -118,7 +103,7 @@ form h3 {
     display: flex;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.2); 
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
     margin-bottom: 15px;
 }
@@ -129,18 +114,23 @@ form h3 {
     height: 24px;
     margin-right: 10px; 
 }
-input {
+.input {
     flex: 1; 
-    height: 40px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
     border: none;
-    font-size: 14px;
-    font-weight: 500;
-    background: transparent;
-    color: #ffffff;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: transparent; 
+    transition: background-color 0.3s ease;
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 0 20px rgba(8, 7, 16, 0.6);
 }
 
         button {
-            width: 100%;
+            width: 70%;
+            margin-left: 65px;
             background-color:lightgreen;
             color: #080710;
             padding: 15px 0;
@@ -148,6 +138,8 @@ input {
             font-weight: 600;
             border-radius: 50px;
             cursor: pointer;
+            font-family: 'Aclonica';
+            
         }
 
         .password-link {
@@ -169,14 +161,14 @@ input {
             width: 150px;
             border-radius: 3px;
             padding: 5px 10px 10px 5px;
-            background-color: rgba(255, 255, 255, 0.27);
+            background-color: rgb(128, 128, 128);
             color: #eaf0fb;
             text-align: center;
             margin-right: 10px;
         }
 
         .social div:hover {
-            background-color: rgba(255, 255, 255, 0.47);
+            background-color:lightgreen;
         }
 
         .social .fb {
@@ -194,19 +186,19 @@ input {
     <div class="shape"></div>
     <div class="shape"></div>
 </div>
-<form method="POST" action="{{ route('register') }}">
-    @csrf
+<form method="POST" action="{{ route('login') }}">
+                        @csrf
     <div class="header">
         <div class="logo-container">
             <img src="/image/icon.jpg" alt="Logo" class="logo">
         </div>
         <div class="title-container">
-            <h3>Register</h3>
+            <h3 class="h3">Register</h3>
         </div>
     </div>
     <div class="input-container">
       
-        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
+        <input id="name" type="text" class="input  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
 
 @error('name')
     <span class="invalid-feedback" role="alert">
@@ -216,7 +208,7 @@ input {
     </div>
     <div class="input-container">
         
-        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+        <input id="email" type="email" class="input form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
         @error('email')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -226,7 +218,7 @@ input {
 
     <div class="input-container">
         
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+        <input id="password" type="password" class="input form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
         @error('password')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -243,7 +235,7 @@ input {
     <!-- Add other registration fields here -->
 
     <button>Register</button>
-    <a href="{{ route('login') }}" class="password-link">Already have an account? Log in</a>
+    <a href="{{ route('login') }}" class="password-link">Already have an account?<span style="color: black;">Log in </span> </a>
     <div class="social">
         <div class="go"><i class="fab fa-google"></i> Register with Google</div>
     </div>

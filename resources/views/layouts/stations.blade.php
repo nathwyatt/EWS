@@ -20,13 +20,75 @@
   <!-- JQVMap -->
   <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/dist/css/ews.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+
+
+  <link href="css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+    <link href="css/lib/chartist/chartist.min.css" rel="stylesheet">
+    <link href="css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="css/lib/themify-icons.css" rel="stylesheet">
+    <link href="css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="css/lib/weather-icons.css" rel="stylesheet" />
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="css/lib/helper.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+   <link rel="stylesheet" href="/../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="/../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="/../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+</head>
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="image/icon.png">
+
+  <title>EWS Muvumba</title>
+ <!-- Google Font: Source Sans Pro -->
+ <link rel="stylesheet" href="/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/ews.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
+
+
+  <link href="css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+    <link href="css/lib/chartist/chartist.min.css" rel="stylesheet">
+    <link href="css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="css/lib/themify-icons.css" rel="stylesheet">
+    <link href="css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="css/lib/weather-icons.css" rel="stylesheet" />
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="css/lib/helper.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
 
 <link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
    <link rel="stylesheet" href="/../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -38,11 +100,11 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="/image/icon.jpg" alt="EWSLogo" height="60" width="60">
+    <img class="animation__shake" src="image/icon.jpg" alt="EWSLogo" height="60" width="60">
   </div>
-
+  
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-light fixed-top">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -102,7 +164,10 @@
             </div>
             <!-- Message End -->
           </a>
-        
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+          
+          </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
@@ -110,7 +175,7 @@
               <img src="/image/icon.jpg" alt="EWSLogo"  alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Nora Silvester
+                  Munanira
                   <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">The subject goes here</p>
@@ -127,10 +192,10 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning  navbar-badge"></span>
+          <span class="badge badge-warning navbar-badge">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header"> Notifications</span>
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <i class="fas fa-envelope mr-2"></i> 4 new messages
@@ -138,7 +203,7 @@
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i>
+            <i class="fas fa-users mr-2"></i> 8 friend requests
             <span class="float-right text-muted text-sm">12 hours</span>
           </a>
           <div class="dropdown-divider"></div>
@@ -150,62 +215,57 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-
-      <li class="dropdown user-menu">
-        <div href="#" class="dropdown-toggle nav-link " data-toggle="dropdown">
-          <img src="/avatars/{{Auth::user()->avatar}}" class="user-image img-size-50 img-circle mr-3" alt="User Image" />
-          <span class="d-none d-lg-inline-block">{{Auth::user()->name}}</span>
-        </div>
-        <ul class="dropdown-menu dropdown-menu-right">
-          <!-- User image -->
-          <li class="dropdown-header bg-dark">
-            <img src="/avatars/{{Auth::user()->avatar}}" class="img-circle img-size-50 img-circle mr-3" alt="User Image" />
-            <div class="d-inline-block">
-              <div class="nav-item">
-              {{Auth::user()->name}} 
-              </div>
-              <div class=" nav-item">
-              <small >{{ Auth::user()->email}}</small>
-              </div>
+      
+    <li class="dropdown user-menu">
+      <div href="#" class="dropdown-toggle nav-link " data-toggle="dropdown">
+        <img src="/avatars/{{Auth::user()->avatar}}" class="user-image img-size-50 img-circle mr-3" alt="User Image" />
+        <span class="d-none d-lg-inline-block" style="">{{Auth::user()->name}}</span>
+      </div>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <!-- User image -->
+        <li class="dropdown-header bg-dark">
+          <img src="/avatars/{{Auth::user()->avatar}}" class="img-circle img-size-50 img-circle mr-3" alt="User Image" />
+          <div class="d-inline-block">
+            <div class="nav-item">
+            {{Auth::user()->name}} 
             </div>
+            <div class=" nav-item">
+            <small >{{ Auth::user()->email}}</small>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <a href="{{'/profile'}}" class="dropdown-item">
+            <i class="mdi mdi-account "></i> My Profile
+          </a>
+        </li>
+       
+        <li class="right-sidebar-in">
+          <a href="javascript:0"class="dropdown-item"> 
+            <i class="mdi mdi-settings "></i> Setting </a>
+        </li>
+
+        <li class="right-sidebar-in">
+          <li class="nav-item">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+            <i class="mdi mdi-logout"></i> Log Out </a>
+         </a>
+
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+             @csrf
+         </form>
           </li>
-  
-          <li>
-            <a href="{{'/profile'}}" class="dropdown-item">
-              <i class="mdi mdi-account "></i> My Profile
-            </a>
-          </li>
-         
-          <li class="right-sidebar-in">
-            <a href="javascript:0"class="dropdown-item"> 
-              <i class="mdi mdi-settings "></i> Setting </a>
-          </li>
-  
-          <li class="right-sidebar-in">
-            <li class="nav-item">
-              <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-              <i class="mdi mdi-logout"></i> Log Out </a>
-           </a>
-  
-           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-               @csrf
-           </form>
-            </li>
-              
-          </li>
-        </ul>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
+            
+        </li>
+      </ul>
+    </li>
     </ul>
   </nav>
   <!-- /.navbar -->
-
+</div>
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4 ">
     <!-- Brand Logo -->
@@ -473,16 +533,17 @@
         <div class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
+              <div class="col-sm-6">
+                {{-- <h1 class="m-0">Dashboard</h1> --}}
+              </div><!-- /.col -->
              
             </div><!-- /.row -->
           </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-    
-<div class="container">
-    @yield('content')
-</div>
-
+      <div class="container">
+          @yield('content')
+      </div>
 <script src="/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -510,8 +571,8 @@
 <script src="/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/dist/js/adminlte.js"></script>
+<!-- ews App -->
+<script src="/dist/js/ews.js"></script>
 
 <script src="/dist/js/pages/dashboard.js"></script>
 {{-- charts --}}
@@ -555,6 +616,23 @@
       "responsive": true,
     });
   });
+      // Get the current hour
+      var currentHour = new Date().getHours();
+
+// Select the day and night icons
+var dayIcon = document.querySelector('.day-icon');
+var nightIcon = document.querySelector('.night-icon');
+
+// Check if it's day or night
+if (currentHour >= 6 && currentHour < 18) { // Between 6 AM and 6 PM
+    dayIcon.style.display = 'inline-block'; // Show day icon
+    nightIcon.style.display = 'none'; // Hide night icon
+} else { // Otherwise (nighttime)
+    dayIcon.style.display = 'none'; // Hide day icon
+    nightIcon.style.display = 'inline-block'; // Show night icon
+}
 </script>
 </body>
 </html>
+
+

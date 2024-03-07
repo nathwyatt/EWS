@@ -7,9 +7,8 @@
   <link rel="icon" type="image/png" href="image/icon.png">
 
   <title>EWS Muvumba</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+ <!-- Google Font: Source Sans Pro -->
+ <link rel="stylesheet" href="/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -21,7 +20,7 @@
   <!-- JQVMap -->
   <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/dist/css/ews.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
@@ -29,92 +28,24 @@
   <!-- summernote -->
   <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
 
+
+  <link href="css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+    <link href="css/lib/chartist/chartist.min.css" rel="stylesheet">
+    <link href="css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="css/lib/themify-icons.css" rel="stylesheet">
+    <link href="css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="css/lib/weather-icons.css" rel="stylesheet" />
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="css/lib/helper.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+
 <link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
    <link rel="stylesheet" href="/../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="/../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="/../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
-<link rel="/https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css>
-<link rel="/https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css>
-<link rel="/https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css>
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="/https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,600" rel="stylesheet" type="text/css">
-
-        <style type="text/css">
-            body{
-        background:#eee;
-        font-family: 'Raleway', sans-serif;
-        }
-        .main-part{
-        width:80%;
-        margin:0 auto;
-        text-align: center;
-        padding: 0px 5px;
-        }
-        .cpanel{
-        width:32%;
-        display: inline-block;
-        background-color:#34495E;
-        color:#fff;
-        margin-top: 50px;
-        }
-        .icon-part i{
-        font-size: 30px;
-        padding:10px;
-        border:1px solid #fff;
-        border-radius:50%;
-        margin-top:-25px;
-        margin-bottom: 10px;
-        background-color:#34495E;
-        }
-        .icon-part p{
-        margin:0px;
-        font-size: 20px;
-        padding-bottom: 10px;
-        }
-        .card-content-part{
-        background-color: #2F4254;
-        padding: 5px 0px;
-        }
-        .cpanel .card-content-part:hover{
-        background-color: #5a5a5a;
-        cursor: pointer;
-        }
-        .card-content-part a{
-        color:#fff;
-        text-decoration: none;
-        }
-        .cpanel-green .icon-part,.cpanel-green .icon-part i{
-        background-color: #16A085;
-        }
-        .cpanel-green .card-content-part{
-        background-color: #149077;
-        }
-        .cpanel-orange .icon-part,.cpanel-orange .icon-part i{
-        background-color: #F39C12;
-        }
-        .cpanel-orange .card-content-part{
-        background-color: #DA8C10;
-        }
-        .cpanel-blue .icon-part,.cpanel-blue .icon-part i{
-        background-color: #2980B9;
-        }
-        .cpanel-blue .card-content-part{
-        background-color:#2573A6;
-        }
-        .cpanel-red .icon-part,.cpanel-red .icon-part i{
-        background-color:#E74C3C;
-        }
-        .cpanel-red .card-content-part{
-        background-color:#CF4436;
-        }
-        .cpanel-skyblue .icon-part,.cpanel-skyblue .icon-part i{
-        background-color:#8E44AD;
-        }
-        .cpanel-skyblue .card-content-part{
-        background-color:#803D9B;
-        }
-        </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -125,7 +56,7 @@
   </div>
   
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-dark navbar-light ">
+  <nav class="main-header navbar navbar-expand navbar-light fixed-top">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -240,7 +171,7 @@
     <li class="dropdown user-menu">
       <div href="#" class="dropdown-toggle nav-link " data-toggle="dropdown">
         <img src="/avatars/{{Auth::user()->avatar}}" class="user-image img-size-50 img-circle mr-3" alt="User Image" />
-        <span class="d-none d-lg-inline-block" style="color:#9cff69">{{Auth::user()->name}}</span>
+        <span class="d-none d-lg-inline-block" style="">{{Auth::user()->name}}</span>
       </div>
       <ul class="dropdown-menu dropdown-menu-right">
         <!-- User image -->
@@ -468,8 +399,8 @@
 <script src="/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/dist/js/adminlte.js"></script>
+<!-- ews App -->
+<script src="/dist/js/ews.js"></script>
 
 <script src="/dist/js/pages/dashboard.js"></script>
 {{-- charts --}}
@@ -485,25 +416,18 @@
 <script src="/https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
 <script src="/https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-
-<script src="/https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="/https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<script src="/https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<script src="/https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-<script src="/https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
-<script src="/https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.min.js"></script>
+<script src="/../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="/../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="/../../plugins/jszip/jszip.min.js"></script>
+<script src="/../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="/../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="/../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="/../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="/../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -520,7 +444,21 @@
       "responsive": true,
     });
   });
-</script>
+      // Get the current hour
+      var currentHour = new Date().getHours();
 
+// Select the day and night icons
+var dayIcon = document.querySelector('.day-icon');
+var nightIcon = document.querySelector('.night-icon');
+
+// Check if it's day or night
+if (currentHour >= 6 && currentHour < 18) { // Between 6 AM and 6 PM
+    dayIcon.style.display = 'inline-block'; // Show day icon
+    nightIcon.style.display = 'none'; // Hide night icon
+} else { // Otherwise (nighttime)
+    dayIcon.style.display = 'none'; // Hide day icon
+    nightIcon.style.display = 'inline-block'; // Show night icon
+}
+</script>
 </body>
 </html>

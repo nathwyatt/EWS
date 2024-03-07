@@ -98,6 +98,7 @@ class HomeController extends Controller
     $stations = Station::all();
     $station1 = Station::where('id', 1)->get();
     $station2 = Station::where('id', 2)->get();
+    
     // dd($station1[0]->name);
     return view('home', compact(
         'numUsers',

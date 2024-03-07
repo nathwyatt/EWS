@@ -169,7 +169,7 @@ form h3 {
         }
 
         .social div:hover {
-            background-color:rgb(0, 0, 0);
+            background-color:lightgreen;
         }
 
         .social .fb {
@@ -218,10 +218,14 @@ form h3 {
     </div>
 
         <button>Log In</button>
-    <a href="" class="password-link">Forgot password</a>
+    @if (Route::has('password.request'))
+                                    <a class="password-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
     <div class="social">
         <div class="go"><i class="fab fa-google"></i> Google</div>
-        <div class="fb"><i class="fab fa-register"></i> register</div>
+        <div class="fb"><i class="fab fa-register"> <a href="{{ route('register') }}"> register </a> </i></div>
     </div>
 </form>
 </body>
