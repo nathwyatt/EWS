@@ -7,6 +7,7 @@ use App\Http\Controllers\StationDataController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StationManagerController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\frontend;
 use App\Http\Controllers\StationCommunity;
@@ -59,6 +60,10 @@ Route::get('get-districts', [StationController::class, 'getDistricts'])->name('s
 Route::get('get-sectors', [StationController::class, 'getSectors'])->name('stations.create');
 Route::get('get-cells', [StationController::class, 'getCells'])->name('stations.create');
 Route::get('get-villages', [StationController::class, 'getVillages'])->name('getVillages');
+
+// localizaztion route
+
+Route::get('locale/{lange}',[LocalizationController::class,'setLang']);
 
 });
 

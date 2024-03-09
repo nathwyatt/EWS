@@ -1,19 +1,6 @@
 @extends('layouts.stations')
 
 @section('content')
-<div class="row mb-2">
-  <div class="col-sm-6">
-    <ol class="breadcrumb float-sm-left">
-      <h1 class="breadcrumb-item">{{ Auth::user()->station->name }}</h1>
-    </ol>
-  </div>
-  <div class="col-sm-6">
-    <ol class="breadcrumb float-sm-right">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item active">Dashboard</li>
-    </ol>
-  </div>
-</div>
 
 <div class="card card-table-border-none dt-responsive nowrap" style="width: 100%" id="recent-orders">
   <div class="card-header justify-content-between bg-light text-center">
@@ -34,14 +21,14 @@
       <p>{{ $message }}</p>
     </div>
   @endif
-
+</div>
   <div class="small-box bg-white">
     <a href="{{'/community'}}" class="badge bg-white text-center">Farmers around {{ Auth::user()->station->name }}</a>
     <div class="container">
-      <div class="table-responsive">
-        <table id="example1" class="table table-bordered table-striped">
-          <thead>
-            <tr>
+    <div class="table-responsive">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
               <th>ID</th>
               <th>Name</th>
               <th>Surname</th>
@@ -96,7 +83,7 @@
       </div>
     </div>
   </div>
-</div>
+
 
 <script>
   $(document).ready(function() {
@@ -108,23 +95,5 @@
   });
 </script>
 
-<script>
-  $(function() {
-    $("#example1").DataTable({
-      "responsive": true,
-      "lengthChange": false,
-      "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
+
 @endsection

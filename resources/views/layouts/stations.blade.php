@@ -116,6 +116,17 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
+      <li class="nav-item dropdown">
+          <div class="dropdown">
+            <button class="btn  dropdown-toggle" type="button" id="langDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-globe"></i> Lang
+            </button>
+            <div class="dropdown-menu" aria-labelledby="langDropdown">
+              <a class="dropdown-item" href="locale/en"><i class="fas fa-flag-usa"></i> English</a>
+              <a class="dropdown-item" href="locale/fr"><i class="fas fa-flag-france"></i> French</a>
+            </div>
+          </div>
+      </li>
     </ul>
 
     <!-- Right navbar links -->

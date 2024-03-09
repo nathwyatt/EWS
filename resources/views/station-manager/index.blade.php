@@ -3,11 +3,10 @@
 @section('content')
 
   <div class="container">
-  
      <div class="row">
          <div class="col-lg-12 margin-tb">
                <div class="card-header d-flex justify-content-between align-items-center flex-column flex-lg-row">
-                   <h2 class="custom-heading">{{ Auth::user()->Station->name }} station</h2>
+                   <h2 class="custom-heading">{{ Auth::user()->Station->name }} @lang('public.station')</h2>
                
                     <div class="current-day-icon">
                         <i class="day-icon fas fa-sun"></i>
@@ -29,7 +28,7 @@
                         <div class="stat-icon dib"><i class="ti-user color-success border-success"></i>
                         </div>
                         <div class="stat-content dib">
-                            <div class="card-text">Total farmers</div>
+                            <div class="card-text">@lang('public.total farmers')</div>
                             <div class="stat-digit">{{ $numfarmers }}</div>
                         </div>
                         <a href="{{'/stationdata'}}"></a>

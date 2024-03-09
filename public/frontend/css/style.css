@@ -116,7 +116,7 @@ li {
 
 .navbar-default {
     border-color: transparent;
-    background-color: #222;
+    background-color: #83adb1;
 }
 
 .navbar-default .navbar-brand {
@@ -137,19 +137,19 @@ li {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
-    color: #fff;
+    color: #0e0d0d;
     font-size: 12px;
 }
 
 
 .navbar-default .navbar-nav>.active>a {
     border-radius: 0;
-    color: #fff;
+    color: #141313;
 }
 
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
-    color: #fff;
+    color: #0c0b0b;
 }
 
 @media(min-width:768px) {
@@ -180,7 +180,7 @@ li {
 
     .navbar-default.navbar-shrink {
         padding: 10px 0;
-        background-color: #222;
+        background-color: #83adb1;
     }
 
     .navbar-default.navbar-shrink .navbar-brand {
@@ -275,8 +275,6 @@ li {
     }
 }
 
-
-
 .menu-button:hover {
 	opacity: 0.6;
 }
@@ -327,7 +325,7 @@ li {
 	z-index: 1001;
 	width: 300px;
 	height: 100%;
-	background: #111;
+	background: #83adb1;
 	padding: 2.5em 1.5em 0;
 	font-size: 1.15em;
     
