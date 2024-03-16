@@ -2,6 +2,8 @@
 
 @section('content')
 
-<div id="container"></div>
+<div id="container">
+<div id="map"></div>
+</div>
 
 @endsection

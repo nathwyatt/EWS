@@ -21,7 +21,7 @@ if (isset($_GET['water_level']) && isset($_GET['hummidity']) && isset($_GET['tem
     $soil_moisture = $_GET['soil_moisture'];
 
     // Insert the data into the database
-    $sql = "INSERT INTO station_data (water_level, hummidity, temperature, soil_moisture, Block_name, dustbin_id) VALUES ('$distance', '$humidity', '$temperature', '$soil_moisture', 'Administrator', 012)";
+    $sql = "INSERT INTO station_data (water_level, hummidity, temperature, soil_moisture, station_Id) VALUES ('$distance', '$humidity', '$temperature', '$soil_moisture', 1)";
 
     if ($conn->query($sql) === TRUE) {
         echo "Data inserted successfully";

@@ -40,7 +40,7 @@
               <td>{{ $key->created_at }}</td>
               <td>{{ $key->water_level }}</td>
               <td>{{ $key->temperature }}</td>
-              <td>{{ $key->humidity }}</td>
+              <td>{{ $key->hummidity }}</td>
               <td>{{ $key->soil_moisture }}</td>
             </tr>
           @endforeach

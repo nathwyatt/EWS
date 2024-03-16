@@ -28,6 +28,15 @@
   <!-- summernote -->
   <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
 
+  <!-- charts -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
 
   <link href="css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
     <link href="css/lib/chartist/chartist.min.css" rel="stylesheet">
@@ -65,35 +74,44 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+      <li class="nav-item dropdown">
+          <div class="dropdown">
+            <button class="btn  dropdown-toggle" type="button" id="langDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-globe"></i> Lang
+            </button>
+            <div class="dropdown-menu" aria-labelledby="langDropdown">
+              <a class="dropdown-item" href="locale/en"><i class="fas fa-flag-usa"></i> English</a>
+              <a class="dropdown-item" href="locale/fr"><i class="fas fa-flag-france"></i> French</a>
+            </div>
+          </div>
       </li>
     </ul>
-
+    <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Help
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">FAQ</a>
+            <a class="dropdown-item" href="#">Support</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Contact</a>
+          </div>
+        </li>
+      </ul>
+      <!-- SEARCH FORM -->
+      <form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-navbar" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-
+    
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -250,7 +268,7 @@
             <a href="{{'home'}}" class="nav-link dark">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+              @lang('public.dashboard')
             
               </p>
             </a>
@@ -260,7 +278,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p style="font-family: 'Bokor'">
-             Management 
+              @lang('public.management') 
                 <i class="right fas fa-angle-left "></i>
                 {{-- <span class="badge badge-dark right">3</span> --}}
               </p>
@@ -291,9 +309,32 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-database"></i>
+              <p style="font-family: 'Bokor'">
+              Data
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p style="font-family: 'Bokor'">Bushoga station</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p style="font-family: 'Bokor'">Nsheke station</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p style="font-family: 'Bokor'">
-                Charts
+              @lang('public.chart') 
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -317,7 +358,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p style="font-family: 'Bokor'">
-                Profile
+              @lang('public.profile') 
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -343,7 +384,7 @@
           <li class="nav-item">
             <a href="{{ ('/notifications') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p style="font-family: 'Bokor'">Notifications</p>
+              <p style="font-family: 'Bokor'">@lang('notification') </p>
             </a>
           </li>
           
@@ -361,16 +402,16 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                {{-- <h1 class="m-0">Dashboard</h1> --}}
+                {{-- <h1 class="m-0">@lang(public.dashboard)</h1> --}}
               </div><!-- /.col -->
              
             </div><!-- /.row -->
           </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-<div class="container">
+<main>
     @yield('content')
-</div>
+<main>
 
 <script src="/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -428,6 +469,7 @@
 <script src="/../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="/../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="/../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
 <script>
   $(function () {
     $("#example1").DataTable({
