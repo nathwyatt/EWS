@@ -42,7 +42,7 @@
                     <p>Stations</p>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-user color-warning"></i>
+                    <i class="fas fa-building  color-warning"></i>
                 </div>
                 <a href="#" class="small-box-footer color-dark">
                     More info <i class="fas fa-arrow-circle-right"></i>

@@ -80,8 +80,8 @@
               <i class="fas fa-globe"></i> Lang
             </button>
             <div class="dropdown-menu" aria-labelledby="langDropdown">
-              <a class="dropdown-item" href="locale/en"><i class="fas fa-flag-usa"></i> English</a>
-              <a class="dropdown-item" href="locale/fr"><i class="fas fa-flag-france"></i> French</a>
+              <a class="dropdown-item" href="locale/en"><i class="fas fa-flag-usa"></i> @lang('public.english')</a>
+              <a class="dropdown-item" href="locale/fr"><i class="fas fa-flag-france"></i>  @lang('public.french')</a>
             </div>
           </div>
       </li>
@@ -101,7 +101,7 @@
       <!-- SEARCH FORM -->
       <form class="form-inline ml-3">
         <div class="input-group input-group-sm">
-          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control form-control-navbar" type="search" placeholder="@lang('public.search')" aria-label="Search">
           <div class="input-group-append">
             <button class="btn btn-navbar" type="submit">
               <i class="fas fa-search"></i>
@@ -119,21 +119,6 @@
           <span class="badge badge-danger navbar-badge">3</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
           
@@ -171,16 +156,7 @@
             <i class="fas fa-envelope mr-2"></i> 4 new messages
             <span class="float-right text-muted text-sm">3 mins</span>
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
+          
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
@@ -240,160 +216,165 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-      <img src="/image/icon.jpg" alt="EWSLogo"  class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light" style="font-family: 'Aclonica'; color:#9cff69">EWS </span>
+        <img src="/image/icon.jpg" alt="EWSLogo"  class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light" style="font-family: 'Aclonica'; color:#9cff69">EWS </span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
 
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="{{'home'}}" class="nav-link dark">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-              @lang('public.dashboard')
-            
-              </p>
-            </a>
-           
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p style="font-family: 'Bokor'">
-              @lang('public.management') 
-                <i class="right fas fa-angle-left "></i>
-                {{-- <span class="badge badge-dark right">3</span> --}}
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              @can('user-list')
-              <li class="nav-item">
-                <a href="{{ route('users.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p style="font-family: 'Bokor'">User Management</p>
-                </a>
-              </li>
-              @endcan
-              <li class="nav-item">
-                <a href="{{ route('stations.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p style="font-family: 'Bokor'">Station Management</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('roles.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p style="font-family: 'Bokor'">Roles Management</p>
-                </a>
-              </li>
-              
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                <li class="nav-item menu-open">
+                    <a href="{{'home'}}" class="nav-link dark">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            @lang('public.dashboard')
+
+                        </p>
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p style="font-family: 'Bokor'">
+                            @lang('public.management') 
+                            <i class="right fas fa-angle-left "></i>
+                            {{-- <span class="badge badge-dark right">3</span> --}}
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        @can('user-list')
+                        <li class="nav-item">
+                            <a href="{{ route('users.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p style="font-family: 'Bokor'">@lang('user-management')</p>
+                            </a>
+                        </li>
+                        @endcan
+                        <li class="nav-item">
+                            <a href="{{ route('stations.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p style="font-family: 'Bokor'">@lang('station-management')</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('roles.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p style="font-family: 'Bokor'">@lang('roles-management')</p>
+                            </a>
+                        </li>
+                        <!-- Add other words and their English names here -->
+                    </ul>
+                </li>
+                <!-- Other menu items -->
+                <!-- Data -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-database"></i>
+                        <p style="font-family: 'Bokor'">
+                            Data
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p style="font-family: 'Bokor'">Bushoga station</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p style="font-family: 'Bokor'">Nsheke station</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Chart -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p style="font-family: 'Bokor'">
+                            @lang('public.chart') 
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="pages.charts.chartjs" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p style="font-family: 'Bokor'">ChartJS</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/flot.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p style="font-family: 'Bokor'">Flot</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p style="font-family: 'Bokor'">
+                            @lang('public.profile') 
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{'/profile'}}" class="nav-link">
+                                <p style="font-family: 'Bokor'">view profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Notification -->
+                <li class="nav-item">
+                    <a href="{{ ('/notifications') }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p style="font-family: 'Bokor'">@lang('notification') </p>
+                    </a>
+                </li>
+
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-database"></i>
-              <p style="font-family: 'Bokor'">
-              Data
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p style="font-family: 'Bokor'">Bushoga station</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p style="font-family: 'Bokor'">Nsheke station</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p style="font-family: 'Bokor'">
-              @lang('public.chart') 
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages.charts.chartjs" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p style="font-family: 'Bokor'">ChartJS</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p style="font-family: 'Bokor'">Flot</p>
-                </a>
-              </li>
-             
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p style="font-family: 'Bokor'">
-              @lang('public.profile') 
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{'/profile'}}" class="nav-link">
-                <p style="font-family: 'Bokor'">view profile</p>
-              </a>
-              </li>
-              <li class="nav-item">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
-                 {{ __('Logout') }}
-             </a>
- 
-             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                 @csrf
-             </form>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="{{ ('/notifications') }}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p style="font-family: 'Bokor'">@lang('notification') </p>
-            </a>
-          </li>
-          
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
+        </nav>
+        <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-  </aside>
+</aside>
+
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
