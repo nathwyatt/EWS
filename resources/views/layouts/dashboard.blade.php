@@ -99,16 +99,16 @@
         </li>
       </ul>
       <!-- SEARCH FORM -->
-      <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-          <input class="form-control form-control-navbar" type="search" placeholder="@lang('public.search')" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
+      <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+      </div>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
     
@@ -288,7 +288,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-database"></i>
                         <p style="font-family: 'Bokor'">
-                            Data
+                            @lang('public.data')
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -318,9 +318,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages.charts.chartjs" class="nav-link">
+                            <a href="{{ route('charts.bar_chart') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p style="font-family: 'Bokor'">ChartJS</p>
+                                <p style="font-family: 'Bokor'">Bar charts</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -363,7 +363,7 @@
                 <!-- Notification -->
                 <li class="nav-item">
                     <a href="{{ ('/notifications') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                        <i class="far fa-bell nav-icon"></i>
                         <p style="font-family: 'Bokor'">@lang('notification') </p>
                     </a>
                 </li>

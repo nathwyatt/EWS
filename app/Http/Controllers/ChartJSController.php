@@ -20,6 +20,6 @@ class ChartJSController extends Controller
                     ->groupBy(DB::raw("Month(created_at)"))
                     ->pluck('count');
           
-        return view('chart', compact('userData'));
+        return view('charts.bar_chart', compact('userData'));
    }
 }

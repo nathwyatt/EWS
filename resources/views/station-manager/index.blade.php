@@ -6,7 +6,7 @@
      <div class="row">
          <div class="col-lg-12 margin-tb">
                <div class="card-header d-flex justify-content-between align-items-center flex-column flex-lg-row">
-                   <h2 class="custom-heading">{{ Auth::user()->Station->name }} @lang('public.station')</h2>
+               <h3 class="custom-heading2">Hi <span class="custom-span">{{Auth::user()->name}}</span></h3>
                
                     <div class="current-day-icon">
                         <i class="day-icon fas fa-sun"></i>
@@ -23,45 +23,39 @@
      <div class="row">
        
             <div class="col-lg-4 col-4 margin-tb">
-                <div class="card-header d-flex justify-content-between align-items-center flex-column flex-lg-row">
-                    <div class="stat-widget-one">
-                        <div class="stat-icon dib"><i class="ti-user color-success border-success"></i>
-                        </div>
-                        <div class="stat-content dib">
-                            <div class="card-text">@lang('public.total farmers')</div>
-                            <div class="stat-digit">{{ $numfarmers }}</div>
-                        </div>
-                        <a href="{{'/stationdata'}}"></a>
+
+             <div class="info-box bg-info">
+                    <span class="info-box-icon bg-info"><i class="fa fa-users"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">@lang('public.total farmers')</span>
+                        <span class="info-box-number">{{ $numfarmers }}</span>
                     </div>
+                    <a href="{{'/stationdata'}}"></a>
                 </div>
             </div>
 
 
             <div class="col-lg-4 col-4 margin-tb">
-                <div class="card-header d-flex justify-content-between align-items-center flex-column flex-lg-row">
-                    <div class="stat-widget-one">
-                        <div class="stat-icon dib"><i class="ti-server color-warning border-warning"></i>
-                        </div>
-                        <div class="stat-content dib">
-                            <div class="stat-text">River data</div>
-                            <div class="stat-digit">{{ $numdata }}</div>
-                        </div>
-                        <a href="{{'/stationdata'}}"></a>
+
+                <div class="info-box bg-warning">
+                    <span class="info-box-icon "><i class="fa fa-database"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">River data</span>
+                        <span class="info-box-number">{{ $numdata }}</span>
                     </div>
+                    <a href="{{'/stationdata'}}"></a>
                 </div>
             </div>
          
             <div class="col-lg-4 col-4 margin-tb">
-                <div class="card-header d-flex justify-content-between align-items-center flex-column flex-lg-row">
-                    <div class="stat-widget-one flex-column flex-lg-row">
-                        <div class="stat-icon dib"><i class="ti-email color-danger border-danger"></i>
-                        </div>
-                        <div class="stat-content dib">
-                            <div class="card-text">notifications</div>
-                            <div class="card-digit">{{$unreadNotificationsCount}}</div>
-                        </div>
-                        <a href="{{'/datanotification'}}"></a>
+
+                <div class="info-box bg-success">
+                    <span class="info-box-icon "><i class="fa fa-bell"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">notifications</span>
+                        <span class="info-box-number">{{$unreadNotificationsCount}}</span>
                     </div>
+                    <a href="{{'/datanotification'}}"></a>
                 </div>
             </div>
           <!-- ./col -->
@@ -79,56 +73,42 @@
                     <p class="ti-time ">  {{ $latestData->created_at }} </p>
                         <div class="row">
                             <div class="col-lg-3 col-3 margin-tb">
-                            <div class="card-header d-flex justify-content-between align-items-center flex-column flex-lg-row">
-                                    <div class="stat-widget-one">
-                                        <div class="stat-icon dib">
-                                            <i class="wi wi-flood color-success" style="font-size: 38px;"></i>
-                                        </div>
-                                        <div class="stat-content dib ml-3">
-                                            <div class="stat-text">Water level</div>
-                                            <div class="stat-digit">{{ $latestData->water_level }}</div>
-                                        </div>
+                                <div class="info-box">
+                                    <span class="info-box-icon color-dark"><i class="far fa-envelope"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Water level</span>
+                                        <span class="info-box-number">{{ $latestData->water_level }}</span>
                                     </div>
                                 </div>
                             </div>
                         
                             <div class="col-lg-3 col-3 margin-tb">
-                            <div class="card-header d-flex justify-content-between align-items-center flex-column flex-lg-row">
-                            <div class="stat-widget-one">
-                                        <div class="stat-icon dib">
-                                            <i class="wi wi-thermometer color-success" style="font-size: 38px;"></i>
-                                        </div>
-                                        <div class="stat-content dib ml-3">
-                                            <div class="stat-text">Temperature</div>
-                                            <div class="stat-digit">{{ $latestData->temperature }}</div>
-                                        </div>
+                        
+                                <div class="info-box ">
+                                    <span class="info-box-icon color-success"><i class="far fa-flag"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Temperature</span>
+                                        <span class="info-box-number">{{ $latestData->temperature }}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-3 margin-tb">
-                            <div class="card-header d-flex justify-content-between align-items-center flex-column flex-lg-row">
-                            <div class="stat-widget-one">
-                                        <div class="stat-icon dib">
-                                            <i class="wi wi-humidity color-success" style="font-size: 38px;"></i>
-                                        </div>
-                                        <div class="stat-content dib ml-4">
-                                            <div class="stat-text">Humidity</div>
-                                            <div class="stat-digit">{{ $latestData->hummidity }}</div>
-                                        </div>
+                        
+                                <div class="info-box ">
+                                    <span class="info-box-icon color-warning"><i class="far fa-copy"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Humidity</span>
+                                        <span class="info-box-number">{{ $latestData->hummidity }}</span>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-lg-3 col-3">
-                            <div class="card-header d-flex justify-content-between align-items-center flex-column flex-lg-row">
-                            <div class="stat-widget-one">
-                                        <div class="stat-icon dib">
-                                            <i class="wi wi-small-craft-advisory color-success" style="font-size: 38px;"></i>
-                                        </div>
-                                        <div class="stat-content dib ml-4">
-                                            <div class="stat-text" style="text-align:center , margin:0px">Moisture</div>
-                                            <div class="stat-digit">{{ $latestData->soil_moisture }}</div>
-                                        </div>
+                                <div class="info-box ">
+                                    <span class="info-box-icon color-info"><i class="far fa-copy"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Moisture</span>
+                                        <span class="info-box-number">{{ $latestData->soil_moisture }}</span>
                                     </div>
                                 </div>
                             </div>

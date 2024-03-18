@@ -11,6 +11,7 @@ use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\frontend;
 use App\Http\Controllers\StationCommunity;
+use App\Http\Controllers\ChartJSController;
 use App\Models\Station;
 use App\Models\Station_Data;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/profile', function () {
         $user = Auth::user();
         return view('profile.profile', compact('user'));
+
     });
 
     
@@ -64,6 +66,10 @@ Route::get('get-villages', [StationController::class, 'getVillages'])->name('get
 // localizaztion route
 
 Route::get('locale/{lange}',[LocalizationController::class,'setLang']);
+
+//charts
+
+Route::get('/charts/bar_chart', [ChartJSController::class, 'handleChart'])->name('charts.bar_chart');
 
 });
 

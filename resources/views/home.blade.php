@@ -69,7 +69,7 @@
         <div class="row">
         <div class="col-lg-12 margin-tb"> 
             <div class="card-header">
-                <h5 class="card-title text-center" style="font-family: 'Your-Desired-Font-Family'; font-size: 12px;">{{ $station1[0]->name }} Station on google map</h5>
+                <h5 class="card-title text-center" style="font-family: 'Your-Desired-Font-Family'; font-size: 12px;"> find stations on google map</h5>
             </div> 
             <div class="card-body">
                 <div id="map">
@@ -220,53 +220,33 @@ var muvumba = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     subdomains:['mt0','mt1','mt2','mt3']
 })
 muvumba.addTo(map); 
-//google streets
-googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+
+var googleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
     maxZoom: 20,
     subdomains:['mt0','mt1','mt2','mt3']
 });
 googleStreets.addTo(map);
 
-//satelite
-googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+var googleSat = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
     maxZoom: 20,
     subdomains:['mt0','mt1','mt2','mt3']
 });
-//googleSat.addTo(map);
 
-// maker
-var a = L.marker([-1.2316667, 30.3438889])
-var site = a.bindPopup('EWS Muvumba').openPopup()
-site.addTo(map);
+var a = L.marker([-1.2316667, 30.3438889]).addTo(map);
+a.bindPopup('EWS Muvumba').openPopup();
 
-console.log(singleMaker.toGeoJSON());
-
-//layer controller
 var baseMaps = {
-"Over view Map": muvumba,
-"Map with streets": googleStreets,
-"Satelite map": googleSat,
+    "Over view Map": muvumba,
+    "Map with streets": googleStreets,
+    "Satellite map": googleSat
 };
+
 var overlayMap = {
     "Marker": a
 };
-var control_layers= L.control.layers(baseMaps,overlayMap);
- control_layers.addTo(map)
 
-//code
-// var myIcon = L.icon({
-//     iconUrl: 'image/icon.jpg',
-//     iconSize: [38, 95],
-//     iconAnchor: [22, 94],
-//     popupAnchor: [-3, -76],
-//     shadowUrl: 'my-icon-shadow.png',
-//     shadowSize: [68, 95],
-//     shadowAnchor: [22, 94]
-// });
-// L.marker([-1.231, 30.343], {icon: myIcon}).addTo(map);
-
-
-
-
+var control_layers = L.control.layers(baseMaps, overlayMap);
+control_layers.addTo(map);
 </script>
+
 @endsection

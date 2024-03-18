@@ -14,7 +14,7 @@
             <img src="/image/icon.jpg" alt="Logo" class="logo">
         </div>
         <div class="title-container">
-            <h3 class="h3">Login</h3>
+            <h3 class="h3">@lang('login.login')</h3>
         </div>
     </div>
     <div class="input-container">
@@ -45,7 +45,7 @@
                                 @endif
     <div class="social">
         <div class="go"><i class="fab fa-google"></i> Google</div>
-        <div class="fb"><i class="fab fa-register"> <a href="{{ route('register') }}"> register </a> </i></div>
+        <div class="fb"><i class="fab fa-register"> <a href="{{ route('register') }}"> @lang('login.register') </a> </i></div>
     </div>
 </form>
 @endsection

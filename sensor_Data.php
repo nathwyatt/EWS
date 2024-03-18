@@ -14,9 +14,9 @@ if ($conn->connect_error) {
 }
 
 // Check if all sensor readings are provided as query parameters
-if (isset($_GET['water_level']) && isset($_GET['hummidity']) && isset($_GET['temperature']) && isset($_GET['soil_moisture'])) {
+if (isset($_GET['water_level']) && isset($_GET['humidity']) && isset($_GET['temperature']) && isset($_GET['soil_moisture'])) {
     $distance = $_GET['water_level'];
-    $humidity = $_GET['hummidity'];
+    $humidity = $_GET['humidity'];
     $temperature = $_GET['temperature'];
     $soil_moisture = $_GET['soil_moisture'];
 
