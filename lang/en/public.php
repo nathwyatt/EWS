@@ -28,9 +28,20 @@ return [
     "notifications"=>  "Notifications",
     "log_out"=>  "Log Out",
     "my_profile"=>  "My Profile",
-    "settings"=>  "Setting"
+    "settings"=>  "Setting",
        
-      
+    'water_level' => 'Water Level',
+    'humidity' => 'Humidity',
+    'soil_moisture' => 'Soil Moisture',
+    'temperature' => 'Temperature',
+    'danger' => 'Danger',
+    'warning' => 'Warning',
+    'normal' => 'Normal',
+
+    'status' => 'Status',
+    'farmers' => 'Farmers',
+    'number_of_data' => 'Number of Data',
+    
 ];
 
 

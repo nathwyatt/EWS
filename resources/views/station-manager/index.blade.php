@@ -1,7 +1,24 @@
 @extends('layouts.stations')
 
 @section('content')
+<style>
+    @keyframes blinker {
+        50% { opacity: 0; }
+    }
 
+    .blink {
+        animation: blinker 1s linear infinite;
+        position: relative;
+    }
+
+    .blink::before {
+        content: '\2605'; /* Unicode for star */
+        position: absolute;
+        top: -8px;
+        right: -7px;
+        color: black;
+    }
+</style>
   <div class="container">
      <div class="row">
          <div class="col-lg-12 margin-tb">
@@ -27,7 +44,7 @@
              <div class="info-box bg-info">
                     <span class="info-box-icon bg-info"><i class="fa fa-users"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">@lang('public.total farmers')</span>
+                        <span class="info-box-text">@lang('public.farmers')</span>
                         <span class="info-box-number">{{ $numfarmers }}</span>
                     </div>
                     <a href="{{'/stationdata'}}"></a>
@@ -37,10 +54,10 @@
 
             <div class="col-lg-4 col-4 margin-tb">
 
-                <div class="info-box bg-warning">
+                <div class="info-box bg-info">
                     <span class="info-box-icon "><i class="fa fa-database"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">River data</span>
+                        <span class="info-box-text">@lang('public.number_of_data')</span>
                         <span class="info-box-number">{{ $numdata }}</span>
                     </div>
                     <a href="{{'/stationdata'}}"></a>
@@ -49,10 +66,10 @@
          
             <div class="col-lg-4 col-4 margin-tb">
 
-                <div class="info-box bg-success">
+                <div class="info-box bg-info">
                     <span class="info-box-icon "><i class="fa fa-bell"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">notifications</span>
+                        <span class="info-box-text">@lang('public.notification')</span>
                         <span class="info-box-number">{{$unreadNotificationsCount}}</span>
                     </div>
                     <a href="{{'/datanotification'}}"></a>
@@ -70,34 +87,32 @@
                 @if (!empty($data))
                     @php $latestData = $data->latest('created_at')->first(); @endphp
                     <div class="container">
-                    <p class="ti-time ">  {{ $latestData->created_at }} </p>
+                        <p class="ti-time ">  {{ $latestData->created_at }} </p>
                         <div class="row">
                             <div class="col-lg-3 col-3 margin-tb">
                                 <div class="info-box">
-                                    <span class="info-box-icon color-dark"><i class="far fa-envelope"></i></span>
+                                    <span class="info-box-icon color-dark"><i class="fas fa-tint"></i></span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Water level</span>
+                                        <span class="info-box-text">@lang('public.water_level')</span>
                                         <span class="info-box-number">{{ $latestData->water_level }}</span>
                                     </div>
                                 </div>
                             </div>
-                        
+
                             <div class="col-lg-3 col-3 margin-tb">
-                        
                                 <div class="info-box ">
-                                    <span class="info-box-icon color-success"><i class="far fa-flag"></i></span>
+                                    <span class="info-box-icon color-success"><i class="fas fa-thermometer-half"></i></span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Temperature</span>
+                                        <span class="info-box-text">@lang('public.temperature')</span>
                                         <span class="info-box-number">{{ $latestData->temperature }}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-3 margin-tb">
-                        
                                 <div class="info-box ">
-                                    <span class="info-box-icon color-warning"><i class="far fa-copy"></i></span>
+                                    <span class="info-box-icon color-warning"><i class="fas fa-tint-slash"></i></span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Humidity</span>
+                                        <span class="info-box-text">@lang('public.humidity')</span>
                                         <span class="info-box-number">{{ $latestData->hummidity }}</span>
                                     </div>
                                 </div>
@@ -105,22 +120,33 @@
 
                             <div class="col-lg-3 col-3">
                                 <div class="info-box ">
-                                    <span class="info-box-icon color-info"><i class="far fa-copy"></i></span>
+                                    <span class="info-box-icon color-info"><i class="fas fa-cloud-rain"></i></span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Moisture</span>
+                                        <span class="info-box-text">@lang('public.soil_moisture')</span>
                                         <span class="info-box-number">{{ $latestData->soil_moisture }}</span>
                                     </div>
                                 </div>
                             </div>
-                            
-                        </div>      
+                        </div>
                     </div>
-                
+                    <!-- Display overall status with appropriate color and blinking -->
+                <div class="row mt-3">
+                    <div class="col-md-12 text-center">
+                        <h4 class="custom-span">
+                            @lang('public.status') <i class="fas fa-arrow-circle-down bg-light"></i>
+                            <div class="card-header">
+                                <span class="badge bg-success @if($overallStatus == 'Normal') blink @endif">@lang('public.normal')</span>
+                                <span class="badge bg-warning @if($overallStatus == 'Warning') blink @endif">@lang('public.warning')</span>
+                                <span class="badge bg-danger @if($overallStatus == 'Danger') blink @endif">@lang('public.danger')</span>
+                            </div>
+                        </h4>
+                    </div>
+                </div>
                 @endif
                 <a href="{{'/stationdata'}}" class="small-box-footer bg-light">All Station_data records <i class="fas fa-arrow-circle-right bg-light"></i></a>
             </div>
         </div>
-     </div>
+    </div>
 
   
      <div class="row">
@@ -219,7 +245,7 @@
                 background-color: rgba(135, 206, 235, 0.4);
                 }
                 </style>
-                        {{-- <script>
+                       <script>
                     $(document).ready(function() {
                         $('#example1').DataTable({
                             responsive: true,
@@ -227,7 +253,8 @@
                             pageLength:5
                         });
                     });
-                </script> --}}
+                </script>
+              
             </div>
         </div>
       </div>

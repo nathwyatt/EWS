@@ -1,8 +1,25 @@
 @extends('layouts.dashboard')
 
 @section('content')
+
 <style>
     #map { height: 250px; }
+    @keyframes blinker {
+        50% { opacity: 0; }
+    }
+
+    .blink {
+        animation: blinker 1s linear infinite;
+        position: relative;
+    }
+
+    .blink::before {
+        content: '\2605'; /* Unicode for star */
+        position: absolute;
+        top: -8px;
+        right: -7px;
+        color: black;
+    }
 </style>
 <div class="container">
     <div class="row">
@@ -22,49 +39,68 @@
 
     <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="small-box bg-light">
-                <div class="inner">
-                    <h3>{{$numUsers}}</h3>
-                    <p>Total Users</p>
+            <div class="info-box bg-info">
+                <span class="info-box-icon "><i class="fa fa-users"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@lang('public.user_management')</span>
+                    <span class="info-box-number">{{$numUsers}}</span>
                 </div>
-                <div class="icon">
-                    <i class="fas fa-user color-success"></i>
-                </div>
-                <a href="{{route('users.index')}}" class="small-box-footer color-dark">
+            </div>
+            <a href="{{route('users.index')}}" class="small-box-footer color-success">
                     More info <i class="fas fa-arrow-circle-right"></i>
                 </a>
-            </div>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="small-box bg-light">
-                <div class="inner">
-                    <h3>{{$numStations}}</h3>
-                    <p>Stations</p>
+           
+            <div class="info-box bg-info">
+                <span class="info-box-icon "><i class="fa fa-building"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@lang('public.station_management')</span>
+                    <span class="info-box-number">{{$numStations}}</span>
                 </div>
-                <div class="icon">
-                    <i class="fas fa-building  color-warning"></i>
-                </div>
-                <a href="#" class="small-box-footer color-dark">
+            </div>
+            <a href="#" class="small-box-footer color-success">
                     More info <i class="fas fa-arrow-circle-right"></i>
                 </a>
-            </div>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="small-box bg-light">
-                <div class="inner">
-                    <h3>20</h3>
-                    <p>Notifications</p>
+            <div class="info-box bg-info">
+                <span class="info-box-icon "><i class="fa fa-bell"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@lang('public.notification')</span>
+                    <span class="info-box-number">20</span>
                 </div>
-                <div class="icon">
-                    <i class="fas fa-bell color-info"></i>
-                </div>
-                <a href="{{'/datanotification'}}" class="small-box-footer color-dark">
+            </div>
+            <a href="{{'/datanotification'}}" class="small-box-footer color-success">
                     More info <i class="fas fa-arrow-circle-right"></i>
                 </a>
-            </div>
         </div>
    </div> 
 
+
+
+    <div class="row mt-3">
+        <div class="col-md-6 text-center">
+            <h4 class="custom-heading2 custom-span">
+                Station 1 @lang('public.status') <i class="fas fa-arrow-circle-down bg-light"></i>
+                <div class="card-header">
+                    <span class="badge bg-success @if($overallStatus1 == 'Normal') blink @endif">@lang('public.normal')</span>
+                    <span class="badge bg-warning @if($overallStatus1 == 'Warning') blink @endif">@lang('public.warning')</span>
+                    <span class="badge bg-danger @if($overallStatus1 == 'Danger') blink @endif">@lang('public.danger')</span>
+                </div>
+            </h4>
+        </div>
+        <div class="col-md-6 text-center">
+            <h4 class="custom-heading2 custom-span">
+                Station 2 @lang('public.status') <i class="fas fa-arrow-circle-down bg-light"></i>
+                <div class="card-header">
+                    <span class="badge bg-success @if($overallStatus2 == 'Normal') blink @endif">@lang('public.normal')</span>
+                    <span class="badge bg-warning @if($overallStatus2 == 'Warning') blink @endif">@lang('public.warning')</span>
+                    <span class="badge bg-danger @if($overallStatus2 == 'Danger') blink @endif">@lang('public.danger')</span>
+                </div>
+            </h4>
+        </div>
+    </div>
     <div class="content">
         <div class="row">
         <div class="col-lg-12 margin-tb"> 

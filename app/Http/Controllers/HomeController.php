@@ -31,38 +31,67 @@ class HomeController extends Controller
     if ($user->hasRole("Station-manager"))
      {
         $id = Auth::user()->station->id;
-        $data = Station_Data::where('station_id',$id)->latest('created_at')->first();
+        $data = Station_Data::where('station_id', $id)->latest('created_at')->first();
         $com = Community::where('station_id', $id)->get();
-        $stationId=$request->input('station_id');
+        $stationId = $request->input('station_id');
 
-        $numfarmers = Community::where('station_id', $id)->count(); 
-        $numdata = Station_Data::where('station_id', $id)->count(); 
+        $numfarmers = Community::where('station_id', $id)->count();
+        $numdata = Station_Data::where('station_id', $id)->count();
 
         $unreadNotifications = auth()->user()->unreadNotifications;
         $unreadNotificationsCount = $unreadNotifications->count();
         $unreadNotifications->markAsRead();
-        // $notifications = auth()->user()->unreadNotifications->toArray();
-     
 
+        // Initialize arrays for holding data
+        $temperatureData = [];
+        $waterLevelData = [];
+        $soilMoistureData = [];
+        $humidityData = [];
+        $timeData = [];
 
-        //charts
-        $temperatureData = []; // Initialize an empty array for temperature data
-        $waterLevelData = []; // Initialize an empty array for water level data
-        $soilMoistureData = []; // Initialize an empty array for soil moisture data
-        $humidityData = []; // Initialize an empty array for humidity data
-        $timeData = []; // Initialize an empty array for time data
-    
+        // Fetch station data
         $stationData = Station_Data::where('station_id', $id)->get();
-    
-        foreach ($stationData as $data) {
-            $temperatureData[] = $data->temperature; 
-            $waterLevelData[] = $data->water_level; 
-            $soilMoistureData[] = $data->soil_moisture; 
-            $humidityData[] = $data->hummidity; 
-            $timeData[] = $data->created_at->format('Y-m-d H:i:s'); 
+
+        // Loop through station data to extract values and time
+        foreach ($stationData as $dataPoint) {
+            $temperatureData[] = $dataPoint->temperature;
+            $waterLevelData[] = $dataPoint->water_level;
+            $soilMoistureData[] = $dataPoint->soil_moisture;
+            $humidityData[] = $dataPoint->humidity;
+            $timeData[] = $dataPoint->created_at->format('Y-m-d H:i:s');
         }
 
-        return view('station-manager.index', compact('data','com','numfarmers','numdata','unreadNotificationsCount','unreadNotifications','temperatureData', 'waterLevelData', 'soilMoistureData', 'humidityData', 'timeData'));
+        // Define thresholds for each parameter
+        $temperatureThreshold = 25; // Example threshold for temperature
+        $humidityThreshold = 60; // Example threshold for humidity
+        $waterLevelThreshold = 50; // Example threshold for water level
+        $soilMoistureThreshold = 40; // Example threshold for soil moisture
+
+        // Initialize variables to hold status for each parameter
+        $overallStatus = '';
+
+        // Determine overall status based on thresholds
+        if (
+            $data->temperature < $temperatureThreshold &&
+            $data->humidity < $humidityThreshold &&
+            $data->water_level < $waterLevelThreshold &&
+            $data->soil_moisture < $soilMoistureThreshold
+        ) {
+            $overallStatus = 'Normal';
+        } elseif (
+            $data->temperature >= $temperatureThreshold ||
+            $data->humidity >= $humidityThreshold ||
+            $data->water_level >= $waterLevelThreshold ||
+            $data->soil_moisture >= $soilMoistureThreshold
+        ) {
+            $overallStatus = 'Warning';
+        } else {
+            $overallStatus = 'Danger';
+        }
+        
+        // Pass data and overall status to the Blade view
+        return view('station-manager.index', compact('data', 'com', 'numfarmers', 'numdata', 'unreadNotificationsCount', 'unreadNotifications', 'temperatureData', 'waterLevelData', 'soilMoistureData', 'humidityData', 'timeData', 'overallStatus'));
+
      }
     else 
     {
@@ -99,6 +128,57 @@ class HomeController extends Controller
     $station1 = Station::where('id', 1)->get();
     $station2 = Station::where('id', 2)->get();
     
+    // Example thresholds for each parameter
+$temperatureThreshold = 25;
+$humidityThreshold = 60;
+$waterLevelThreshold = 50;
+$soilMoistureThreshold = 40;
+
+// Fetch data for the first station
+$data1 = Station_Data::where('station_id', 1)->latest('created_at')->first();
+// Fetch data for the second station
+$data2 = Station_Data::where('station_id', 2)->latest('created_at')->first();
+
+// Determine overall status for the first station based on thresholds
+if (
+    $data1->temperature < $temperatureThreshold &&
+    $data1->humidity < $humidityThreshold &&
+    $data1->water_level < $waterLevelThreshold &&
+    $data1->soil_moisture < $soilMoistureThreshold
+) {
+    $overallStatus1 = 'Normal';
+} elseif (
+    $data1->temperature >= $temperatureThreshold ||
+    $data1->humidity >= $humidityThreshold ||
+    $data1->water_level >= $waterLevelThreshold ||
+    $data1->soil_moisture >= $soilMoistureThreshold
+) {
+    $overallStatus1 = 'Warning';
+} else {
+    $overallStatus1 = 'Danger';
+}
+
+// Determine overall status for the second station based on thresholds
+if (
+    $data2->temperature < $temperatureThreshold &&
+    $data2->humidity < $humidityThreshold &&
+    $data2->water_level < $waterLevelThreshold &&
+    $data2->soil_moisture < $soilMoistureThreshold
+) {
+    $overallStatus2 = 'Normal';
+} elseif (
+    $data2->temperature >= $temperatureThreshold ||
+    $data2->humidity >= $humidityThreshold ||
+    $data2->water_level >= $waterLevelThreshold ||
+    $data2->soil_moisture >= $soilMoistureThreshold
+) {
+    $overallStatus2 = 'Warning';
+} else {
+    $overallStatus2 = 'Danger';
+}
+
+// Now you have overall statuses for both stations: $overallStatus1 and $overallStatus2
+
     // dd($station1[0]->name);
     return view('home', compact(
         'numUsers',
@@ -117,7 +197,9 @@ class HomeController extends Controller
         'humidityData2',
         'timeData2',
         'station1',
-        'station2'
+        'station2',
+        'overallStatus1',
+        'overallStatus2'
     ));
     }
 }

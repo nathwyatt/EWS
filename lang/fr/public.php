@@ -27,8 +27,20 @@ return [
     "notifications"=>  "Notifications",
     "log_out"=>  "Déconnexion",
     "my_profile"=>  "Mon Profil",
-    "setting"=>  "Paramètres"
+    "setting"=>  "Paramètres",
      
+    'water_level' => 'Niveau d\'eau',
+    'humidity' => 'Humidité',
+    'soil_moisture' => 'Humidité du sol',
+    'temperature' => 'Température',
+
+    'danger' => 'Danger',
+    'warning' => 'Avertissement',
+    'normal' => 'Normal',
+
+    'status' => 'État',
+    'farmers' => 'Agriculteurs',
+    'number_of_data' => 'Nombre de Données',
 
 ];
 

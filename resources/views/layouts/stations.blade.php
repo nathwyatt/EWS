@@ -122,8 +122,8 @@
               <i class="fas fa-globe"></i> Lang
             </button>
             <div class="dropdown-menu" aria-labelledby="langDropdown">
-              <a class="dropdown-item" href="locale/en"><i class="fas fa-flag-usa"></i> English</a>
-              <a class="dropdown-item" href="locale/fr"><i class="fas fa-flag-france"></i> French</a>
+              <a class="dropdown-item" href="locale/en"><i class="fas fa-flag-usa"></i>  @lang('public.english')</a>
+              <a class="dropdown-item" href="locale/fr"><i class="fas fa-flag-france"></i> @lang('public.french')</a>
             </div>
           </div>
       </li>
@@ -310,7 +310,7 @@
             <a href="{{'home'}}" class="nav-link dark">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                 Dashboard
+              @lang('public.dashboard')
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -320,7 +320,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Management 
+              @lang('public.management') 
                 <i class="right fas fa-angle-left "></i>
                 {{-- <span class="badge badge-dark right">3</span> --}}
               </p>
@@ -335,13 +335,13 @@
               <li class="nav-item">
                 <a href="{{ route('stationdata.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> Station-data</p>
+                  <p> @lang('public.data')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('roles.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Notifications</p>
+                  <p>@lang('public.notification')</p>
                 </a>
               </li>
               
@@ -349,23 +349,23 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-database"></i>
               <p>
-                Charts
+                @lang('public.data')
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages.charts.chartjs" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
+                  <i class="far fa-table nav-icon"></i>
+                  <p>Table</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
+                  <i class="far fa-chart-pie nav-icon"></i>
+                  <p>@lang('public.chart')</p>
                 </a>
               </li>
              
@@ -422,7 +422,7 @@
              
             </ul>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
                 <a href="pages/UI/icons.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tables</p>
@@ -527,7 +527,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>jsGrid</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           <li class="nav-header">EXAMPLES</li> --}}
