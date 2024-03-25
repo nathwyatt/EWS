@@ -36,12 +36,31 @@ class EmailNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage)
-                    ->greeting($this->details['greeting'])
-                    ->line($this->details['body'])
-                    ->action($this->details['actiontext'],$this->details['actionurl'])
-                    ->line($this->details['lastline']);
+        $mailMessage = new MailMessage();
+    
+        // Check if $this->details is an array before accessing its elements
+        if (is_array($this->details)) {
+            // Check if the expected keys exist in $this->details before accessing them
+            if (isset($this->details['greeting'])) {
+                $mailMessage->greeting($this->details['greeting']);
+            }
+            if (isset($this->details['body'])) {
+                $mailMessage->line($this->details['body']);
+            }
+            if (isset($this->details['actiontext']) && isset($this->details['actionurl'])) {
+                $mailMessage->action($this->details['actiontext'], $this->details['actionurl']);
+            }
+            if (isset($this->details['lastline'])) {
+                $mailMessage->line($this->details['lastline']);
+            }
+        } else {
+            // Handle the case where $this->details is not an array
+            $mailMessage->line('Error: Details are not provided correctly.');
+        }
+    
+        return $mailMessage;
     }
+    
 
     /**
      * Get the array representation of the notification.

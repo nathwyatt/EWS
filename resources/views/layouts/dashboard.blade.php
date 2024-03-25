@@ -145,22 +145,41 @@
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
+        @php
+            $notifications = session('notifications');
+        @endphp
+
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+            <i class="far fa-bell"></i>
+            <span class="badge  badge-warning navbar-badge">{{ $notifications ? $notifications->count() : 0 }}</span>
         </a>
+
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            @if ($notifications)
+                <span class="dropdown-item dropdown-header">{{ $notifications->count() }} Notifications</span>
+                <div class="dropdown-divider"></div>
+
+                @foreach ($notifications as $notification)
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i>
+                        @if (isset($notification->data['message']))
+                            {{ $notification->data['message'] }}
+                        @else
+                            Default message
+                        @endif
+                        <span class="float-right text-muted text-sm">{{ $notification->created_at->diffForHumans() }}</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                @endforeach
+            @else
+                <a href="#" class="dropdown-item">
+                    No new notifications
+                </a>
+                <div class="dropdown-divider"></div>
+            @endif
         </div>
-      </li>
+    </li>
+
       
     <li class="dropdown user-menu">
       <div href="#" class="dropdown-toggle nav-link " data-toggle="dropdown">
@@ -332,6 +351,26 @@
 
                     </ul>
                 </li>
+                 <!-- Notification -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-bell"></i>
+                        <p style="font-family: 'Bokor'">
+                            @lang('public.notification') 
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ ('/notifications') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p style="font-family: 'Bokor'">sents notification</p>
+                            </a>
+                        </li>
+                        
+
+                    </ul>
+                </li>
                 <!-- Profile -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -360,13 +399,6 @@
                         </li>
                     </ul>
                 </li>
-                <!-- Notification -->
-                <li class="nav-item">
-                    <a href="{{ ('/notifications') }}" class="nav-link">
-                        <i class="far fa-bell nav-icon"></i>
-                        <p style="font-family: 'Bokor'">@lang('notification') </p>
-                    </a>
-                </li>
 
             </ul>
         </nav>
@@ -392,7 +424,7 @@
         <!-- /.content-header -->
 <main>
     @yield('content')
-<main>
+</main>
 
 <script src="/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

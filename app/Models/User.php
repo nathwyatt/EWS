@@ -49,6 +49,13 @@ class User extends Authenticatable
     {
      return $this->hasOne(Station::class);
     }
-
+    public function showNotifications()
+    {
+        // Retrieve notifications for the authenticated user
+        $notifications = auth()->user()->notifications()->latest()->get();
+    
+        // Pass notifications data to the view
+        return view('notifications.index', compact('notifications'));
+    }
    
 }

@@ -77,9 +77,16 @@ Route::get('/charts/bar_chart', [ChartJSController::class, 'handleChart'])->name
 Route::get('/send',[HomeController::class,'SendNotification']);
 Route::get('/home1',[HomeController::class,'showDashboard']);
 
-Route::get('/notifications', function () {
-    return view('notifications.emailnotification');
-});
+   
+// Define a single route to access the notifications page
+Route::get('/notifications', [HomeController::class, 'showNotifications'])->name('notifications.index');
+
+// Route for displaying the notification form
+Route::get('/notifications/form', [HomeController::class, 'showNotificationForm'])->name('notifications.form');
+
+// Define a route to clear notifications
+Route::delete('/notifications/{notification}', [HomeController::class, 'clearNotification'])->name('notifications.clear');
+
 Route::post('/notifications', [HomeController::class,'sendNotification']);
 
 Route::get('/datanotification', [StationDataController::class,'notifications'])->name('station-manager.notifications');

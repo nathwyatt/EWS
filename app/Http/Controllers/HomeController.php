@@ -13,6 +13,8 @@ use App\Models\Community;
 use App\Models\Station_Data;
 use Notification;
 use App\Notifications\EmailNotification;
+use App\Notifications\dashboardNotification;
+use Illuminate\Support\Facades\Redirect;
 class HomeController extends Controller
 {
    
@@ -219,22 +221,69 @@ if (
 
     public function SendNotification(Request $request)
     {
-        $user=User::all();
-
-        $details=[
+        $user = User::all();
+        $title = 'Email Notification';
+        $details = [
             'greeting' => $request->input('greeting'),
             'body' => $request->input('body'),
             'actiontext' => $request->input('actiontext'),
             'actionurl' => $request->input('actionurl'),
             'lastline' => $request->input('lastline'),
         ];
-
-        Notification::send($user, new EmailNotification($details));
-
-        return redirect('/notifications')->with('success', 'Notification sent successfully!');
+    
+        Notification::send($user, new EmailNotification($title,$details));
+    
+        $dashboardNotificationDetails = [
+            'message' => 'An email notification has been sent.',
+            'email_title' =>$title,
+            'email_details' => $details,
+        ];
+    
+        Notification::send(auth()->user(), new dashboardNotification($dashboardNotificationDetails));
+    
+        // Retrieve notifications for the authenticated user
+        $notifications = Auth::user()->notifications()->latest()->get();
+        // Store notifications in the session
+        session()->flash('notifications', $notifications);
+    
+        return redirect('/home')->with('success', 'Notification sent successfully!');
     }
+    
+    // Controller method to display all notifications
+    public function showNotifications()
+    {
+        $user = Auth::user();
+        $notifications = $user->notifications()->latest()->get();
+        
+        // Define the details for the notification
+        $details = [
+            'message' => 'Notification Message', // Assuming this is one of the details you want to include
+            // Add other details here as needed
+        ];
+        
+        // Define the title
+        $title = 'Notification Title';
+    
+        // Create an instance of dashboardNotification with both $details and $title
+        $notification = new dashboardNotification($details, $title);
+    
+        return view('notifications.index', compact('notifications'));
+    }
+    public function clearNotification($notificationId)
+    {
+        // Find the notification by ID
+        $notification = Auth::user()->notifications()->where('id', $notificationId)->first();
 
-   
+        if ($notification) {
+            $notification->delete(); // Delete the notification
+        }
+
+        return Redirect::back()->with('success', 'Notification cleared successfully.');
+    }
+    public function showNotificationForm()
+    {
+        return view('notifications.form');
+    }
       public function layout()
     {
         $unreadNotifications = auth()->user()->unreadNotifications;

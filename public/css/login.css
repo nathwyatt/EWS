@@ -136,7 +136,7 @@ button {
 }
 
 .password-link {
-    color: lightgreen;
+    color: rgb(10, 10, 10);
     font-size: 12px;
     text-decoration: none;
     margin-top: 10px;
@@ -155,7 +155,7 @@ button {
     border-radius: 3px;
     padding: 5px 10px 10px 5px;
     background-color: rgb(128, 128, 128);
-    color: #eaf0fb;
+    color: #060606;
     text-align: center;
     margin-right: 10px;
 }
