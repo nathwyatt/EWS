@@ -2,10 +2,10 @@
 return [
      
     "dashboard"=> "Dashboard",
-    "management"=>  "Management",
-    "user_management"=>  "User Management",
-    "station_management"=>  "Station Management",
-    "roles_management"=>  "Roles Management",
+    "management"=>  "User Management",
+    "user_management"=>  "Users",
+    "station_management"=>  "Stations",
+    "roles_management"=>  "Roles",
     "data"=>  "Data",
     "bushoga_station"=>  "Bushoga Station",
     "nsheke_station"=>  "Nsheke Station",
@@ -41,7 +41,9 @@ return [
     'status' => 'Status',
     'farmers' => 'Farmers',
     'number_of_data' => 'Number of Data',
-    
+    'email'=>'Email',
+    'sms'=>'SMS',
+    'community'=>'Community'
 ];
 
 

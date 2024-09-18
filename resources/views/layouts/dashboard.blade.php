@@ -272,25 +272,25 @@
                         <li class="nav-item">
                             <a href="{{ route('users.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p style="color: #000">@lang('user-management')</p>
+                                <p style="color: #000">@lang('public.user_management')</p>
                             </a>
                         </li>
                         @endcan
                         <li class="nav-item">
                             <a href="{{ route('stations.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p style="color: #000">@lang('station-management')</p>
+                                <p style="color: #000">@lang('public.station_management')</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('roles.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p style="color: #000">@lang('roles-management')</p>
+                                <p style="color: #000">@lang('public.roles_management')</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <!-- Other menu items -->
+                
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-database"></i>
@@ -298,19 +298,59 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ url('/stationdata1') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p style="color: #000">Bushoga station</p>
+                                <p style="color: #000">@lang('public.bushoga') </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ url('/stationdata2') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p style="color: #000">Nsheke station</p>
+                                <p style="color: #000">@lang('public.nsheke') </p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-users"></i>
+                      <p style="color: #000">@lang('public.community') <i class="right fas fa-angle-left"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                          <a href="{{ url('/stationdata1') }}" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p style="color: #000">@lang('public.bushoga')</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="{{ url('/stationdata2') }}" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p style="color: #000">@lang('public.nsheke')</p>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-bell"></i>
+                      <p style="color: #000">@lang('public.notification') <i class="right fas fa-angle-left"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                          <a href="{{ url('/stationdata1') }}" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p style="color: #000">@lang('public.email')</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="{{ url('/stationdata2') }}" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p style="color: #000">@lang('public.sms')</p>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>

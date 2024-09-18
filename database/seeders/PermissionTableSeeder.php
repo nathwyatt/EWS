@@ -29,7 +29,16 @@ class PermissionTableSeeder extends Seeder
             'station-list',
             'station-create',
             'station-edit',
-            'station-delete'
+            'station-delete',
+            'famers-list',
+            'famers-edit',
+            'famers-update',
+            'send-sms',
+            'view-sms',
+            'view-prediction',
+            'view-river-data',
+            
+
         ];
        
         foreach ($permissions as $permission) {

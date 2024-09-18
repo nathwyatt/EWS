@@ -17,7 +17,6 @@ use App\Notifications\dashboardNotification;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
-
 class HomeController extends Controller
 {
    
@@ -38,10 +37,8 @@ class HomeController extends Controller
             $data = Station_Data::where('station_id', $id)->latest('created_at')->first();
             $com = Community::where('station_id', $id)->get();
             $stationId = $request->input('station_id');
-
             $numfarmers = Community::where('station_id', $id)->count();
             $numdata = Station_Data::where('station_id', $id)->count();
-
             $unreadNotifications = auth()->user()->unreadNotifications;
             $unreadNotificationsCount = $unreadNotifications->count();
             $unreadNotifications->markAsRead();
@@ -52,10 +49,8 @@ class HomeController extends Controller
             $soilMoistureData = [];
             $humidityData = [];
             $timeData = [];
-
             // Fetch station data
             $stationData = Station_Data::where('station_id', $id)->get();
-
             // Loop through station data to extract values and time
             foreach ($stationData as $dataPoint) {
                 $temperatureData[] = $dataPoint->temperature;
@@ -64,7 +59,6 @@ class HomeController extends Controller
                 $humidityData[] = $dataPoint->humidity;
                 $timeData[] = $dataPoint->created_at->format('Y-m-d H:i:s');
             }
-
             // Define thresholds for each parameter
             $temperatureThreshold = 25;
             $humidityThreshold = 60; 

@@ -8,11 +8,11 @@
       <span></span>
     </div>
   </div>
-  <div class="pull-left">
+  {{-- <div class="pull-left">
     <a href="{{ route('stationdata.create') }}" class="dropdown-item">
       <i class="nav-icon fas fa-plus"></i> Add
     </a>
-  </div>
+  </div> --}}
   @if ($message = Session::get('success'))
     <div class="alert alert-success">
       <p>{{ $message }}</p>
