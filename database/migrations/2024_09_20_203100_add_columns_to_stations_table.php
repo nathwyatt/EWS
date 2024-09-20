@@ -43,7 +43,11 @@ return new class extends Migration
             $table->foreign('sector_id')->references('id')->on('sectors')->onDelete('cascade');
             $table->foreign('cell_id')->references('id')->on('cells')->onDelete('cascade');
             $table->foreign('village_id')->references('id')->on('vilages')->onDelete('cascade');
-        
+        });
+        Schema::table('districts', function (Blueprint $table) {
+            $table->bigInteger('province_id')->unsigned();
+            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
+    
         });
     }
 
@@ -67,5 +71,8 @@ return new class extends Migration
             $table->dropColumn('cell_id');
             $table->dropColumn('village_id');
         });
-    }
+        Schema::table('districts', function (Blueprint $table) {
+            $table->dropColumn('province_id');
+    });
+}
 };
