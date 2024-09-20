@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [frontend::class,'index'] );
-Route::get('/',[frontend::class,'about']);
+// Route::get('/',[frontend::class,'about']);
 // Route::middleware('setapplang')->prefix('{locale}')->group(function(){
 Auth::routes();
 // });
