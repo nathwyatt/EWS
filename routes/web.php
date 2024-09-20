@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/stationdata', [StationDataController::class, 'index']); 
     Route::get('/stationdata1', [StationDataController::class, 'BushogaStation']);
     Route::get('/stationdata2', [StationDataController::class, 'NshekeStation']);
+    Route::get('/community1', [CommunityController::class, 'BushogaStation']);
+    Route::get('/community2', [CommunityController::class, 'NshekeStation']);
     Route::resource('community',CommunityController::class);
     Route::get('/sensor-data', [StationDataController::class, 'processSensorData']);
     Route::post('/get-districts', 'App\Http\Controllers\CommunityController@getDistricts')->name('get-districts');

@@ -135,11 +135,9 @@ public function BushogaStation()
     $stationdata = Station::where('id',1)->first();
 
     $id ='1';
-    $data = Station_Data::where('station_id', $id)->get();
-    $startDate = Station_Data::where('station_id', 1)->orderBy('created_at', 'asc')->first()->created_at ?? null;
-    $lastDate = Station_Data::where('station_id', 1)->orderBy('created_at', 'desc')->first()->created_at ?? null;
-    $dataCount = $data->count();
- return view('stationdata.all_data',compact('data','stationdata','startDate','lastDate','dataCount'))
+    $community = Community::where('station_id', $id)->get();
+    $dCount = $community->count();
+ return view('Community.all_community',compact('community','stationdata','dCount'))
     ->with('i', (request()->input('page', 1) - 1) * 5);;
    
 }
@@ -147,12 +145,10 @@ public function NshekeStation()
     {
         $stationdata = Station::where('id',2)->first();
         $id ='2';
-        $data = Station_Data::where('station_id', $id)->get();
-        $startDate = Station_Data::where('station_id', 2)->orderBy('created_at', 'asc')->first()->created_at ?? null;
-        $lastDate = Station_Data::where('station_id', 2)->orderBy('created_at', 'desc')->first()->created_at ?? null;
-        $dataCount = $data->count();
+        $community = Community::where('station_id', $id)->get();
+        $dCount = $community->count();
         
-    return view('stationdata.all_data',compact('data','stationdata','startDate','lastDate','dataCount'))
+    return view('community.all_community',compact('community','stationdata','dCount'))
         ->with('i', (request()->input('page', 1) - 1) * 5);;
     
     }

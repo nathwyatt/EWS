@@ -59,4 +59,6 @@
         <div class="go"><i class="fab fa-google"></i> Register with Google</div>
     </div>
 </form>
-@endsection
+</body>
+</html>
+

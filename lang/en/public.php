@@ -43,7 +43,53 @@ return [
     'number_of_data' => 'Number of Data',
     'email'=>'Email',
     'sms'=>'SMS',
-    'community'=>'Community'
+    'community'=>'Community',
+    'site_visit_paragraph'=>"The Muvumba River site visit provided crucial insights for our flood and drought prediction project. We observed the river's flow patterns, bank conditions, and surrounding topography. Notable features included [you could mention any specific observations here, like water levels, erosion signs, or nearby land use. This firsthand examination allowed us to better understand the river's hydrological characteristics and potential vulnerabilities to extreme weather events. The data collected during this visit was instrumental in developing more accurate prediction models for both flood and drought scenarios in the Muvumba River basin.",
+    'prototype_paragraph'=>"This system integrated various environmental sensors to monitor key indicators such as water levels, soil moisture, precipitation, and atmospheric pressure. We strategically placed these sensors along the river and in surrounding areas to collect real-time data. The prototype was programmed to analyze this data using advanced algorithms, enabling it to identify patterns indicative of impending floods or drought conditions.",
+    'model_paragraph'=>"Our research explored various machine learning models to enhance flood and drought prediction accuracy for the Muvumba River basin. We initially experimented with several algorithms, including Random Forest, Support Vector Machines, and Long Short-Term Memory (LSTM) networks. Each model was evaluated using historical environmental data and past flood/drought events. After rigorous testing and comparison, we identified the most promising approach. The final model, a hybrid deep learning architecture combining Convolutional Neural Networks (CNNs) and LSTMs, was then trained on an expanded dataset. This model incorporated spatial and temporal features from our IoT sensors, satellite imagery, and historical climate records. The resulting predictive tool demonstrated superior performance in forecasting both short-term flood risks and long-term drought trends, providing valuable lead time for preventive measures.",
+    'title'=>'EWS Muvumba',
+    'home'=>'Home',
+    'about'=>'About',
+    'contact'=>'Contact',
+    'service'=>'Service',
+    'login'=>'Login',
+    'team'=>'Team',
+    'update'=>'Update',
+    'hello1'=>'Floods and Drought prediction platiform',
+    'hello_paragraph1'=>'This website provides resources and information on weather forecasting on floods and drought disasters on Muvumba through early warning and notifications . Get informed, take action, and protect your community.',
+    'hello2'=>'Floods and Drought prediction platifom',
+    'hello_paragraph2'=>"Uru rubuga rutanga amakuru kuri sistemu yerekana iteganyagihe kubijyanye n'umwuzure n'amapfa kumugezi wa Muvumba binyuze bukumenyesha abantu hakiri kare",
+    'hello3'=>"Plateforme de prévision des inondations et des sécheresses",
+    'hello_paragraph3'=>"Ce site web fournit des ressources et des informations sur la prévision météorologique des inondations et des catastrophes de sécheresse grâce à des alertes précoces et des notifications. Informez-vous, agissez et protégez votre communauté.",
+    'read_more'=>'Read More',
+    'who'=>'Who we are',
+    'whop'=>' Empower your community. Prepare for floods & droughts.',
+    'real_time'=>'Real-time data ',
+    'info2'=>'Foresee floods & droughts with Machine Learning predictions',
+    'info3'=>'Flood and Drought Preparedness guides',
+    'info4'=>'Empower communities with the knowledge and tools to prepare for floods and droughts. Our innovative early warning system uses the power of Machine Learning and the Internet of Things (IoT) to provide real-time data and predict flood & drought .',
+    'info5'=>'What we do offer',
+    'service1'=>'Machine Learning Prediction',
+    'serviceP1'=>'Our Machine Learning models analyze datasets to predict floods and droughts with exceptional accuracy. Receive alerts well before disaster strikes, giving you time to prepare your loved ones and property.',
+    'service2'=>'Hyperlocal Flood & Drought Monitoring',
+    'serviceP2'=>'Sensors collect real-time data on factors like waterlevel, soil moisture, and temperature, providing hyperlocal insights into potential flood and drought risks',
+    'service3'=>'SMS Notifications',
+    'serviceP3'=>"Receive timely alerts directly on your mobile phone which ensures you're always aware of potential threats, allowing you to react quickly and protect your loved ones.",
+    'service4'=>'Preparedness Guides',
+    'serviceP4'=>'We empower you with clear, actionable steps to take based on the predicted severity of floods and droughts which makes you fully prepared when disaster strikes.',
+    'activities'=>'Activities',
+    'activity1'=>'Site Visit',
+    'activity2'=>'Train ML models',
+    'activity3'=>'Prototype',
+    'project_team'=>'Project Team',
+    'team_name'=>'AI Research Lab',
+
+
+
+
+
+
+
 ];
 
 

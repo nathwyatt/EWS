@@ -28,7 +28,6 @@
               <th>Email</th>
               <th>Phone</th>
               <th>Station</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -40,24 +39,7 @@
                 <td>{{ $data->email }}</td>
                 <td>{{ $data->phone }}</td>
                 <td>{{ $data->station->name }}</td>
-                <td>
-                  <form action="{{ route('community.destroy', $data->id) }}" method="POST">
-                    <a class="badge badge-success nav-icon fas fa-view" href="{{ route('community.show', $data->id) }}">Show</a>
-                  </form>
-                  <div class="dropdown show d-inline-block widget-dropdown">
-                    <a class="dropdown-toggle icon-burger-mini" href="" role="button" id="dropdown-recent-order1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static"></a>
-                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-recent-order1">
-                      <li class="dropdown-item">
-                        <a href="{{ route('community.edit', $data->id) }}">Edit</a>
-                      </li>
-                      <li class="dropdown-item">
-                        {!! Form::open(['method' => 'DELETE', 'route' => ['community.destroy', $data->id], 'style' => 'display:inline']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                        {!! Form::close() !!}
-                      </li>
-                    </ul>
-                  </div>
-                </td>
+              
               </tr>
             @endforeach
           </tbody>
@@ -69,7 +51,6 @@
               <th>Email</th>
               <th>Phone</th>
               <th>Station</th>
-              <th>Action</th>
             </tr>
           </tfoot>
         </table>

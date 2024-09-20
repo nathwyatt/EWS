@@ -318,15 +318,15 @@
                   </a>
                   <ul class="nav nav-treeview">
                       <li class="nav-item">
-                          <a href="{{ url('/stationdata1') }}" class="nav-link">
+                          <a href="{{ url('/community1') }}" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
-                              <p style="color: #000">@lang('public.bushoga')</p>
+                              <p style="color: #000">@lang('public.bushoga_station')</p>
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a href="{{ url('/stationdata2') }}" class="nav-link">
+                          <a href="{{ url('/community2') }}" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
-                              <p style="color: #000">@lang('public.nsheke')</p>
+                              <p style="color: #000">@lang('public.nsheke_station')</p>
                           </a>
                       </li>
                   </ul>
