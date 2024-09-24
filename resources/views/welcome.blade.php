@@ -76,7 +76,7 @@
           <li><a class="nav-link scrollto" href="#team">@lang('public.team')</a></li>
           
           <li><a class="nav-link scrollto" href="#contact">@lang('public.contact')</a></li>
-          <li><a class="nav-link scrollto" href="http://127.0.0.1:8000/login">@lang('public.login')</a></li>
+          <li><a class="nav-link scrollto" href="{{'login'}}">@lang('public.login')</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
