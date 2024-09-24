@@ -1,4 +1,4 @@
-@extends('layouts.stations')
+@extends('layouts.dashboard')
 
 @section('content')
 
@@ -26,11 +26,11 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Message</th>
                 <th>Phone Number</th>
                 <th>Status</th>
                 <th>From</th>
                 <th>Channel</th>
+                <th>Message</th>
                 <th>Sent At</th>
                 <th>Action</th>
             </tr>
@@ -39,10 +39,10 @@
             @foreach($notifications as $notification)
                 <tr>
                     <td>{{ $notification->id }}</td>
-                    <td>{{ $notification->message }}</td>
                     <td>{{ $notification->phone_number }}</td>
                     <td>{{ $notification->status }}</td>
-                    <td>{{ $notification->from }}</td>
+                    <td>{{ $notification->from }}</td>                  
+                    <td>{{ $notification->message }}</td>
                     <td>{{ $notification->channel }}</td>
                     <td>{{ $notification->created_at }}</td>
                     <td>

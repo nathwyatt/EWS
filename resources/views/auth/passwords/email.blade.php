@@ -1,175 +1,132 @@
 
+<!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
-        <link rel="stylesheet" href="/dist/css/ews.min.css">
-        <link href="/css/login.css" rel="stylesheet">
+
+<head>
+    <title>EWS-Reset Password</title>
+    {{-- <link rel="stylesheet" href="style.css"> --}}
     <style>
-    body, html {
-        height: 100%;
+   body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        line-height: 1.5;
+        min-height: 100vh;
+        background: linear-gradient(to bottom, #4caf6f 33.33%, white 33.33%, white 100%);
+        flex-direction: column;
         margin: 0;
-        font-family: 'Poppins', sans-serif;
     }
-    
-    .background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-        background: linear-gradient(to bottom, #2ed3aa, #ffffff 33%); 
-    }
-    
-    .shape {
-        height: 200px;
-        width: 200px;
-        background-color: rgba(255, 255, 255, 0.1);
-        position: absolute;
-        border-radius: 50%;
-    }
-    
-    .shape:nth-child(1) {
-        top: -50px;
-        left: -50px;
-    }
-    
-    .shape:nth-child(2) {
-        bottom: -50px;
-        right: -50px;
-    }
-    
-    form {
-        background-color: white;
-        width: 500px;
-        padding: 50px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-        margin: auto;
-        margin-top: 100px;
-    }
-    
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-    
-    .logo-container {
-        flex: 1;
-        text-align: center;
-    }
-    
-    .logo {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-    
-    .title-container {
-        flex: 2;
-        text-align: center;
-    }
-    
-    h3 {
-        font-size: 2em;
-    }
-    
-    .form-group {
-        margin-bottom: 20px;
-    }
-    
-    .form-group label {
-        font-size: 1.2em;
-    }
-    
-    .input-group {
-        display: flex;
-        align-items: center;
-    }
-    
-    .input-group-prepend .input-group-text {
-        font-size: 1.2em;
-        padding: 10px 15px;
-    }
-    
-    .form-control {
-        font-size: 1.2em;
-        padding: 10px 15px;
-    }
-    
-    button {
-        font-size: 1.2em;
+
+
+    .main {
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         padding: 10px 20px;
-        background-color: #2fb107;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    button:hover {
-        background-color: #0056b3;
-    }
-    
-    .password-link {
-        display: block;
-        margin-top: 20px;
+        transition: transform 0.2s;
+        width: 500px;
         text-align: center;
+    }
+
+    h1 {
+        color: #4CAF50;
+    }
+
+    label {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        text-align: left;
+        color: #555;
+        font-weight: bold;
+    }
+
+
+    input {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #4caf6f;
+        width: 100%;
+        font-size: 16px;
+    }
+    .logo-container {
+            flex: 1;
+            text-align: center; /* Center the logo horizontally */
+        }
+
+        .logo {
+            width: 80px; /* Set width and height to the same value */
+            height: 80px; /* Set width and height to the same value */
+            border-radius: 50%; /* Make it a circle */
+            object-fit: cover; /* Ensure the image scales correctly */
+        }
+
+    .wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     </style>
+
 </head>
+
 <body>
-<div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-</div>
-<div class="header">
-        <div class="logo-container">
-            <img src="/image/icon.jpg" alt="Logo" class="logo">
-        </div>
-        <div class="title-container">
-            <h3 class="h3">Reset Password</h3>
-        </div>
-    </div>
-    <div class="input-container">
-   
-
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                        <label for="email" class="col-md-4 col-form-label text-md-end color-dark">Email Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        
-                                <button type="submit" class="btn btn-primary"  style="background-color: lightgreen;">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                
-                    </form>
-                </div>
+      <div class="main">
+        <div class="header">
+            <div class="logo-container">
+                <img src="/image/icon.jpg" alt="Logo" class="logo">
             </div>
+            <div class="title-container">
+                <h1 class="h3">Reset Password</h1>
+            </div>
+            <h3>Provide Email to send the link</h3>
         </div>
-    </body>
-    </html>
+        @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+        @endif
+            <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+                  <label for="first">
+                        Email:
+                  </label>
+                  <input type="text" 
+                         id="email" 
+                         name="email" 
+                         value="{{ old('email') }}"
+                         placeholder="Enter your email" required @error('email') is-invalid @enderror>
+                         @error('email')
+                         <div class="invalid-feedback" role="alert">
+                             <strong>{{ $message }}</strong>
+                         </div>
+                         @enderror
+                 
+
+                  <div class="wrap">
+                        <button type="submit"
+                                onclick="solve()">
+                                {{ __('Send Password Reset Link') }}
+                  </div>
+            </form>
+      </div>
+</body>
+
+</html> 

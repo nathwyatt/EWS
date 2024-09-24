@@ -38,16 +38,16 @@
      crossorigin=""></script>
 
 
-  <link href="css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
-    <link href="css/lib/chartist/chartist.min.css" rel="stylesheet">
-    <link href="css/lib/font-awesome.min.css" rel="stylesheet">
+  <link href="/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+    <link href="/css/lib/chartist/chartist.min.css" rel="stylesheet">
+    <link href="/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="css/lib/themify-icons.css" rel="stylesheet">
-    <link href="css/lib/owl.carousel.min.css" rel="stylesheet" />
-    <link href="css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/css/lib/owl.theme.default.min.css" rel="stylesheet" />
     <link href="css/lib/weather-icons.css" rel="stylesheet" />
-    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
-    <link href="css/lib/helper.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/lib/helper.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
 
 
@@ -240,6 +240,7 @@
     </a>
 
     <!-- Sidebar -->
+    @can('admin-sidebar')
     <div class="sidebar">
         <!-- SidebarSearch Form -->
         <div class="form-inline">
@@ -300,13 +301,13 @@
                         <li class="nav-item">
                             <a href="{{ url('/stationdata1') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p style="color: #000">@lang('public.bushoga') </p>
+                                <p style="color: #000">@lang('public.bushoga_station') </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/stationdata2') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p style="color: #000">@lang('public.nsheke') </p>
+                                <p style="color: #000">@lang('public.nsheke_station') </p>
                             </a>
                         </li>
                     </ul>
@@ -344,7 +345,7 @@
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a href="{{ url('/stationdata2') }}" class="nav-link">
+                          <a href="" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p style="color: #000">@lang('public.sms')</p>
                           </a>
@@ -396,6 +397,112 @@
             </ul>
         </nav>
     </div>
+    @endcan
+    @can('station-sidebar')
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item menu-open">
+              <a href="{{'home'}}" class="nav-link">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p style="color: #000">@lang('public.dashboard')</p>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p style="color: #000">@lang('public.management') <i class="right fas fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                      <a href="{{ route('community.index') }}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p style="color: #000">Community</p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ url('/stationdata') }}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p style="color: #000">@lang('public.data')</p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p style="color: #000">@lang('public.notification')</p>
+                      </a>
+                  </li>
+              </ul>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-database"></i>
+                  <p style="color: #000">@lang('public.data') <i class="right fas fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                      <a href="{{ url('/stationdata') }}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p style="color: #000">Table</p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ route('linechart') }}" class="nav-link">
+                          <i class="far fa-chart-pie nav-icon"></i>
+                          <p style="color: #000">@lang('public.chart')</p>
+                      </a>
+                  </li>
+              </ul>
+              <li class="nav-item">
+                  <a href="{{ route('predictions.index') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p style="color: #000">Predictions</p>
+                  </a>
+              </li>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p style="color: #000">Profile <i class="right fas fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                      <a href="{{'/profile'}}" class="nav-link">
+                          <p style="color: #000">View Profile</p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                      </form>
+                  </li>
+              </ul>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-bell"></i>
+                  <p style="color: #000">Notification <i class="right fas fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                      <a href="{{route('notifications.history')}}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p style="color: #000">SMS</p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{route('notifications.history')}} " class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p style="color: #000">Email</p>
+                      </a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+  </nav>
+    @endcan
 </aside>
 
 

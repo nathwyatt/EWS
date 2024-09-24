@@ -1,5 +1,5 @@
 
-@extends('layouts.stations')
+@extends('layouts.dashboard')
   
 @section('content')
 <div class="card card-table-border-none dt-responsive nowrap" style="width:100%" id="recent-orders">

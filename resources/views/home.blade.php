@@ -75,7 +75,7 @@
                     <span class="info-box-number">20</span>
                 </div>
             </div>
-            <a href="{{'/datanotification'}}" class="small-box-footer"style="color:#2ed3aa;">
+            <a href="{{route('notifications.history')}}" class="small-box-footer"style="color:#2ed3aa;">
                 More info <i class="fas fa-arrow-circle-right"style="color:#2ed3aa;"></i>
             </a>
         </div>

@@ -60,9 +60,9 @@ Route::group(['middleware' => ['auth']], function() {
 
     // get district, sectors,cells,villages
 
-    Route::get('get-districts', [StationController::class, 'getDistricts'])->name('stations.create');
-    Route::get('get-sectors', [StationController::class, 'getSectors'])->name('stations.create');
-    Route::get('get-cells', [StationController::class, 'getCells'])->name('stations.create');
+    Route::get('get-districts', [StationController::class, 'getDistricts'])->name('getDistricts');
+    Route::get('get-sectors', [StationController::class, 'getSectors'])->name('getSectors');
+    Route::get('get-cells', [StationController::class, 'getCells'])->name('getCells');
     Route::get('get-villages', [StationController::class, 'getVillages'])->name('getVillages');
     // localizaztion route
     Route::get('locale/{lange}',[LocalizationController::class,'setLang']);
