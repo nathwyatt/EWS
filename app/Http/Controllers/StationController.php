@@ -34,7 +34,7 @@ class StationController extends Controller
     $villages = Vilage::all();
     $managers = User::all();
    
-    return view('Stations.index', compact('stations','provinces', 'districts', 'sectors', 'cells', 'villages', 'managers'))
+    return view('stations.index', compact('stations','provinces', 'districts', 'sectors', 'cells', 'villages', 'managers'))
     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     
