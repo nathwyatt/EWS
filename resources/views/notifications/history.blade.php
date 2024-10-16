@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+{{-- @extends('layouts.dashboard')
 
 @section('content')
 
@@ -82,4 +82,14 @@
         });
     });
 </script>
-@endsection
+@endsection --}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flood Alert</title>
+</head>
+<body>
+    <h1>Flood Warning Alert!</h1>
+    <p>There is a flood warning at {{ $location }}. The water level is at {{ $level }}.</p>
+</body>
+</html>

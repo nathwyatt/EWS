@@ -17,6 +17,9 @@ use App\Notifications\dashboardNotification;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+
+use App\Mail\FloodNotificationEmail;
+use Illuminate\Support\Facades\Mail;
 class HomeController extends Controller
 {
    
@@ -51,6 +54,15 @@ class HomeController extends Controller
             $timeData = [];
             // Fetch station data
             $stationData = Station_Data::where('station_id', $id)->get();
+            $level = Station_Data::where('station_id', $id)->value('water_level');
+
+            // Fetch the name of the station
+            $location = Station::where('id', $id)->value('name');
+            
+            if($level<1){
+            // Send the email
+            Mail::to('nathwyatt0@gmail.com')->send(new FloodNotificationEmail($level, $location));
+            }
             // Loop through station data to extract values and time
             foreach ($stationData as $dataPoint) {
                 $temperatureData[] = $dataPoint->temperature;

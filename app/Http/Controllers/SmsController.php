@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SmsNotification;
 use App\Models\Station_Data;
+use App\Models\Station;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -97,8 +98,17 @@ class SmsController extends Controller
 
     public function notificationHistory()
     {
-        $notifications = SmsNotification::all();
-        return view('notifications.history', compact('notifications'));
+        // $notifications = SmsNotification::all();
+        $level = Station_Data::where('station_id', '1')->value('water_level');
+
+        // Fetch the name of the station
+        $location = Station::where('id', '1')->value('name');
+        
+        if($level<1){
+        // Send the email
+        Mail::to('nathwyatt0@gmail.com')->send(new FloodNotificationEmail($level, $location));
+        }
+        return view('notifications.history', compact('location','level'));
     }
 
     public function deleteNotification($id)
