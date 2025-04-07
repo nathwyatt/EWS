@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('station_data', function (Blueprint $table) {
-            $table->double('latitude');
-            $table->double('longitude');
-        });
+            
+            $table->float('battery_level'); 
+            
 
+        });
     }
 
     /**

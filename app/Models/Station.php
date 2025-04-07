@@ -60,4 +60,10 @@ class Station extends Model
         dd($this->user_id);
         return $this->user_id;
     }
+
+    public function weatherData()
+    {
+        return $this->hasMany(WeatherData::class);
+    }
+    
 }

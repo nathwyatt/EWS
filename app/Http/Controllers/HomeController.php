@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Community;
 use App\Models\Station_Data;
+use App\Models\DeviceData;
 use Notification;
 use App\Notifications\EmailNotification;
 use App\Notifications\dashboardNotification;
@@ -46,11 +47,23 @@ class HomeController extends Controller
             $unreadNotificationsCount = $unreadNotifications->count();
             $unreadNotifications->markAsRead();
 
+            //Device status
+            $device_status = DeviceData::where('device_Id',$id)      
+            ->latest('timestamp')
+            ->first();
+
             // Initialize arrays for holding data
-            $temperatureData = [];
-            $waterLevelData = [];
-            $soilMoistureData = [];
-            $humidityData = [];
+            $waterLevel=[];
+            $airTemperature=[];
+            $airHumidity=[];
+            $barometricPressure=[];
+            $lightIntensity=[];
+            $windDirection=[];
+            $windSpeed=[];
+            $rainfallAccumulated=[];
+            $rainfallHourly=[];
+            $soilTemperature=[];
+            $soilMoisture=[];
             $timeData = [];
             // Fetch station data
             $stationData = Station_Data::where('station_id', $id)->get();
@@ -65,10 +78,17 @@ class HomeController extends Controller
             }
             // Loop through station data to extract values and time
             foreach ($stationData as $dataPoint) {
-                $temperatureData[] = $dataPoint->temperature;
-                $waterLevelData[] = $dataPoint->water_level;
-                $soilMoistureData[] = $dataPoint->soil_moisture;
-                $humidityData[] = $dataPoint->humidity;
+                $waterLevel[] = $dataPoint->water_level;
+                $airTemperature[] = $dataPoint->air_temperature;
+                $airHumidity[] = $dataPoint->air_humidity;
+                $barometricPressure[] = $dataPoint->barometric_pressure;
+                $lightIntensity[] = $dataPoint->light_intensity;
+                $windDirection[] = $dataPoint->wind_direction;
+                $windSpeed[] = $dataPoint->wind_speed;
+                $rainfallAccumulated[] = $dataPoint->rainfall_accumulated;
+                $rainfallHourly[] = $dataPoint->rainfall_hourly;
+                $soilTemperature[] = $dataPoint->soil_temperature;
+                $soilMoisture[] = $dataPoint->soil_volumetric_water_content;
                 $timeData[] = $dataPoint->created_at->format('Y-m-d H:i:s');
             }
             // Define thresholds for each parameter
@@ -100,7 +120,7 @@ class HomeController extends Controller
             $overallStatus = 'Normal';
         }
 
-            return view('station-manager.index', compact('data', 'com', 'numfarmers', 'numdata', 'unreadNotificationsCount', 'unreadNotifications', 'temperatureData', 'waterLevelData', 'soilMoistureData', 'humidityData', 'timeData', 'overallStatus',))->with('message', $message);      
+            return view('station-manager.index', compact('data', 'com', 'numfarmers', 'numdata', 'unreadNotificationsCount', 'unreadNotifications', 'waterLevel', 'airTemperature', 'airHumidity', 'barometricPressure', 'lightIntensity','windDirection','windSpeed','rainfallAccumulated','rainfallHourly','soilTemperature','soilMoisture', 'overallStatus','timeData','device_status'))->with('message', $message);      
            
         }
         else 

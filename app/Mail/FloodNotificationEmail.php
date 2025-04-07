@@ -13,13 +13,18 @@ class FloodNotificationEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $level;
+    public $location;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($level, $location)
     {
-        //
+        $this->level = $level;
+        $this->location = $location;
     }
+
 
     /**
      * Get the message envelope.
@@ -32,17 +37,11 @@ class FloodNotificationEmail extends Mailable
     }
 
     /**
-     * Get the message content definition.
+     * Build the message content.
      */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
     public function build()
     {
-        return $this->view('emails.notification')
+        return $this->view('notifications.emails.flood_notification')
                     ->subject('Flood Alert Warning')
                     ->with([
                         'level' => $this->level,

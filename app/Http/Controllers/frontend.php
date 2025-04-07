@@ -11,9 +11,9 @@ class frontend extends Controller
 {
     public function index()
     {
-        $station=Station::all();
+        // $station=Station::all();
         
-        return view('welcome',compact('station'));
+        return view('welcome');
     }
 
     public function about()

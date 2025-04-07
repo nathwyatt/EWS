@@ -1,0 +1,22 @@
+ALTER TABLE sensor_data
+ADD COLUMN `timestamp` DATETIME NULL,
+ADD COLUMN `air_temperature` FLOAT NULL,
+ADD COLUMN `air_humidity` FLOAT NULL,
+ADD COLUMN `barometric_pressure` FLOAT NULL,
+ADD COLUMN `light_intensity` FLOAT NULL,
+ADD COLUMN `wind_direction` FLOAT NULL,
+ADD COLUMN `wind_speed` FLOAT NULL,
+ADD COLUMN `rainfall_accumulated` FLOAT NULL,
+ADD COLUMN `rainfall_hourly` FLOAT NULL,
+ADD COLUMN `soil_temperature` FLOAT NULL,
+ADD COLUMN `soil_volumetric_water_content` FLOAT NULL;
+
+-- Add the relevant columns
+ALTER TABLE `device_statuses`
+    ADD COLUMN `timestamp` DATETIME NULL,
+    ADD COLUMN `signal_strength` INT NOT NULL,
+    ADD COLUMN `pressure` INT NOT NULL,
+    ADD COLUMN `battery_voltage` FLOAT NOT NULL,
+    ADD COLUMN `temperature` FLOAT NOT NULL,
+    ADD COLUMN `illuminance` INT NOT NULL,
+    ADD COLUMN `humidity` FLOAT NOT NULL;

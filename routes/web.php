@@ -103,3 +103,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/notifications/history', [SmsController::class, 'notificationHistory'])->name('notifications.history');
     Route::delete('/notifications/delete/{id}', [SmsController::class, 'deleteNotification'])->name('notifications.delete');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // email notification
+    Route::get('/send-flood-alert', [App\Http\Controllers\StationDataController::class, 'sendemail']);
+    Route::post('/stationdata/store', [StationDataController::class, 'store'])->name('stationdata.store');
+    Route::get('/stationdata/latest', [StationDataController::class, 'latest'])->name('stationdata.latest');
+    Route::get('/send-flood-alert', [App\Http\Controllers\StationDataController::class, 'sendemail']);
+    Route::post('/stationdata/device_status', [StationDataController::class, 'fetchAndStoreDeviceData'])->name('stationdata.fetch_status');

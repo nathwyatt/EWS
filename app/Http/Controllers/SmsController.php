@@ -98,17 +98,9 @@ class SmsController extends Controller
 
     public function notificationHistory()
     {
-        // $notifications = SmsNotification::all();
-        $level = Station_Data::where('station_id', '1')->value('water_level');
-
-        // Fetch the name of the station
-        $location = Station::where('id', '1')->value('name');
-        
-        if($level<1){
-        // Send the email
-        Mail::to('nathwyatt0@gmail.com')->send(new FloodNotificationEmail($level, $location));
-        }
-        return view('notifications.history', compact('location','level'));
+        $notifications = SmsNotification::all();
+       
+        return view('notifications.history', compact('notification'));
     }
 
     public function deleteNotification($id)
